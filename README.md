@@ -4,5 +4,5 @@
 
 ## Build
 
-`make` -> Mendatory parts
+`make` -> Mendatory parts  
 `make bonus` -> Mendatory + Bonus parts
