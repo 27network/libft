@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/07 15:32:51 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/07 23:24:33 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,13 +50,20 @@ SRC_FILES		:= io/ft_putchar_fd.c \
 				   string/ft_tolower.c \
 				   string/ft_toupper.c
 
-BONUS_FILES		:=
+BONUS_FILES		:= list/ft_lstadd_back_bonus.c \
+				   list/ft_lstadd_front_bonus.c \
+				   list/ft_lstclear_bonus.c \
+				   list/ft_lstdelone_bonus.c \
+				   list/ft_lstiter_bonus.c \
+				   list/ft_lstlast_bonus.c \
+				   list/ft_lstmap_bonus.c \
+				   list/ft_lstnew_bonus.c \
+				   list/ft_lstsize_bonus.c
 
 SRC_FOLDER		= src
-BONUS_FOLDER	= $(SRC_FOLDER)/bonus
 
 SRC_FILES		:= $(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
-BONUS_FILES		:= $(addprefix $(BONUS_FOLDER)/, $(BONUS_FILES))
+BONUS_FILES		:= $(addprefix $(SRC_FOLDER)/, $(BONUS_FILES))
 
 OBJ				= $(SRC_FILES:.c=.o)
 BONUS_OBJ		= $(BONUS_FILES:.c=.o)
