@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/07 23:24:33 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/07 23:55:31 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ BONUS_FILES		:= $(addprefix $(SRC_FOLDER)/, $(BONUS_FILES))
 OBJ				= $(SRC_FILES:.c=.o)
 BONUS_OBJ		= $(BONUS_FILES:.c=.o)
 
-CC				= gcc
+CC				= clang
 CFLAGS			= -Wall -Wextra -Werror
 COPTS			= -fPIC -I $(INCLUDES) -g
 
