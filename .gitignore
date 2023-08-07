@@ -4,3 +4,4 @@
 *.so
 /libftTester/
 test*
+/libft.h
