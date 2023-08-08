@@ -6,13 +6,12 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 20:25:59 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/08 20:31:36 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= libft.a
-
-INCLUDES		= include
+LIBSHARE		= $(NAME:.a=.so)
 
 SRC_FILES		:= io/ft_putchar_fd.c \
 				   io/ft_putendl_fd.c \
@@ -68,9 +67,11 @@ BONUS_FILES		:= $(addprefix $(SRC_FOLDER)/, $(BONUS_FILES))
 OBJ				= $(SRC_FILES:.c=.o)
 BONUS_OBJ		= $(BONUS_FILES:.c=.o)
 
+INCLUDES		= include
+
 CC				= clang
 CFLAGS			= -Wall -Wextra -Werror
-COPTS			= -fPIC -I $(INCLUDES) -g
+COPTS			= -fPIC -I $(INCLUDES)
 
 AR				= ar rcs
 RM				= rm -f
@@ -82,6 +83,9 @@ $(NAME):		$(OBJ)
 
 bonus:			$(OBJ) $(BONUS_OBJ)
 	$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
+
+so:				$(OBJ) $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(LIBSHARE) $(OBJ) $(BONUS_OBJ)
 
 %.o:			%.c
 	$(CC) $(CFLAGS) $(COPTS) -c $< -o $@
