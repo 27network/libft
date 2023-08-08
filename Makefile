@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 17:20:10 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/08 20:25:59 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,8 +80,8 @@ all:			$(NAME)
 $(NAME):		$(OBJ)
 	$(AR) $(NAME) $(OBJ)
 
-bonus:			$(BONUS_OBJ)
-	$(AR) $(NAME) $(BONUS_OBJ)
+bonus:			$(OBJ) $(BONUS_OBJ)
+	$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
 
 %.o:			%.c
 	$(CC) $(CFLAGS) $(COPTS) -c $< -o $@
