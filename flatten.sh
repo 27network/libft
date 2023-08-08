@@ -6,9 +6,12 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 20:05:13 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 20:35:01 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/08 20:56:04 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# Flattens the repository as to create a libft that's suitable for evaluation.
+# NOTE: this does *NOT* remove extra functions.
 
 # Ask the user if they're sure about running this script
 
@@ -38,4 +41,6 @@ do
 	sed -i "s/$SUBFOLDER\///g" Makefile
 done
 
+rm README.md
+rm .gitignore
 rm flatten.sh
