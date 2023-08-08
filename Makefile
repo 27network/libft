@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 20:31:36 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/08 20:41:55 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ clean:
 	$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean:			clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(LIBSHARE)
 
 re:				fclean all
 

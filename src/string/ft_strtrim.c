@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:47:39 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 14:57:11 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:39:13 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t	size;
 	char	*str;
 
+	if (!s1)
+		return (NULL);
+	if (!set)
+		set = "";
 	size = ft_trimmed_size(s1, set);
 	if (size == 0)
 	{

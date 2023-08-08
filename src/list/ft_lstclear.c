@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:08:01 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 23:26:53 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:41:21 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*current;
 	t_list	*next;
 
+	if (!lst)
+		return ;
 	current = *lst;
 	while (current)
 	{
 		next = current->next;
-		del(current->content);
+		if (del)
+			del(current->content);
 		free(current);
 		current = next;
 	}

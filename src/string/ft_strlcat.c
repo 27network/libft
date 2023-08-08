@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 00:12:25 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 12:01:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:37:58 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	dest_len;
 
+	if (!dest || !src)
+		return (0);
 	dest_len = ft_strlen(dest);
 	if (size <= dest_len)
 		return (size + ft_strlen(src));
