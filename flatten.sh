@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 20:05:13 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 20:25:23 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/08 20:33:21 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ sed -i 's/include/\./g' Makefile
 
 for SUBFOLDER in $SUBFOLDERS
 do
-	echo $SUBFOLDER
 	sed -i "s/$SUBFOLDER\///g" Makefile
 done
 
