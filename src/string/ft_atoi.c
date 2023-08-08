@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 11:57:41 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 12:03:19 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/08/08 13:57:24 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *nptr)
 
 	res = 0;
 	mult = 1;
-	while (*nptr && (*nptr >= 9 && *nptr <= 13))
+	while (*nptr && (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13)))
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')
 		if (*nptr++ == '-')
