@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 20:05:13 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 20:33:21 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/08 20:35:01 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,4 @@ do
 	sed -i "s/$SUBFOLDER\///g" Makefile
 done
 
-read -p "This script will now delete itself, abort? [y/N] " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-	exit 1
-fi
 rm flatten.sh
