@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 20:41:55 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/08/11 14:04:28 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRC_FILES		:= io/ft_putchar_fd.c \
 				   io/ft_putstr_fd.c \
 				   mem/ft_bzero.c \
 				   mem/ft_calloc.c \
-				   mem/ft_memccpy.c \
 				   mem/ft_memchr.c \
 				   mem/ft_memcmp.c \
 				   mem/ft_memcpy.c \
