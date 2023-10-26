@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/10/26 00:51:19 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/10/26 14:57:40 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,10 @@ SRC_FILES		=	io/ft_putchar.c \
 				   	string/ft_itoa.c \
 					string/ft_nblen.c \
 				   	string/ft_split.c \
+					string/ft_strall.c \
+					string/ft_strany.c \
 				   	string/ft_strchr.c \
+					string/ft_strstr.c \
 				   	string/ft_strdup.c \
 				   	string/ft_striteri.c \
 				   	string/ft_strjoin.c \
@@ -69,6 +72,7 @@ SRC_FILES		=	io/ft_putchar.c \
 				   	string/ft_strncmp.c \
 				   	string/ft_strnstr.c \
 				   	string/ft_strrchr.c \
+					string/ft_strstr.c \
 				   	string/ft_strtrim.c \
 				   	string/ft_substr.c \
 				   	string/ft_tolower.c \
@@ -77,7 +81,6 @@ SRC_FILES		=	io/ft_putchar.c \
 	
 SRC_FOLDER		= 	src
 SRC_FILES		:= 	$(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
-
 OBJ				= 	$(SRC_FILES:.c=.o)
 
 INCLUDE_DIR		= 	include
