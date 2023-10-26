@@ -2,7 +2,7 @@
 
 42's standard library recode, by `kiroussa`.
 
-## Build
+## Building
 
-`make` -> Mendatory parts  
-`make bonus` -> Mendatory + Bonus parts
+**Note**: This project isn't submittable as-is and requires some changes found in the
+[flattened branch](https://github.com/27network/libft/tree/flattened).
