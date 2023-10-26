@@ -6,11 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:42:56 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 14:47:01 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:48:14 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/string.h>
+#include <stdlib.h>
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {

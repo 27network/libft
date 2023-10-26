@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:13:56 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 15:15:54 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:49:43 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/string.h>
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {

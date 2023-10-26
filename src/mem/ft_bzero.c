@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 21:43:10 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/06 21:46:14 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:52:33 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/mem.h>
 
 /**
  * @brief		Erases the data in the n bytes of the memory starting at the 

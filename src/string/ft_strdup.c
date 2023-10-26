@@ -6,11 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:23:35 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 14:25:36 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:47:22 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/string.h>
+#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {

@@ -6,11 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 23:20:11 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 00:41:57 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:53:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/mem.h>
+#include <stdint.h>
 
 /**
  * @brief			Copy n bytes from the object pointed to by s2 into the object 

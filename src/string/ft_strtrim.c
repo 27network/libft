@@ -6,13 +6,15 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:47:39 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/08 20:39:13 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:50:51 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/macros.h>
+#include <ft/string.h>
+#include <stdlib.h>
 
-static int	ft_is_set(char c, const char *set)
+PRIVATE int	ft_is_set(char c, const char *set)
 {
 	size_t	i;
 
@@ -23,7 +25,7 @@ static int	ft_is_set(char c, const char *set)
 	return (0);
 }
 
-static size_t	ft_trimmed_size(const char *s1, const char *set)
+PRIVATE size_t	ft_trimmed_size(const char *s1, const char *set)
 {
 	size_t	size;
 

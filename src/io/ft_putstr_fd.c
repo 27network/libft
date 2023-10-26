@@ -6,14 +6,18 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:17:33 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/08 20:40:17 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:55:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/io.h>
+#include <ft/string.h>
+#include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(int fd, const char *s)
 {
-	if (s && fd)
+	if (!s)
+		s = "(null)";
+	if (fd)
 		write(fd, s, ft_strlen(s));
 }

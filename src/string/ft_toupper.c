@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 23:59:52 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 00:00:46 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:51:28 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/string.h>
 
 int	ft_toupper(int c)
 {

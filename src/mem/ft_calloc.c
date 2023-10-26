@@ -6,11 +6,13 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:11:31 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 14:35:45 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:52:22 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/mem.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {

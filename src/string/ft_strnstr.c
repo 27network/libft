@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 00:17:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 11:57:30 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:50:24 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ft/string.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
