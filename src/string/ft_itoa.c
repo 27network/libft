@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:03:18 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:39:24 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:27:34 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PRIVATE void	ft_fill_number(char *str, size_t len, long long nbr)
 	str[len - 1] = nbr % 10 + '0';
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long long n)
 {
 	long long	nbr;
 	size_t		nb_len;
