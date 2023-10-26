@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/08/08 21:02:21 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/10/27 00:03:54 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ BONUS_OBJ		= $(BONUS_FILES:.c=.o)
 
 INCLUDES		= .
 
-CC				= clang
+CC				= cc
 CFLAGS			= -Wall -Wextra -Werror
 COPTS			= -fPIC -I $(INCLUDES)
 
