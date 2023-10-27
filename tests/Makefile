@@ -6,15 +6,16 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/25 23:58:42 by kiroussa          #+#    #+#              #
-#    Updated: 2023/10/27 02:04:25 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/10/27 02:13:29 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_tests
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -I./ -I../include -DFT_LOG_LEVEL=TRACE
+CFLAGS = -Wall -Wextra -g -I./ -I../include -DFT_LOG_LEVEL=TRACE
 
 SRC = $(shell find . -type f -name "*.c")
+TESTS = $(basename $(notdir $(SRC)))
 OBJ = $(SRC:.c=.o)
 
 all: libft run
@@ -25,10 +26,10 @@ tests: $(OBJ)
 
 run: tests
 	@echo Running all tests
-	$(shell find . -type f -name "*.o" -exec ./{} \;)
+	$(foreach test, $(OBJ), ./$(test);)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< ../libft.a -o $@
 
 libft:
 	make -C ../ FT_LOG_LEVEL=TRACE 

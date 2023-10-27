@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 00:09:46 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/26 02:46:25 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:07:16 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <sys/stat.h>
 # include <sys/time.h>
 # include <sys/types.h>

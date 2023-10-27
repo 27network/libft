@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:03:18 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/26 15:39:01 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:17:08 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PRIVATE void	ft_fill_number(
 		long long nbr
 ) {
 	if (nbr > 9)
-		ft_fill_number(str, base, len - 1, nbr / 10);
+		ft_fill_number(str, base, len - 1, nbr / ft_strlen(base));
 	str[len - 1] = base[nbr % ft_strlen(base)];
 }
 

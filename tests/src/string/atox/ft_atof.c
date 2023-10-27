@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 00:08:37 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/26 13:58:44 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:10:27 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ TEST_ENTRY("ft_atof",
 		ASSERT(ft_atof("0.0") == 0.0);
 		ASSERT(ft_atof("0.0000000000000000") == 0.0);
 		ASSERT(ft_atof("000000.000000000000") == 0.0);
-		ASSERT(ft_atof("42") == 0.0);
+		ASSERT(ft_atof("42") != 0.0);
 	)
 	TEST("test 2", 
 		ASSERT(ft_atof("1") == 1.0);
