@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/25 23:58:42 by kiroussa          #+#    #+#              #
-#    Updated: 2023/10/26 04:02:14 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/10/27 02:04:25 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,14 @@ all: libft run
 
 #TODO: add per-file compilation/run
 
-run: 
+tests: $(OBJ)
+
+run: tests
 	@echo Running all tests
+	$(shell find . -type f -name "*.o" -exec ./{} \;)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $< -o $@
 
 libft:
 	make -C ../ FT_LOG_LEVEL=TRACE 
@@ -34,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re run
+.PHONY: all clean fclean re run tests
