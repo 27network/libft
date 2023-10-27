@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/10/26 15:16:51 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/10/26 15:41:26 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,18 +44,19 @@ SRC_FILES		=	io/ft_putchar.c \
 				   	mem/ft_memcpy.c \
 				   	mem/ft_memmove.c \
 				   	mem/ft_memset.c \
-				   	string/parse/ft_atof.c \
-					string/parse/ft_atoi.c \
-					string/parse/ft_atoll.c \
-					string/parse/ft_atoui.c \
-					string/parse/ft_atoull.c \
+				   	string/atox/ft_atof.c \
+					string/atox/ft_atoi.c \
+					string/atox/ft_atoll.c \
+					string/atox/ft_atoui.c \
+					string/atox/ft_atoull.c \
+					string/xtoa/ft_itoa_base.c \
+					string/xtoa/ft_itoa.c \
 				   	string/ft_isalnum.c \
 				   	string/ft_isalpha.c \
 				   	string/ft_isascii.c \
 				   	string/ft_isdigit.c \
 				   	string/ft_isprint.c \
 					string/ft_isspace.c \
-				   	string/ft_itoa.c \
 					string/ft_nblen.c \
 				   	string/ft_split.c \
 					string/ft_strall.c \
