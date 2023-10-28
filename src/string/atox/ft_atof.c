@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:24:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:36:38 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:46:14 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ft/string/parse.h>
 #include <ft/string.h>
 
-PRIVATE float	after_dot_part(const char *nptr)
+static float	after_dot_part(const char *nptr)
 {
 	float	res;
 	int		mult;

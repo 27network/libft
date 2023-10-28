@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   ft_ulllen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 22:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/27 02:45:19 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/10/25 22:32:46 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/10/27 17:53:28 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include <ft/string.h>
 
-# ifndef TRUE
-#  define TRUE 1
-# endif
-
-# ifndef FALSE
-#  define FALSE 0
-# endif
-
-# ifndef TODO
-#  define TODO //
-# endif
-
-#endif
+size_t	ft_ulllen(unsigned long long n)
+{
+	return (ft_ulllen_base(n, 10));
+}

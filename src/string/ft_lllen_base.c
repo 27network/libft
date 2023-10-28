@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   ft_nblen_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 22:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/27 02:45:19 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/10/27 02:49:21 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/10/27 17:37:09 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include <ft/string.h>
 
-# ifndef TRUE
-#  define TRUE 1
-# endif
+size_t	ft_lllen_base(long long n, size_t base_size)
+{
+	size_t	size;
 
-# ifndef FALSE
-#  define FALSE 0
-# endif
-
-# ifndef TODO
-#  define TODO //
-# endif
-
-#endif
+	size = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		n = -n;
+		size++;
+	}
+	while (n > 0)
+	{
+		n /= base_size;
+		size++;
+	}
+	return (size);
+}

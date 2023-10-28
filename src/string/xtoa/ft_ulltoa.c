@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   ft_ulltoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 22:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/27 02:45:19 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/10/26 15:40:19 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/10/27 15:55:39 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include <ft/string/parse.h>
 
-# ifndef TRUE
-#  define TRUE 1
-# endif
-
-# ifndef FALSE
-#  define FALSE 0
-# endif
-
-# ifndef TODO
-#  define TODO //
-# endif
-
-#endif
+char	*ft_ulltoa(unsigned long long n)
+{
+	return (ft_ulltoa_base(n, "0123456789"));
+}

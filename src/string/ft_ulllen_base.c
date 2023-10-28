@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ulllen_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 15:40:19 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/26 15:56:32 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/10/27 02:49:21 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/10/27 17:52:33 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string/parse.h>
+#include <ft/string.h>
 
-char	*ft_itoa(long long n)
+size_t	ft_ulllen_base(unsigned long long n, size_t base_size)
 {
-	return (ft_itoa_base(n, "0123456789"));
+	size_t	size;
+
+	size = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= base_size;
+		size++;
+	}
+	return (size);
 }

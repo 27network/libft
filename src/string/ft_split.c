@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:58:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:46:58 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:45:41 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ft/string.h>
 #include <stdlib.h>
 
-PRIVATE int	ft_count_words(const char *str, char c)
+static int	ft_count_words(const char *str, char c)
 {
 	int		count;
 
@@ -33,7 +33,7 @@ PRIVATE int	ft_count_words(const char *str, char c)
 	return (count);
 }
 
-PRIVATE char	*ft_splitdup(const char *str, char c)
+static char	*ft_splitdup(const char *str, char c)
 {
 	int		length;
 	char	*dest;

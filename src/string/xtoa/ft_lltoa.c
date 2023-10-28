@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nblen.c                                         :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 22:32:46 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:32:52 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/10/26 15:40:19 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/10/27 15:54:02 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
+#include <ft/string/parse.h>
 
-size_t	ft_nblen(long long n)
+char	*ft_lltoa(long long n)
 {
-	size_t	size;
-
-	size = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-	{
-		n = -n;
-		size++;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		size++;
-	}
-	return (size);
+	return (ft_lltoa_base(n, "0123456789"));
 }

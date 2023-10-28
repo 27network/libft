@@ -6,16 +6,17 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/10/26 15:41:26 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/10/27 18:29:11 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-EXTRA			= 	0
 
 LIBNAME			=	ft
 LIBSTATIC		=	lib$(LIBNAME).a
 LIBSHARE		= 	lib$(LIBNAME).so
 NAME			= 	$(LIBSTATIC)
+
+BUILD_FOLDER	= 	build
+OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
 
 SRC_FILES		=	io/ft_putchar.c \
 					io/ft_putchar_fd.c \
@@ -49,15 +50,18 @@ SRC_FILES		=	io/ft_putchar.c \
 					string/atox/ft_atoll.c \
 					string/atox/ft_atoui.c \
 					string/atox/ft_atoull.c \
-					string/xtoa/ft_itoa_base.c \
-					string/xtoa/ft_itoa.c \
+					string/xtoa/ft_lltoa.c \
+					string/xtoa/ft_lltoa_base.c \
+					string/xtoa/ft_ulltoa.c \
+					string/xtoa/ft_ulltoa_base.c \
 				   	string/ft_isalnum.c \
 				   	string/ft_isalpha.c \
 				   	string/ft_isascii.c \
 				   	string/ft_isdigit.c \
 				   	string/ft_isprint.c \
 					string/ft_isspace.c \
-					string/ft_nblen.c \
+					string/ft_lllen.c \
+					string/ft_lllen_base.c \
 				   	string/ft_split.c \
 					string/ft_strall.c \
 					string/ft_strany.c \
@@ -77,17 +81,22 @@ SRC_FILES		=	io/ft_putchar.c \
 				   	string/ft_strtrim.c \
 				   	string/ft_substr.c \
 				   	string/ft_tolower.c \
-				   	string/ft_toupper.c
-
+				   	string/ft_toupper.c \
+					string/ft_ulllen.c \
+					string/ft_ulllen_base.c
 	
 SRC_FOLDER		= 	src
 SRC_FILES		:= 	$(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
+
+OBJ_CACHE		= 	$(BUILD_FOLDER)/objects
 OBJ				= 	$(SRC_FILES:.c=.o)
+OBJ_CACHE_FILES	:=	$(addprefix $(OBJ_CACHE)/, $(OBJ))
+OBJ_CACHE_DIRS	:=	$(sort $(patsubst %, %, $(dir $(OBJ_CACHE_FILES))))
 
 INCLUDE_DIR		= 	include
 
 CC				=	clang
-CFLAGS			= 	-Wall -Wextra -Werror
+CFLAGS			= 	-Wall -Wextra -Werror -g
 COPTS			= 	-fPIC -I $(INCLUDE_DIR)
 
 # Feature flags
@@ -96,26 +105,48 @@ ifdef FT_LOG_LEVEL
 endif
 
 AR				= 	ar rcs
-RM				= 	rm -f
+RM				= 	rm -rf
 
-all:			$(NAME)
+#
+# Rules
+#
 
-$(NAME):		$(OBJ)
-	$(AR) $(NAME) $(OBJ)
+all:			_header $(NAME) so
+
+_header:
+	@echo
+	@echo libft-neo v0.2.3 by kiroussa
+	@echo
+
+$(NAME):		$(OUTPUT_FOLDER)/$(NAME)
+
+$(OUTPUT_FOLDER)/$(NAME):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
+	$(AR) $(OUTPUT_FOLDER)/$(NAME) $(OBJ_CACHE_FILES)
 
 so:				$(LIBSHARE)
 
-$(LIBSHARE):	$(OBJ)
-	$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(LIBSHARE) $(OBJ)
+$(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
 
-%.o:			%.c
+$(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
+	$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES)
+
+$(OBJ_CACHE)/%.o:	%.c | $(OBJ_CACHE_DIRS)
 	$(CC) $(CFLAGS) $(COPTS) -c $< -o $@
 
+$(OBJ_CACHE_DIRS): | $(OBJ_CACHE)
+	mkdir -p $(OBJ_CACHE_DIRS)
+
+$(OBJ_CACHE):
+	mkdir -p $(OBJ_CACHE)
+
+$(OUTPUT_FOLDER):
+	mkdir -p $(OUTPUT_FOLDER)
+
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_CACHE)
 
 fclean:			clean
-	$(RM) $(NAME) $(LIBSHARE)
+	$(RM) $(BUILD_FOLDER)
 
 re:				fclean all
 

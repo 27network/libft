@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:06:43 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/26 15:42:02 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:36:50 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 # include <stddef.h>
 
 size_t			ft_strlen(const char *s);
-size_t			ft_nblen(long long n);
+size_t			ft_lllen(long long n);
+size_t			ft_lllen_base(long long n, size_t base_len);
+size_t			ft_ulllen(unsigned long long n);
+size_t			ft_ulllen_base(unsigned long long n, size_t base_len);
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);

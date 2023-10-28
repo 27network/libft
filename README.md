@@ -1,8 +1,17 @@
-# libft
+# libft-neo
 
 42's standard library recode, by `kiroussa`.
 
 ## Building
 
-**Note**: This project isn't submittable as-is and requires some changes found in the
-[flattened branch](https://github.com/27network/libft/tree/flattened).
+**Note**: This project is a personal extension to the original libft project. Please look into the
+[flattened branch](https://github.com/27network/libft/tree/flattened) to see the original libft.
+
+You can simply run the GNU `make` command-line utility to build the project:
+```sh
+# the -j flag makes use of multiple CPU threads, allowing for faster build times
+
+make -j$(nproc)
+```
+
+You can find both a static and dynamically linked library in the `build/output` folder.
