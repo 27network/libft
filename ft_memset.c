@@ -6,22 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 21:34:31 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/06 23:24:31 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/30 00:40:02 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief			Fills the first n bytes of the memory area pointed to by 
- * 					s with the constant byte c.
- *
- * @param s			The target memory area.
- * @param c			The character to fill the area with.
- * @param n			The size of the area to fill.
- *
- * @return void *	The target memory area provided in s.
- */
 void	*ft_memset(void *s, int c, size_t n)
 {
 	uint8_t	*ptr;

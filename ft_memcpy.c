@@ -6,22 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 21:46:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/07 11:21:37 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/30 00:39:42 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief			Copy n bytes from the object pointed to by s2 into the object 
- * 					pointed to by s1.
- *
- * @param s1		Pointer to the first memory area (the destination).
- * @param s2		Pointer to the second memory area (the source).
- * @param n			The size to copy.
- *
- * @return void *	The target memory area provided in s1.
- */
 void	*ft_memcpy(void *s1, const void *s2, size_t n)
 {
 	uint8_t	*ptr1;
