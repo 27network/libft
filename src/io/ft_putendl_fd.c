@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:18:28 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 23:55:38 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/30 00:37:05 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putendl_fd(int fd, const char *s)
 {
-	if (!fd)
+	if (fd < 0)
 		return ;
 	if (!s)
 		s = "(null)";
