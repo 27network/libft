@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:19:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/08 20:40:08 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/30 00:35:14 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	int	is_min;
 
-	if (!fd)
+	if (fd < 0)
 		return ;
 	is_min = n == INT_MIN;
 	if (is_min)

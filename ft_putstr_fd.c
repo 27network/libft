@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:17:33 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/08/08 20:40:17 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/10/30 00:35:25 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (s && fd)
+	if (s && fd >= 0)
 		write(fd, s, ft_strlen(s));
 }
