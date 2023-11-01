@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:03:18 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/27 17:55:39 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:46:53 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdlib.h>
 
 static void	ft_fill_number(
-		char *str, 
-		const char *base, 
-		size_t len, 
+		char *str,
+		const char *base,
+		size_t len,
 		long long nbr
 ) {
 	if (nbr >= (long long)ft_strlen(base))
