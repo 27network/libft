@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/10/27 18:29:11 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/11/05 02:54:33 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,28 +54,42 @@ SRC_FILES		=	io/ft_putchar.c \
 					string/xtoa/ft_lltoa_base.c \
 					string/xtoa/ft_ulltoa.c \
 					string/xtoa/ft_ulltoa_base.c \
+					string/ft_ctostr.c \
 				   	string/ft_isalnum.c \
 				   	string/ft_isalpha.c \
 				   	string/ft_isascii.c \
 				   	string/ft_isdigit.c \
+					string/ft_islower.c \
 				   	string/ft_isprint.c \
 					string/ft_isspace.c \
+					string/ft_isupper.c \
 					string/ft_lllen.c \
 					string/ft_lllen_base.c \
 				   	string/ft_split.c \
+					string/ft_stpcpy.c \
 					string/ft_strall.c \
 					string/ft_strany.c \
+					string/ft_strappend.c \
+					string/ft_strbuild.c \
+					string/ft_strcat.c \
 				   	string/ft_strchr.c \
 					string/ft_strcmp.c \
+					string/ft_strcpy.c \
 				   	string/ft_strdup.c \
+					string/ft_strdup_range.c \
 				   	string/ft_striteri.c \
 				   	string/ft_strjoin.c \
 				   	string/ft_strlcat.c \
 				   	string/ft_strlcpy.c \
 				   	string/ft_strlen.c \
 				   	string/ft_strmapi.c \
+					string/ft_strncat.c \
 				   	string/ft_strncmp.c \
+					string/ft_strncpy.c \
+					string/ft_strndup.c \
+					string/ft_strnew.c \
 				   	string/ft_strnstr.c \
+					string/ft_strprepend.c \
 				   	string/ft_strrchr.c \
 					string/ft_strstr.c \
 				   	string/ft_strtrim.c \
