@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/11/05 02:54:33 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/11/16 21:43:38 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC_FILES		=	io/ft_putchar.c \
 				   	list/ft_lstlast.c \
 				   	list/ft_lstmap.c \
 				   	list/ft_lstnew.c \
+					list/ft_lstremove.c \
 				   	list/ft_lstsize.c \
 				   	log/ft_log.c \
 					log/ft_log_fd.c \
