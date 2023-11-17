@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstremove.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 21:39:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/16 21:41:23 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 23:03:10 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/11/17 20:56:02 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/list.h>
+#include <ft/data/list.h>
 
-void	ft_lstremove(t_list **lst, t_list *node, void (*del)(void *))
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list	*tmp;
+	t_list	*prev;
 
-	if (!lst || !*lst || !node)
+	if (!alst || !new)
 		return ;
-	if (*lst == node)
+	if (!*alst)
+		*alst = new;
+	else
 	{
-		*lst = node->next;
-		ft_lstdelone(node, del);
-		return ;
-	}
-	tmp = *lst;
-	while (tmp->next && tmp->next != node)
-		tmp = tmp->next;
-	if (tmp->next)
-	{
-		tmp->next = node->next;
-		ft_lstdelone(node, del);
+		prev = *alst;
+		while (prev->next)
+			prev = prev->next;
+		prev->next = new;
 	}
 }

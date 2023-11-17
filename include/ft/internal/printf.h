@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:25:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:25:46 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/11/17 22:21:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@
 # endif // PF_FLAGS
 
 # ifndef PF_SPECIFIERS
-#  define PF_SPECIFIERS "cspdiuxX%"
+//#  define PF_SPECIFIERS "cspdiuxX%"
+#  define PF_SPECIFIERS "cspdiuxX%nm"
 # endif // PF_SPECIFIERS
 
 # define PF_LEFT_JUSTIFY	1  // (1 << 0)
@@ -50,6 +51,7 @@ typedef struct s_fmt_spec
 	char	specifier;
 
 	char	*raw;
+	int		_current_length;
 }	t_fmt_spec;
 
 /* Parsing & formatting */
@@ -70,6 +72,9 @@ char		*pf_format_percent(t_fmt_spec *spec, va_list args);
 char		*pf_format_pointer(t_fmt_spec *spec, va_list args);
 char		*pf_format_string(t_fmt_spec *spec, va_list args);
 char		*pf_format_uint(t_fmt_spec *spec, va_list args);
+
+char		*pf_format_lenptr(t_fmt_spec *spec, va_list args);
+char		*pf_format_strerror(t_fmt_spec *spec, va_list args);
 
 /* Flag mutators */
 

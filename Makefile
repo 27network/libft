@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/11/17 03:40:22 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/11/17 22:24:28 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,17 @@ NAME			= 	$(LIBSTATIC)
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
 
-SRC_FILES		=	io/get_next_line.c \
-					list/ft_lstadd_back.c \
-				   	list/ft_lstadd_front.c \
-				   	list/ft_lstclear.c \
-				   	list/ft_lstdelone.c \
-				   	list/ft_lstiter.c \
-				   	list/ft_lstlast.c \
-				   	list/ft_lstmap.c \
-				   	list/ft_lstnew.c \
-					list/ft_lstremove.c \
-				   	list/ft_lstsize.c \
+SRC_FILES		=  	data/list/ft_lstadd_back.c \
+				   	data/list/ft_lstadd_front.c \
+				   	data/list/ft_lstclear.c \
+				   	data/list/ft_lstdelone.c \
+				   	data/list/ft_lstiter.c \
+				   	data/list/ft_lstlast.c \
+				   	data/list/ft_lstmap.c \
+				   	data/list/ft_lstnew.c \
+					data/list/ft_lstremove.c \
+					data/list/ft_lstsize.c \
+				   	io/get_next_line.c \
 				   	mem/ft_bzero.c \
 				   	mem/ft_calloc.c \
 				   	mem/ft_memchr.c \
@@ -46,8 +46,10 @@ SRC_FILES		=	io/get_next_line.c \
 					print/printf/type/pf_format_char.c \
 					print/printf/type/pf_format_hex.c \
 					print/printf/type/pf_format_int.c \
+					print/printf/type/pf_format_lenptr.c \
 					print/printf/type/pf_format_percent.c \
 					print/printf/type/pf_format_pointer.c \
+					print/printf/type/pf_format_strerror.c \
 					print/printf/type/pf_format_string.c \
 					print/printf/type/pf_format_uint.c \
 					print/printf/utils/pf_append.c \
@@ -140,6 +142,9 @@ INCLUDE_DIR		= 	include
 
 CC				=	clang
 CFLAGS			= 	-Wall -Wextra -Werror
+ifdef DEBUG
+	CFLAGS		+= 	-g3
+endif
 COPTS			= 	-fPIC -I $(INCLUDE_DIR)
 
 # Feature flags
@@ -157,7 +162,7 @@ RM				= 	rm -rf
 all:			$(NAME) so | _header
 
 _header:
-	@echo libft-neo v0.3.0 by kiroussa
+	@echo libft-neo v$(shell cat version) by kiroussa
 
 $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
 

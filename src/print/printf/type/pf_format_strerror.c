@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   pf_format_strerror.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 23:12:40 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 23:18:58 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/11/17 21:10:29 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/11/17 21:24:19 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/list.h>
-#include <ft/types.h>
+#define _GNU_SOURCE
+#include <ft/internal/printf.h>
+#include <string.h>
+#undef _GNU_SOURCE
+#include <errno.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	*pf_format_string0(t_fmt_spec *spec, char *str);
+
+char	*pf_format_strerror(t_fmt_spec *spec, va_list args)
 {
-	t_list	*new;
-	t_list	*current;
-
-	new = NULL;
-	while (lst)
-	{
-		if (f)
-			current = ft_lstnew(f(lst->content));
-		if (!current && del)
-		{
-			ft_lstclear(&current, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new, current);
-		lst = lst->next;
-	}
-	return (new);
+	(void)args;
+	if (spec->flags & PF_HASH)
+		return (pf_format_string0(spec, (char *)strerrorname_np(errno)));
+	return (pf_format_string0(spec, strerror(errno)));
 }

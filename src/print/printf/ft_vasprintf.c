@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:26:12 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:28:14 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/11/17 22:22:08 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static int	pf_handle_spec(
 
 	if (!spec)
 		return (0);
+	spec->_current_length = length;
 	final_fmt = pf_format_spec(spec, args, &len);
 	pf_free_spec(spec);
 	pf_append(str_ptr, length, final_fmt, len);

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 22:55:46 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 23:19:54 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 22:56:41 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/11/17 20:56:03 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/list.h>
-#include <stdlib.h>
+#include <ft/data/list.h>
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	t_list	*elem;
+	t_list	*prev;
 
-	elem = malloc(sizeof(t_list));
-	if (!elem)
-		return (NULL);
-	elem->content = content;
-	elem->next = NULL;
-	return (elem);
+	if (!new)
+		return ;
+	prev = *alst;
+	*alst = new;
+	while (new->next)
+		new = new->next;
+	new->next = prev;
 }

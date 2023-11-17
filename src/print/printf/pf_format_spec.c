@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 11:24:30 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:32:54 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:25:20 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ static const t_type_formatter	g_formatters[] = {
 ['x'] = pf_format_hex,
 ['X'] = pf_format_hex,
 ['%'] = pf_format_percent,
+['n'] = pf_format_lenptr,
+['m'] = pf_format_strerror,
 };
 
 static char	*pf_apply_flag_mutators(t_fmt_spec *spec, char *str)
 {
-	if (spec->specifier == 's')
+	if (ft_strchr("sm", spec->specifier))
 		str = pf_precision_mutator_str(spec, str);
 	else if (ft_strchr("diuxX", spec->specifier))
 		str = pf_precision_mutator_int(spec, str);
