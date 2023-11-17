@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/11/16 21:43:38 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/11/17 03:40:22 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,14 +18,7 @@ NAME			= 	$(LIBSTATIC)
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
 
-SRC_FILES		=	io/ft_putchar.c \
-					io/ft_putchar_fd.c \
-				   	io/ft_putendl.c \
-				   	io/ft_putendl_fd.c \
-				   	io/ft_putnbr.c \
-				   	io/ft_putnbr_fd.c \
-				   	io/ft_putstr.c \
-				   	io/ft_putstr_fd.c \
+SRC_FILES		=	io/get_next_line.c \
 					list/ft_lstadd_back.c \
 				   	list/ft_lstadd_front.c \
 				   	list/ft_lstclear.c \
@@ -36,9 +29,6 @@ SRC_FILES		=	io/ft_putchar.c \
 				   	list/ft_lstnew.c \
 					list/ft_lstremove.c \
 				   	list/ft_lstsize.c \
-				   	log/ft_log.c \
-					log/ft_log_fd.c \
-					log/ft_loglevel_name.c \
 				   	mem/ft_bzero.c \
 				   	mem/ft_calloc.c \
 				   	mem/ft_memchr.c \
@@ -46,60 +36,98 @@ SRC_FILES		=	io/ft_putchar.c \
 				   	mem/ft_memcpy.c \
 				   	mem/ft_memmove.c \
 				   	mem/ft_memset.c \
-				   	string/atox/ft_atof.c \
+					print/printf/flag/pf_hash_mutator.c \
+					print/printf/flag/pf_leftjustify_mutator.c \
+					print/printf/flag/pf_padding_mutator.c \
+					print/printf/flag/pf_precision_mutator.c \
+					print/printf/str/pf_str_append.c \
+					print/printf/str/pf_str_create.c \
+					print/printf/str/pf_str_init.c \
+					print/printf/type/pf_format_char.c \
+					print/printf/type/pf_format_hex.c \
+					print/printf/type/pf_format_int.c \
+					print/printf/type/pf_format_percent.c \
+					print/printf/type/pf_format_pointer.c \
+					print/printf/type/pf_format_string.c \
+					print/printf/type/pf_format_uint.c \
+					print/printf/utils/pf_append.c \
+					print/printf/utils/pf_prepend_sign.c \
+					print/printf/utils/pf_strnjoin.c \
+					print/printf/wrapper/ft_asprintf.c \
+					print/printf/wrapper/ft_dprintf.c \
+					print/printf/wrapper/ft_format.c \
+					print/printf/wrapper/ft_printf.c \
+					print/printf/wrapper/ft_vdprintf.c \
+					print/printf/wrapper/ft_vformat.c \
+					print/printf/wrapper/ft_vprintf.c \
+					print/printf/ft_vasprintf.c \
+					print/printf/pf_format_spec.c \
+					print/printf/pf_free_spec.c \
+					print/printf/pf_parse_spec.c \
+					print/ft_putchar.c \
+					print/ft_putchar_fd.c \
+				   	print/ft_putendl.c \
+				   	print/ft_putendl_fd.c \
+				   	print/ft_putnbr.c \
+				   	print/ft_putnbr_fd.c \
+				   	print/ft_putstr.c \
+				   	print/ft_putstr_fd.c \
+					string/atox/ft_atof.c \
 					string/atox/ft_atoi.c \
 					string/atox/ft_atoll.c \
 					string/atox/ft_atoui.c \
 					string/atox/ft_atoull.c \
+					string/compare/ft_isalnum.c \
+					string/compare/ft_isalpha.c \
+					string/compare/ft_isascii.c \
+					string/compare/ft_isdigit.c \
+					string/compare/ft_islower.c \
+					string/compare/ft_isprint.c \
+					string/compare/ft_isspace.c \
+					string/compare/ft_isupper.c \
+					string/compare/ft_strcmp.c \
+					string/compare/ft_strncmp.c \
+					string/create/ft_ctostr.c \
+					string/create/ft_split.c \
+					string/create/ft_splits.c \
+					string/create/ft_strbuild.c \
+					string/create/ft_strdup.c \
+					string/create/ft_strdup_range.c \
+					string/create/ft_strjoin.c \
+					string/create/ft_strmapi.c \
+					string/create/ft_strndup.c \
+					string/create/ft_strnew.c \
+					string/create/ft_strtrim.c \
+					string/create/ft_substr.c \
+					string/mutate/ft_stpcpy.c \
+					string/mutate/ft_strappend.c \
+					string/mutate/ft_strcat.c \
+					string/mutate/ft_strcpy.c \
+					string/mutate/ft_strlcat.c \
+					string/mutate/ft_strlcpy.c \
+					string/mutate/ft_strncat.c \
+					string/mutate/ft_strncpy.c \
+					string/mutate/ft_strprepend.c \
+					string/mutate/ft_tolower.c \
+					string/mutate/ft_toupper.c \
+					string/query/ft_lllen.c \
+					string/query/ft_lllen_base.c \
+					string/query/ft_strall.c \
+					string/query/ft_strany.c \
+					string/query/ft_strchr.c \
+					string/query/ft_striteri.c \
+					string/query/ft_strlen.c \
+					string/query/ft_strnstr.c \
+					string/query/ft_strrchr.c \
+					string/query/ft_strstr.c \
+					string/query/ft_ulllen.c \
+					string/query/ft_ulllen_base.c \
 					string/xtoa/ft_lltoa.c \
 					string/xtoa/ft_lltoa_base.c \
 					string/xtoa/ft_ulltoa.c \
 					string/xtoa/ft_ulltoa_base.c \
-					string/ft_ctostr.c \
-				   	string/ft_isalnum.c \
-				   	string/ft_isalpha.c \
-				   	string/ft_isascii.c \
-				   	string/ft_isdigit.c \
-					string/ft_islower.c \
-				   	string/ft_isprint.c \
-					string/ft_isspace.c \
-					string/ft_isupper.c \
-					string/ft_lllen.c \
-					string/ft_lllen_base.c \
-				   	string/ft_split.c \
-					string/ft_stpcpy.c \
-					string/ft_strall.c \
-					string/ft_strany.c \
-					string/ft_strappend.c \
-					string/ft_strbuild.c \
-					string/ft_strcat.c \
-				   	string/ft_strchr.c \
-					string/ft_strcmp.c \
-					string/ft_strcpy.c \
-				   	string/ft_strdup.c \
-					string/ft_strdup_range.c \
-				   	string/ft_striteri.c \
-				   	string/ft_strjoin.c \
-				   	string/ft_strlcat.c \
-				   	string/ft_strlcpy.c \
-				   	string/ft_strlen.c \
-				   	string/ft_strmapi.c \
-					string/ft_strncat.c \
-				   	string/ft_strncmp.c \
-					string/ft_strncpy.c \
-					string/ft_strndup.c \
-					string/ft_strnew.c \
-				   	string/ft_strnstr.c \
-					string/ft_strprepend.c \
-				   	string/ft_strrchr.c \
-					string/ft_strstr.c \
-				   	string/ft_strtrim.c \
-				   	string/ft_substr.c \
-				   	string/ft_tolower.c \
-				   	string/ft_toupper.c \
-					string/ft_ulllen.c \
-					string/ft_ulllen_base.c
-	
+					string/ft_strdel.c
+
 SRC_FOLDER		= 	src
 SRC_FILES		:= 	$(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
 
@@ -111,7 +139,7 @@ OBJ_CACHE_DIRS	:=	$(sort $(patsubst %, %, $(dir $(OBJ_CACHE_FILES))))
 INCLUDE_DIR		= 	include
 
 CC				=	clang
-CFLAGS			= 	-Wall -Wextra -Werror -g
+CFLAGS			= 	-Wall -Wextra -Werror
 COPTS			= 	-fPIC -I $(INCLUDE_DIR)
 
 # Feature flags
@@ -126,12 +154,10 @@ RM				= 	rm -rf
 # Rules
 #
 
-all:			_header $(NAME) so
+all:			$(NAME) so | _header
 
 _header:
-	@echo
-	@echo libft-neo v0.2.3 by kiroussa
-	@echo
+	@echo libft-neo v0.3.0 by kiroussa
 
 $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
 

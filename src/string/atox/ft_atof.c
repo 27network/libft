@@ -6,11 +6,10 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:24:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/27 02:46:14 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/11/17 03:20:09 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/macros.h>
 #include <ft/string/parse.h>
 #include <ft/string.h>
 

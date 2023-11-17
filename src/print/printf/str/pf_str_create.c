@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.h                                               :+:      :+:    :+:   */
+/*   pf_str_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 03:35:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:35:55 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/11/12 17:22:28 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/11/17 03:32:55 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IO_H
-# define IO_H
+#include <ft/internal/printf.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	8192
-# endif
+t_str	*pf_str_create(char *string, size_t length)
+{
+	t_str	*str;
 
-/**
- * @brief Get the next line from a file descriptor.
- *
- * @param fd		File descriptor to read from.
- *
- * @return char*	The line that has been read.
- * @return NULL		If an error occurs.
- */
-char	*get_next_line(int fd);
-
-#endif // IO_H
+	str = (t_str *)malloc(sizeof(t_str));
+	if (!str)
+		return (NULL);
+	pf_str_init(str, string, length);
+	return (str);
+}

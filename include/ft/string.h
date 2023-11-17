@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:06:43 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:50:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/11/17 03:11:44 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void			ft_strappend(char **s1, char *s2);
 void			ft_strprepend(char **s1, char *s2);
 char			*ft_strtrim(const char *s1, const char *set);
 char			**ft_split(const char *str, char c);
+char			**ft_splits(const char *str, const char *set);
 
 char			*ft_strmapi(const char *s,
 					char (*f)(unsigned int, char));

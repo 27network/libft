@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.h                                               :+:      :+:    :+:   */
+/*   pf_free_spec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 03:35:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:35:55 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/11/04 23:18:51 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/11/17 03:32:54 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IO_H
-# define IO_H
+#include <ft/internal/printf.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	8192
-# endif
+t_fmt_spec	*pf_new_spec(
+		const char *fmt,
+		int *i,
+		va_list args
+) {
+	t_fmt_spec	*spec;
 
-/**
- * @brief Get the next line from a file descriptor.
- *
- * @param fd		File descriptor to read from.
- *
- * @return char*	The line that has been read.
- * @return NULL		If an error occurs.
- */
-char	*get_next_line(int fd);
+	spec = pf_parse_spec(fmt, args);
+	if (spec)
+		*i += 1 + ft_strlen(spec->raw);
+	return (spec);
+}
 
-#endif // IO_H
+void	pf_free_spec(t_fmt_spec *spec)
+{
+	free(spec->raw);
+	free(spec->length);
+	free(spec);
+}

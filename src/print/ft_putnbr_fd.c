@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.h                                               :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 03:35:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:35:55 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 15:19:20 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/11/17 02:54:21 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IO_H
-# define IO_H
+#include <ft/print.h>
+#include <limits.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	8192
-# endif
+void	ft_putnbr_fd(int fd, long long n)
+{
+	int	is_min;
 
-/**
- * @brief Get the next line from a file descriptor.
- *
- * @param fd		File descriptor to read from.
- *
- * @return char*	The line that has been read.
- * @return NULL		If an error occurs.
- */
-char	*get_next_line(int fd);
-
-#endif // IO_H
+	if (fd < 0)
+		return ;
+	is_min = n == LLONG_MIN;
+	if (is_min)
+		n++;
+	if (n < 0)
+		ft_putchar_fd(fd, '-');
+	if (n < 0)
+		n = -n;
+	if (n > 9)
+		ft_putnbr_fd(fd, n / 10);
+	if (is_min)
+		ft_putchar_fd(fd, (n % 10) + 1 + '0');
+	else
+		ft_putchar_fd(fd, n % 10 + '0');
+}

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.h                                               :+:      :+:    :+:   */
+/*   pf_leftjustify_mutator.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 03:35:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:35:55 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/11/11 04:06:29 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/11/17 03:32:55 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IO_H
-# define IO_H
+#include <ft/internal/printf.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	8192
-# endif
+char	*pf_leftjustify_mutator(t_fmt_spec *spec, char *str)
+{
+	char	*tmp;
+	int		len;
 
-/**
- * @brief Get the next line from a file descriptor.
- *
- * @param fd		File descriptor to read from.
- *
- * @return char*	The line that has been read.
- * @return NULL		If an error occurs.
- */
-char	*get_next_line(int fd);
-
-#endif // IO_H
+	len = ft_strlen(str);
+	if (spec->width > len)
+	{
+		tmp = ft_strnew(spec->width);
+		ft_memset(tmp, ' ', spec->width);
+		ft_memcpy(tmp, str, len);
+		free(str);
+		return (tmp);
+	}
+	return (str);
+}
