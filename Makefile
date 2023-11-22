@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/11/17 22:24:28 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/11/22 02:13:31 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,7 @@ SRC_FILES		=  	data/list/ft_lstadd_back.c \
 					string/query/ft_strstr.c \
 					string/query/ft_ulllen.c \
 					string/query/ft_ulllen_base.c \
+					string/strtox/ft_strtoi.c \
 					string/xtoa/ft_lltoa.c \
 					string/xtoa/ft_lltoa_base.c \
 					string/xtoa/ft_ulltoa.c \
