@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:37:57 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/11/22 03:05:23 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	try_fill_buffer(int fd, t_gnl *gnl)
 			return (0);
 	}
 	free(read_buffer);
-	if (read_bytes >= 0 && read_bytes != BUFFER_SIZE)
+	if (read_bytes >= 0 && read_bytes != BUFFER_SIZE && fd != 0)
 		gnl->finished = 1;
 	return (read_bytes == -2 || read_bytes >= 0);
 }
