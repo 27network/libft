@@ -39,6 +39,9 @@ for file in files_in_hierarchy:
     if file not in src_files:
         missing_files_in_hierarchy.append(file)
 
+missing_files = sorted(missing_files)
+missing_files_in_hierarchy = sorted(missing_files_in_hierarchy)
+
 # Print the results
 if len(missing_files) == 0:
     print("No missing files in the filesystem")

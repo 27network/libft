@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/11/22 02:13:31 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/11/23 22:40:07 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,15 @@ SRC_FILES		=  	data/list/ft_lstadd_back.c \
 					data/list/ft_lstremove.c \
 					data/list/ft_lstsize.c \
 				   	io/get_next_line.c \
+					math/ft_abs.c \
+					math/ft_fabs.c \
+					math/ft_fmax.c \
+					math/ft_fmin.c \
+					math/ft_fpow.c \
+					math/ft_max.c \
+					math/ft_min.c \
+					math/ft_pow.c \
+					math/ft_sqrt.c \
 				   	mem/ft_bzero.c \
 				   	mem/ft_calloc.c \
 				   	mem/ft_memchr.c \
