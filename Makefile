@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/11/23 22:40:07 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/12/06 23:05:22 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ SRC_FILES		=  	data/list/ft_lstadd_back.c \
 				   	print/ft_putstr_fd.c \
 					string/atox/ft_atof.c \
 					string/atox/ft_atoi.c \
+					string/atox/ft_atoi_base.c \
 					string/atox/ft_atoll.c \
 					string/atox/ft_atoui.c \
 					string/atox/ft_atoull.c \

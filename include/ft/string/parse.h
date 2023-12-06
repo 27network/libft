@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:00:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/22 02:09:44 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:04:03 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdint.h>
 
-typedef enum e_error
+typedef enum e_parseerr
 {
 	PARSE_SUCCESS = 0,
 	PARSE_EMPTY = 1,
@@ -26,6 +26,7 @@ typedef enum e_error
 }	t_parseerr;
 
 int					ft_atoi(const char *str);
+int					ft_atoi_base(const char *str, const char *base);
 t_parseerr			ft_strtoi(const char *str, int *result);
 
 unsigned int		ft_atoui(const char *str);
