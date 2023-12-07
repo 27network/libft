@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/22 03:05:23 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:48:47 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,21 @@ static int	try_fill_buffer(int fd, t_gnl *gnl)
 	ssize_t	read_bytes;
 	char	*read_buffer;
 
-	if (gnl->finished)
+	if (ft_strchr(gnl->inner, '\n'))
 		return (1);
-	read_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	read_buffer = ft_calloc(GNL_BUFFER_SIZE + 1, sizeof(char));
 	if (!read_buffer)
 		return (0);
 	read_bytes = -2;
 	while (!gnl->inner || !ft_strchr(gnl->inner, '\n'))
 	{
-		read_bytes = read(fd, read_buffer, BUFFER_SIZE);
+		read_bytes = read(fd, read_buffer, GNL_BUFFER_SIZE);
 		if (read_bytes <= 0)
 			break ;
 		if (!handle_read(gnl, read_buffer, read_bytes))
 			return (0);
 	}
 	free(read_buffer);
-	if (read_bytes >= 0 && read_bytes != BUFFER_SIZE && fd != 0)
-		gnl->finished = 1;
 	return (read_bytes == -2 || read_bytes >= 0);
 }
 
@@ -102,10 +100,10 @@ static char	*get_line(t_gnl *gnl)
 
 char	*get_next_line(int fd)
 {
-	static t_gnl	gnl[1024] = {{NULL, 0, 0}};
+	static t_gnl	gnl[1024] = {{NULL, 0}};
 	char			*line;
 
-	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1024 || GNL_BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!try_fill_buffer(fd, &gnl[fd]))
 	{

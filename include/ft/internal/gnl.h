@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:36:07 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:38:10 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:46:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_gnl
 {
 	char	*inner;
 	size_t	size;
-	int		finished;
 }	t_gnl;
 
 #endif // GNL_H

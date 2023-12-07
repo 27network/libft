@@ -6,15 +6,15 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:35:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:35:55 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:47:10 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IO_H
 # define IO_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	8192
+# ifndef GNL_BUFFER_SIZE
+#  define GNL_BUFFER_SIZE	8192
 # endif
 
 /**
