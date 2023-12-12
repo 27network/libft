@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 23:11:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:56:03 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 22:56:41 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 19:18:06 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_lst_insert(t_list **lstptr, t_list *new)
 {
-	if (!f)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	t_list	*prev;
+
+	if (!lstptr)
+		return (NULL);
+	if (!new)
+		return (*lstptr);
+	prev = *lstptr;
+	*lstptr = new;
+	while (new->next)
+		new = new->next;
+	new->next = prev;
+	return (new);
 }

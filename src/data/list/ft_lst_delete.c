@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstremove.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 21:39:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:55:57 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 23:07:22 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 20:10:24 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
+#include <stdlib.h>
 
-void	ft_lstremove(t_list **lst, t_list *node, void (*del)(void *))
+void	ft_lst_delete(t_list *lst, t_lst_dealloc dealloc)
 {
-	t_list	*tmp;
-
-	if (!lst || !*lst || !node)
+	if (!lst)
 		return ;
-	if (*lst == node)
-	{
-		*lst = node->next;
-		ft_lstdelone(node, del);
-		return ;
-	}
-	tmp = *lst;
-	while (tmp->next && tmp->next != node)
-		tmp = tmp->next;
-	if (tmp->next)
-	{
-		tmp->next = node->next;
-		ft_lstdelone(node, del);
-	}
+	if (dealloc)
+		dealloc(lst->content);
+	free(lst);
 }

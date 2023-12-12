@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 17:19:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:56:03 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 23:11:36 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 20:10:38 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
 
-int	ft_lstsize(t_list *lst)
+void	ft_lst_foreach(t_list *lst, void (*f)(void *))
 {
-	int	size;
-
-	size = 0;
-	if (lst)
+	if (!f)
+		return ;
+	while (lst)
 	{
-		size++;
-		while (lst->next)
-		{
-			lst = lst->next;
-			size++;
-		}
+		f(lst->content);
+		lst = lst->next;
 	}
-	return (size);
 }

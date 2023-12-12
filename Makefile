@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/12/06 23:05:22 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/12/12 20:13:16 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,16 @@ NAME			= 	$(LIBSTATIC)
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
 
-SRC_FILES		=  	data/list/ft_lstadd_back.c \
-				   	data/list/ft_lstadd_front.c \
-				   	data/list/ft_lstclear.c \
-				   	data/list/ft_lstdelone.c \
-				   	data/list/ft_lstiter.c \
-				   	data/list/ft_lstlast.c \
-				   	data/list/ft_lstmap.c \
-				   	data/list/ft_lstnew.c \
-					data/list/ft_lstremove.c \
-					data/list/ft_lstsize.c \
+SRC_FILES		=  	data/list/ft_lst_add.c \
+				   	data/list/ft_lst_insert.c \
+				   	data/list/ft_lst_free.c \
+				   	data/list/ft_lst_delete.c \
+				   	data/list/ft_lst_foreach.c \
+				   	data/list/ft_lst_last.c \
+				   	data/list/ft_lst_map.c \
+				   	data/list/ft_lst_new.c \
+					data/list/ft_lst_remove.c \
+					data/list/ft_lst_size.c \
 				   	io/get_next_line.c \
 					math/ft_abs.c \
 					math/ft_fabs.c \

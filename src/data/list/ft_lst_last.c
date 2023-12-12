@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 23:12:40 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:55:23 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 23:01:16 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 20:10:47 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
-#include <stddef.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lst_last(t_list *lst)
 {
-	t_list	*new;
-	t_list	*current;
-
-	new = NULL;
-	while (lst)
-	{
-		if (f)
-			current = ft_lstnew(f(lst->content));
-		if (!current && del)
-		{
-			ft_lstclear(&current, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new, current);
+	while (lst && lst->next)
 		lst = lst->next;
-	}
-	return (new);
+	return (lst);
 }

@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lst_remove.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 22:56:41 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:56:03 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/11/16 21:39:49 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 20:17:37 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+t_list	*ft_lst_remove(t_list **lst, t_list *node, t_lst_dealloc dealloc)
 {
-	t_list	*prev;
+	t_list	*tmp;
 
-	if (!new)
-		return ;
-	prev = *alst;
-	*alst = new;
-	while (new->next)
-		new = new->next;
-	new->next = prev;
+	if (!lst)
+		return (NULL);
+	if (!*lst || !node)
+		return (*lst);
+	if (*lst == node)
+	{
+		*lst = node->next;
+		ft_lst_delete(node, dealloc);
+		return (*lst);
+	}
+	tmp = *lst;
+	while (tmp->next && tmp->next != node)
+		tmp = tmp->next;
+	if (tmp->next)
+	{
+		tmp->next = node->next;
+		ft_lst_delete(node, dealloc);
+	}
+	return (*lst);
 }

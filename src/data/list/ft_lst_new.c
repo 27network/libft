@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 23:08:01 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:56:03 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 22:55:46 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 19:08:43 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
-#include <stdlib.h>
+#include <ft/mem.h>
+#include <stddef.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lst_new(void *content)
 {
-	t_list	*current;
-	t_list	*next;
+	t_list	*elem;
 
-	if (!lst)
-		return ;
-	current = *lst;
-	while (current)
-	{
-		next = current->next;
-		if (del)
-			del(current->content);
-		free(current);
-		current = next;
-	}
-	*lst = NULL;
+	elem = ft_calloc(1, sizeof(t_list));
+	if (!elem)
+		return (NULL);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }

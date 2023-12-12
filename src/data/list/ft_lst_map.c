@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lst_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 23:03:10 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:56:02 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 23:12:40 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 20:15:46 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
+#include <stddef.h>
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+t_list	*ft_lst_map(t_list *lst, void *(*f)(void *), t_lst_dealloc dealloc)
 {
-	t_list	*prev;
+	t_list	*new;
+	t_list	*current;
 
-	if (!alst || !new)
-		return ;
-	if (!*alst)
-		*alst = new;
-	else
+	new = NULL;
+	while (lst)
 	{
-		prev = *alst;
-		while (prev->next)
-			prev = prev->next;
-		prev->next = new;
+		if (f)
+			current = ft_lst_new(f(lst->content));
+		if (!current && dealloc)
+		{
+			ft_lst_free(&current, dealloc);
+			return (NULL);
+		}
+		ft_lst_add(&new, current);
+		lst = lst->next;
 	}
+	return (new);
 }

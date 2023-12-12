@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lst_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 23:07:22 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 20:56:03 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/08/07 17:19:20 by kiroussa          #+#    #+#             */
+/*   Updated: 2023/12/12 20:15:07 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/list.h>
-#include <stdlib.h>
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+size_t	ft_lst_size(t_list *lst)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
+	size_t	size;
+
+	size = 0;
+	if (lst)
+	{
+		size++;
+		while (lst->next)
+		{
+			lst = lst->next;
+			size++;
+		}
+	}
+	return (size);
 }
