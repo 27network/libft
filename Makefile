@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/12/14 23:48:02 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/12/15 00:32:46 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,14 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					data/list/ft_lst_tget.c \
 					data/list/ft_lst_tinsert.c \
 					data/list/ft_lst_tlast.c \
+					data/map/ft_map_clear.c \
+					data/map/ft_map_contains.c \
+					data/map/ft_map_destroy.c \
+					data/map/ft_map_get.c \
+					data/map/ft_map_new.c \
+					data/map/ft_map_put.c \
+					data/map/ft_map_remove.c \
+					data/map/ft_map_size.c \
 				   	io/get_next_line.c \
 					math/ft_abs.c \
 					math/ft_fabs.c \
@@ -161,7 +169,7 @@ CFLAGS			= 	-Wall -Wextra -Werror
 ifdef DEBUG
 	CFLAGS		+= 	-g3
 endif
-COPTS			= 	-fPIC -I $(INCLUDE_DIR)
+COPTS			= 	-O2 -march=native -flto -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-protect-parens -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
 
 # Feature flags
 ifdef FT_LOG_LEVEL
