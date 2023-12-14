@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/12/15 00:32:46 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/12/15 00:45:06 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -169,7 +169,7 @@ CFLAGS			= 	-Wall -Wextra -Werror
 ifdef DEBUG
 	CFLAGS		+= 	-g3
 endif
-COPTS			= 	-O2 -march=native -flto -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-protect-parens -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
+COPTS			= 	-O2 -march=native -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-protect-parens -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
 
 # Feature flags
 ifdef FT_LOG_LEVEL
