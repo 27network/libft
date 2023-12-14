@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 21:46:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:53:06 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/14 04:13:46 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdint.h>
 
 /**
- * @brief			Copy n bytes from the object pointed to by s2 into the object 
- * 					pointed to by s1.
+ * @brief			Copy n bytes from the object pointed to by s2 into the
+ * 					object pointed to by s1.
  *
  * @param s1		Pointer to the first memory area (the destination).
  * @param s2		Pointer to the second memory area (the source).
