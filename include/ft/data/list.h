@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:07:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/12 20:16:20 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/14 23:36:54 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void			ft_lst_free(t_list **lstptr, t_lst_dealloc dealloc);
 
 t_list			*ft_lst_add(t_list **lstptr, t_list *new);
 t_list			*ft_lst_tadd(t_list **lstptr, void *content);
+t_list			*ft_lst_get(t_list *list, size_t index);
+void			*ft_lst_tget(t_list *list, size_t index);
 size_t			ft_lst_size(t_list *list);
 t_list			*ft_lst_insert(t_list **lstptr, t_list *new);
 t_list			*ft_lst_tinsert(t_list **lstptr, void *content);
