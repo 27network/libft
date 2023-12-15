@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 00:02:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/15 00:09:30 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/15 08:22:59 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_map_item	*ft_map_item_init(void *key, void *value)
 	return (item);
 }
 
-void				*ft_map_put(
+void	*ft_map_put(
 		t_map *map,
 		void *key,
 		void *value,

@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 23:49:19 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/15 00:20:44 by kiroussa         ###   ########.fr       */
+/*   Updated: 2023/12/15 08:22:39 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 typedef int		(*t_map_cmp)(void *a, void *b);
 
-typedef struct	s_map_item
+typedef struct s_map_item
 {
 	void		*key;
 	void		*value;
 }				t_map_item;
 
-typedef struct	s_map
+typedef struct s_map
 {
-	t_list	*items;
+	t_list		*items;
 	t_map_cmp	cmp;
 }				t_map;
 
