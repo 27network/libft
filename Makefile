@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/12/15 19:08:10 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/12/18 00:03:07 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -211,6 +211,9 @@ $(OBJ_CACHE):
 
 $(OUTPUT_FOLDER):
 	mkdir -p $(OUTPUT_FOLDER)
+
+doc:
+	doxygen Doxyfile
 
 clean:
 	$(RM) $(OBJ_CACHE)
