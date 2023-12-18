@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/12/18 00:03:07 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/12/18 12:46:13 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ NAME			= 	$(LIBSTATIC)
 
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
+
+HOST			=	$(shell hostname | cut -d. -f2)
 
 SRC_FILES		=  	data/list/ft_lst_add.c \
 				   	data/list/ft_lst_insert.c \
@@ -169,7 +171,12 @@ CFLAGS			= 	-Wall -Wextra -Werror
 ifdef DEBUG
 	CFLAGS		+= 	-g3
 endif
-COPTS			= 	-march=native -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
+
+ARCH			=	native
+ifeq ($(HOST),42angouleme)
+	ARCH		=	skylake
+endif
+COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
 
 # Feature flags
 ifdef FT_LOG_LEVEL
