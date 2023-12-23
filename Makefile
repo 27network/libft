@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/12/18 12:46:13 by kiroussa         ###   ########.fr        #
+#    Updated: 2023/12/23 16:09:50 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,7 +176,14 @@ ARCH			=	native
 ifeq ($(HOST),42angouleme)
 	ARCH		=	skylake
 endif
+ifeq ($(HOST),komet)
+	ARCH		=	znver2
+endif
 COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
+
+ifneq (, $(shell which mold))
+	LD_FLAGS	= 	-fuse-ld=mold
+endif
 
 # Feature flags
 ifdef FT_LOG_LEVEL
@@ -205,7 +212,7 @@ so:				$(LIBSHARE)
 $(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES)
+	$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LD_FLAGS)
 
 $(OBJ_CACHE)/%.o:	%.c | $(OBJ_CACHE_DIRS)
 	$(CC) $(CFLAGS) $(COPTS) -c $< -o $@
