@@ -1,4 +1,4 @@
-# libft-neo
+# libft-neo [![kiroussa's 42 Libft Score](https://badge42.coday.fr/api/v2/clqhi717m065501p4hai37lsg/project/3383637)](https://github.com/Coday-meric/badge42)
 
 42's standard library recode, by `kiroussa`.
 
