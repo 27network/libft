@@ -6,11 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 08:31:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/03 08:36:31 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/03 08:44:51 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/internal/printf.h>
+#include <ft/math.h>
 #include <ft/string/parse.h>
 #include <ft/string.h>
 
@@ -38,7 +39,7 @@ static char	*ft_ftoa(long double nbr, int precision)
 	while (i < precision)
 	{
 		nbr = nbr * 10;
-		str = ft_lltoa((int) nbr);
+		str = ft_lltoa(ft_abs((int) nbr));
 		tmp = ft_strjoin(tmp, str);
 		free(str);
 		nbr = nbr - (int)nbr;
