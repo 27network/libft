@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 11:24:30 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/20 15:09:06 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/03 08:37:39 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static t_type_formatter	pf_get_formatter(char specifier)
 {
 	static t_type_formatter	formatters[] = {
 	['c'] = pf_format_char,
+	['f'] = pf_format_float,
 	['s'] = pf_format_string,
 	['p'] = pf_format_pointer,
 	['d'] = pf_format_int,

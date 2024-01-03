@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:25:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 22:21:12 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/03 08:38:06 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@
 # endif // PF_FLAGS
 
 # ifndef PF_SPECIFIERS
-//#  define PF_SPECIFIERS "cspdiuxX%"
-#  define PF_SPECIFIERS "cspdiuxX%nm"
+#  define PF_SPECIFIERS "cfspdiuxX%nm"
 # endif // PF_SPECIFIERS
 
 # define PF_LEFT_JUSTIFY	1  // (1 << 0)
@@ -66,6 +65,7 @@ void		pf_free_spec(t_fmt_spec *spec);
 typedef char	*(*t_type_formatter)(t_fmt_spec *spec, va_list args);
 
 char		*pf_format_char(t_fmt_spec *spec, va_list args);
+char		*pf_format_float(t_fmt_spec *spec, va_list args);
 char		*pf_format_hex(t_fmt_spec *spec, va_list args);
 char		*pf_format_int(t_fmt_spec *spec, va_list args);
 char		*pf_format_percent(t_fmt_spec *spec, va_list args);

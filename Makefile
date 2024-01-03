@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2023/12/23 16:09:50 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/01/03 08:36:53 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					print/printf/str/pf_str_create.c \
 					print/printf/str/pf_str_init.c \
 					print/printf/type/pf_format_char.c \
+					print/printf/type/pf_format_float.c \
 					print/printf/type/pf_format_hex.c \
 					print/printf/type/pf_format_int.c \
 					print/printf/type/pf_format_lenptr.c \
