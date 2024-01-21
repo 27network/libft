@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 08:31:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/03 08:44:51 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:17:41 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static char	*ft_ftoa(long double nbr, int precision)
 {
 	char	*str;
 	char	*tmp;
+	char	*tmp2;
 	int		i;
 
 	str = ft_lltoa((int) nbr);
@@ -40,8 +41,10 @@ static char	*ft_ftoa(long double nbr, int precision)
 	{
 		nbr = nbr * 10;
 		str = ft_lltoa(ft_abs((int) nbr));
+		tmp2 = tmp;
 		tmp = ft_strjoin(tmp, str);
 		free(str);
+		free(tmp2);
 		nbr = nbr - (int)nbr;
 		i++;
 	}
