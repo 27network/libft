@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:51:35 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/22 10:04:33 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:21:18 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_parseerr	ft_strtoi_base(const char *str, const char *base, int *result)
 		str++;
 	if (*str == '-' || *str == '+')
 		sign = (*str++ == '-') * -2 + 1;
-	if (ft_get_index(*str, base) != -1)
+	if (ft_get_index(*str, base) == -1)
 		return (PARSE_NOT_NUMBER);
 	while (ft_get_index(*str, base) != -1)
 	{
