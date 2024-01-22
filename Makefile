@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/01/03 08:36:53 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/01/22 10:06:17 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,6 +136,8 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/mutate/ft_strncat.c \
 					string/mutate/ft_strncpy.c \
 					string/mutate/ft_strprepend.c \
+					string/mutate/ft_strtolower.c \
+					string/mutate/ft_strtoupper.c \
 					string/mutate/ft_tolower.c \
 					string/mutate/ft_toupper.c \
 					string/query/ft_lllen.c \
@@ -151,6 +153,7 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/query/ft_ulllen.c \
 					string/query/ft_ulllen_base.c \
 					string/strtox/ft_strtoi.c \
+					string/strtox/ft_strtoi_base.c \
 					string/xtoa/ft_lltoa.c \
 					string/xtoa/ft_lltoa_base.c \
 					string/xtoa/ft_ulltoa.c \
