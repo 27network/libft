@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:51:35 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/22 10:21:18 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:23:44 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,5 @@ t_parseerr	ft_strtoi_base(const char *str, const char *base, int *result)
 			return (PARSE_TOO_SMALL);
 	}
 	*result = (int)(num * sign);
-	return (PARSE_SUCCESS * !!*str + PARSE_NOT_NUMBER * !*str);
+	return (PARSE_SUCCESS * !*str + PARSE_NOT_NUMBER * *str);
 }
