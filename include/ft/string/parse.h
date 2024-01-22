@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:00:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/06 23:04:03 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:59:47 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@ typedef enum e_parseerr
 	PARSE_NOT_NUMBER = 2,
 	PARSE_TOO_BIG = 3,
 	PARSE_TOO_SMALL = 4,
-	PARSE_NOT_VALID = 5
+	PARSE_NOT_VALID = 5,
+	PARSE_NOT_VALID_BASE = 6,
 }	t_parseerr;
 
 int					ft_atoi(const char *str);
 int					ft_atoi_base(const char *str, const char *base);
 t_parseerr			ft_strtoi(const char *str, int *result);
+t_parseerr			ft_strtoi_base(const char *str, const char *base,
+						int *result);
 
 unsigned int		ft_atoui(const char *str);
 // t_parseerr		ft_strtoui(const char *str, unsigned int *result);
