@@ -6,15 +6,17 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:35:09 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/23 22:35:16 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/22 07:48:07 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math.h>
 
-double	ft_fabs(double n)
+double	fabs(double a)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	long long	i;
+
+	i = *(long long *)&a;
+	i &= ~(1ull << 63);
+	return (*(double *) &i);
 }

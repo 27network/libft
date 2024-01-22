@@ -6,15 +6,17 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:21:27 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/23 22:21:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/22 07:51:31 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math.h>
+#include <limits.h>
 
-int64_t	ft_abs(int64_t n)
+int64_t	ft_abs(int64_t a)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	int64_t	mask;
+
+	mask = (a >> (sizeof(int64_t) * CHAR_BIT - 1));
+	return ((a + mask) ^ mask);
 }
