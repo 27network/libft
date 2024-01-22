@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:35:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/23 22:37:38 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:23:58 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ double	ft_fpow(double n, uint64_t pow)
 {
 	double	i;
 
-	if (pow < 0)
-		return (0);
 	if (!pow)
 		return (1);
 	if (!n)

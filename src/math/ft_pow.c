@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:22:00 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/23 22:30:16 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:24:06 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int64_t	ft_pow(int64_t n, uint64_t pow)
 {
 	uint64_t	i;
 
-	if (pow < 0)
-		return (0);
 	if (!pow)
 		return (1);
 	if (!n)
