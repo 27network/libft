@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/01/22 10:06:17 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/01/25 01:10:38 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -189,56 +189,81 @@ ifneq (, $(shell which mold))
 	LD_FLAGS	= 	-fuse-ld=mold
 endif
 
-# Feature flags
-ifdef FT_LOG_LEVEL
-	COPTS		+= 	-DFT_LOG_LEVEL=$(FT_LOG_LEVEL)
-endif
-
 AR				= 	ar rcs
 RM				= 	rm -rf
+
+# Pretty stuff
+
+_END=\033[0m
+_BOLD=\033[1m
+_UNDER=\033[4m
+_REV=\033[7m
+_GREY=\033[30m
+_LIGHT_GREY=\033[37m
+_RED=\033[31m
+_GREEN=\033[32m
+_YELLOW=\033[33m
+_BLUE=\033[34m
+_PURPLE=\033[35m
+_CYAN=\033[36m
+_WHITE=\033[37m
+
+_TOTAL			=	$(words $(SRC_FILES))
+_TOTAL_LEN		=	$(shell echo -n $(_TOTAL) | wc -m)
+_CURRENT		=	0
 
 #
 # Rules
 #
 
-all:			$(NAME) so | _header
-
-_header:
-	@echo libft-neo v$(shell cat version) by kiroussa
+all:			$(NAME) $(LIBSHARE)
 
 $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
 
 $(OUTPUT_FOLDER)/$(NAME):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	$(AR) $(OUTPUT_FOLDER)/$(NAME) $(OBJ_CACHE_FILES)
-
-so:				$(LIBSHARE)
+	@echo -n "\033[2K\r"
+	@echo -n "[100%] $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
+	@$(AR) $(OUTPUT_FOLDER)/$(NAME) $(OBJ_CACHE_FILES)
 
 $(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LD_FLAGS)
+	@echo -n "\033[2K\r"
+	@echo -n "[100%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
+	@$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LD_FLAGS)
 
 $(OBJ_CACHE)/%.o:	%.c | $(OBJ_CACHE_DIRS)
-	$(CC) $(CFLAGS) $(COPTS) -c $< -o $@
+	$(eval _CURRENT=$(shell echo $$(($(_CURRENT)+1))))
+	$(eval _PERCENTAGE=$(shell echo $$(($(_CURRENT)*100/$(_TOTAL)))))
+	@echo -n "\033[2K\r"
+	@echo -n "["
+	@echo -n "$(shell printf "% 3s" "$(_PERCENTAGE)")"
+	@echo -n "%] "
+	@echo -n "$(shell printf "%*d/%d" $(_TOTAL_LEN) $(_CURRENT) $(_TOTAL))"
+	@echo -n " Compiling $<"
+	@echo -n "\r"
+	@$(CC) $(CFLAGS) $(COPTS) -c $< -o $@
 
 $(OBJ_CACHE_DIRS): | $(OBJ_CACHE)
-	mkdir -p $(OBJ_CACHE_DIRS)
+	@mkdir -p $(OBJ_CACHE_DIRS)
 
 $(OBJ_CACHE):
-	mkdir -p $(OBJ_CACHE)
+	@mkdir -p $(OBJ_CACHE)
 
 $(OUTPUT_FOLDER):
-	mkdir -p $(OUTPUT_FOLDER)
+	@mkdir -p $(OUTPUT_FOLDER)
 
 doc:
 	doxygen Doxyfile
 
 clean:
-	$(RM) $(OBJ_CACHE)
+	@$(RM) $(OBJ_CACHE)
+	@printf "🧹 $(_BOLD)Cleaned $(_END)$(OBJ_CACHE)\n"
 
-fclean:			clean
-	$(RM) $(BUILD_FOLDER)
+fclean:
+	@$(RM) $(BUILD_FOLDER)
+	@printf "🧹 $(_BOLD)Cleaned $(_END)$(BUILD_FOLDER)\n"
 
 re:				fclean all
 
-.PHONY:			all clean fclean re so
+.PHONY:			all clean fclean re

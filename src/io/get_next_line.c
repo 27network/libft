@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/07 12:48:47 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/01/24 23:08:37 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static char	*get_current_buffer(t_gnl *gnl)
 	line[gnl->size] = '\0';
 	free(gnl->inner);
 	gnl->inner = NULL;
+	gnl->size = 0;
 	return (line);
 }
 
