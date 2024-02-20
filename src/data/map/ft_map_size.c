@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 00:18:39 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/15 00:18:43 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/02/20 16:52:04 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/20 18:06:50 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 size_t	ft_map_size(t_map *map)
 {
-	if (!map)
-		return (0);
-	return (ft_lst_size(map->items));
+	size_t		i;
+	size_t		size;
+
+	i = 0;
+	size = 0;
+	while (i < map->n_buckets)
+	{
+		size += ft_lst_size(map->buckets[i]);
+		i++;
+	}
+	return (size);
 }

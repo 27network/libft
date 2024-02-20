@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/13 18:52:41 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/20 18:22:10 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					data/list/ft_lst_tlast.c \
 					data/map/ft_map_clear.c \
 					data/map/ft_map_contains.c \
-					data/map/ft_map_destroy.c \
+					data/map/ft_map_free.c \
 					data/map/ft_map_get.c \
 					data/map/ft_map_new.c \
 					data/map/ft_map_put.c \
@@ -177,6 +177,7 @@ CFLAGS			= 	-Wall -Wextra -Werror
 ifdef DEBUG
 	CFLAGS		+= 	-g3
 endif
+DFLAGS 			=	-MT $@ -MMD -MP -MF $(DEPS_FOLDER)/$*.tmp.d
 
 ARCH			=	native
 ifeq ($(HOST),42angouleme)
@@ -211,11 +212,11 @@ _CYAN=\033[36m
 _WHITE=\033[37m
 
 _TOTAL			=	$(words $(SRC_FILES))
-_TOTAL_LEN		=	$(echo -n $(_TOTAL) | wc -m)
+_TOTAL_LEN		=	$(shell printf $(_TOTAL) | wc -m)
 _CURRENT		=	0
 
 _TOTAL_DEPS		=	$(words $(DEPS))
-_TOTAL_DEPS_LEN	=	$(echo -n $(_TOTAL_DEPS) | wc -m)
+_TOTAL_DEPS_LEN	=	$(shell printf $(_TOTAL_DEPS) | wc -m)
 _CURRENT_DEPS	=	0
 
 #
@@ -226,45 +227,28 @@ all:			$(NAME) $(LIBSHARE)
 
 -include $(DEPS)
 
-$(DEPS_FOLDER)/%.d:	$(SRC_FOLDER)/%.c
-	$(eval _CURRENT_DEPS=$(shell echo $$(($(_CURRENT_DEPS)+1))))
-	$(eval _PERCENTAGE_DEPS=$(shell echo $$(($(_CURRENT_DEPS)*100/$(_TOTAL_DEPS)))))
-	@printf "\033[2K\r"
-	@printf "["
-	@printf "$(printf "% 3s" "$(_PERCENTAGE_DEPS)")"
-	@printf "%%] "
-	@printf "$(printf "%*d/%d" "$(_TOTAL_DEPS_LEN)" "$(_CURRENT_DEPS)" "$(_TOTAL_DEPS)")"
-	@printf " Generating dependencies for $<"
-	@printf "\r"
-	@mkdir -p $(dir $@)
-	@$(CC) -MM -MT $(OBJ_CACHE)/$*.o -MF $@ -I $(INCLUDE_DIR) $<
-
 $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
 
 $(OUTPUT_FOLDER)/$(NAME):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	@printf "\033[2K\r"
-	@printf "[100%%] $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
+	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
 	@$(AR) $(OUTPUT_FOLDER)/$(NAME) $(OBJ_CACHE_FILES)
 
 $(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	@printf "\033[2K\r"
-	@printf "[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
+	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
 	@$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LD_FLAGS)
 
 $(OBJ_CACHE)/%.o:	$(SRC_FOLDER)/%.c
 	@mkdir -p $(dir $@)
+	@mkdir -p $(dir $(DEPS_FOLDER)/$*)
 	$(eval _CURRENT=$(shell echo $$(($(_CURRENT)+1))))
 	$(eval _PERCENTAGE=$(shell echo $$(($(_CURRENT)*100/$(_TOTAL)))))
-	@printf "\033[2K\r"
-	@printf "["
-	@printf "$(shell printf "% 3s" "$(_PERCENTAGE)")"
-	@printf "%%] "
-	@printf "a$(shell printf "%*d/%d" $(_CURRENT) $(_TOTAL_LEN) $(_TOTAL))b"
-	@printf " Compiling $<"
-	@printf "\r"
-	@$(CC) $(CFLAGS) $(COPTS) -c $< -o $@
+	@printf "\033[2K\r[$(shell printf "% 3s" "$(_PERCENTAGE)")%%] $(shell printf "%*d/%d" $(_TOTAL_LEN) $(_CURRENT) $(_TOTAL)) Compiling $<\r"
+	@$(CC) $(DFLAGS) $(CFLAGS) $(COPTS) -c $< -o $@
+	@# dumb fixes, see https://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
+	@mv -f $(DEPS_FOLDER)/$*.tmp.d $(DEPS_FOLDER)/$*.d
+	@touch $@
 
 $(OBJ_CACHE):
 	@mkdir -p $(OBJ_CACHE)
@@ -277,11 +261,11 @@ doc:
 
 clean:
 	@$(RM) $(OBJ_CACHE)
-	@printf "🧹 $(_BOLD)Cleaned $(_END)$(OBJ_CACHE)\n"
+	@printf "🧹 $(_BOLD)Cleaned libft $(_END)(./$(OBJ_CACHE))\n"
 
 fclean:
 	@$(RM) $(BUILD_FOLDER)
-	@printf "🧹 $(_BOLD)Cleaned $(_END)$(BUILD_FOLDER)\n"
+	@printf "🧹 $(_BOLD)Cleaned libft $(_END)(./$(BUILD_FOLDER))\n"
 
 re:				fclean all
 

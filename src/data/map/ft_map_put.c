@@ -5,53 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 00:02:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/15 08:22:59 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/02/20 16:55:49 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/20 18:55:58 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/map.h>
-#include <ft/mem.h>
+#include <stdlib.h>
 
-static t_map_item	*ft_map_item_init(void *key, void *value)
+static t_map_node	*ft_map_node_new(void *key, void *value)
 {
-	t_map_item	*item;
+	t_map_node	*node;
 
-	item = ft_calloc(1, sizeof(t_map_item));
-	if (!item)
+	node = (t_map_node *)malloc(sizeof(t_map_node));
+	if (!node)
 		return (NULL);
-	item->key = key;
-	item->value = value;
-	return (item);
+	node->key = key;
+	node->value = value;
+	return (node);
 }
 
-void	*ft_map_put(
-		t_map *map,
-		void *key,
-		void *value,
-		t_map_dealloc dealloc
-) {
-	t_map_item	*item;
+void	*ft_map_put(t_map *map, void *key, void *value, t_map_dealloc *dealloc)
+{
+	t_list		**bucket;
+	t_map_node	*node;
 
-	if (!map || !key || !value)
-		return (NULL);
 	if (ft_map_contains(map, key))
-	{
-		item = ft_map_get(map, key);
-		if (item)
-		{
-			if (dealloc)
-				ft_map_remove(map, key, dealloc);
-			else
-			{
-				item->value = value;
-				return (value);
-			}
-		}
-	}
-	item = ft_map_item_init(key, value);
-	if (!item)
+		ft_map_remove(map, key, dealloc);
+	node = ft_map_node_new(key, value);
+	if (!node)
 		return (NULL);
-	ft_lst_tadd(&map->items, item);
-	return (item);
+	bucket = &map->buckets[map->hash(key) % map->n_buckets];
+	ft_lst_tadd(bucket, node);
+	return (value);
 }

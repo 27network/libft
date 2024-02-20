@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_destroy.c                                   :+:      :+:    :+:   */
+/*   creation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 00:16:57 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/15 00:17:52 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/02/20 16:10:29 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/20 19:18:54 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "test.h"
 #include <ft/data/map.h>
-#include <stdlib.h>
 
-void	ft_map_destroy(t_map **map, t_map_dealloc dealloc)
-{
-	if (!map || !*map)
-		return ;
-	ft_map_clear(*map, dealloc);
-	free(*map);
-	*map = NULL;
-}
+DEFINE_TEST(create, "Can create an empty map", {
+	t_map	*map;
+
+	map = ft_map_new(10, NULL, NULL);
+	ASSERT(map != NULL);
+	ft_map_free(&map, NULL);
+})

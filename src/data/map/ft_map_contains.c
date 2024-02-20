@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 00:18:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/15 00:18:29 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/02/20 16:52:53 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/20 17:58:42 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 bool	ft_map_contains(t_map *map, void *key)
 {
-	t_list		*item;
-	t_map_item	*map_item;
+	t_list	*node;
+	size_t	index;
 
-	if (!map || !key)
-		return (false);
-	item = map->items;
-	while (item)
+	index = map->hash(key) % map->n_buckets;
+	node = map->buckets[index];
+	while (node)
 	{
-		map_item = (t_map_item *)item->content;
-		if (map_item->key == key)
+		if (map->cmp(((t_map_node *) node->content)->key, key) == 0)
 			return (true);
-		item = item->next;
+		node = node->next;
 	}
 	return (false);
 }
