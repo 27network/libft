@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/20 18:22:10 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/20 19:28:41 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -258,6 +258,9 @@ $(OUTPUT_FOLDER):
 
 doc:
 	doxygen Doxyfile
+
+test:
+	make --no-print-directory -C tests valgrind
 
 clean:
 	@$(RM) $(OBJ_CACHE)

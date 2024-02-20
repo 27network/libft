@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 14:44:19 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/20 19:18:00 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/20 19:29:37 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ valgrind:
 	@$(MAKE) USE_VALGRIND=1 all
 
 $(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR) -j
+	@printf "\33[2K\r"
 
 .PHONY: all $(TESTS)
