@@ -6,14 +6,13 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/20 19:28:41 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/22 06:21:06 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBNAME			=	ft
-LIBSTATIC		=	lib$(LIBNAME).a
 LIBSHARE		= 	lib$(LIBNAME).so
-NAME			= 	$(LIBSTATIC)
+NAME			= 	$(LIBSHARE)
 
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
@@ -186,7 +185,7 @@ endif
 ifeq ($(HOST),komet)
 	ARCH		=	znver2
 endif
-COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
+COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -funroll-loops -funsafe-math-optimizations -funwind-tables -fstrict-enums -flto=full -fsplit-lto-unit -fvectorize -fsave-optimization-record -foptimization-record-file=$@.yml -pipe -fPIC -I $(INCLUDE_DIR)
 
 ifneq (, $(shell which mold))
 	LD_FLAGS	= 	-fuse-ld=mold
@@ -228,12 +227,7 @@ all:			$(NAME) $(LIBSHARE)
 -include $(DEPS)
 
 $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
-
-$(OUTPUT_FOLDER)/$(NAME):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
-	@$(AR) $(OUTPUT_FOLDER)/$(NAME) $(OBJ_CACHE_FILES)
-
-$(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
+	@ln -s $(OUTPUT_FOLDER)/$(NAME) $(NAME)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
@@ -268,6 +262,7 @@ clean:
 
 fclean:
 	@$(RM) $(BUILD_FOLDER)
+	@$(RM) $(LIBSHARE)
 	@printf "🧹 $(_BOLD)Cleaned libft $(_END)(./$(BUILD_FOLDER))\n"
 
 re:				fclean all

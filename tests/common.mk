@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 14:16:51 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/20 19:19:30 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/22 06:16:07 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CC = clang
 CFLAGS = -g3
 
 LIBFT_DIR = ../..
-LIBFT = $(LIBFT_DIR)/build/output/libft.a
+LIBFT = $(LIBFT_DIR)/build/output/libft.so
 
 USE_VALGRIND ?= 0
 VALGRIND = valgrind -q --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
