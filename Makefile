@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/22 06:21:06 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/22 07:33:59 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,24 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					data/map/ft_map_remove.c \
 					data/map/ft_map_size.c \
 				   	io/get_next_line.c \
+					math/mat3d/ft_mat3d_identity.c \
+					math/mat3d/ft_mat3d_mult.c \
+					math/mat3d/ft_mat3d_rot.c \
+					math/mat3d/ft_mat3d_rot_vec3d.c \
+					math/mat3d/ft_mat3d_rot_x.c \
+					math/mat3d/ft_mat3d_rot_y.c \
+					math/mat3d/ft_mat3d_rot_z.c \
+					math/mat3d/ft_mat3d_scale.c \
+					math/vec2i/ft_vec2i.c \
+					math/vec3d/ft_vec3d.c \
+					math/vec3d/ft_vec3d_add.c \
+					math/vec3d/ft_vec3d_clone.c \
+					math/vec3d/ft_vec3d_div.c \
+					math/vec3d/ft_vec3d_eq.c \
+					math/vec3d/ft_vec3d_mult.c \
+					math/vec3d/ft_vec3d_mult_mat3d.c \
+					math/vec3d/ft_vec3d_sub.c \
+					math/vec3d/ft_vec3d_to_vec2i.c \
 					math/ft_abs.c \
 					math/ft_fabs.c \
 					math/ft_fmax.c \
