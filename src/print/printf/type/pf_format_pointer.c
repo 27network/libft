@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 22:47:46 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:32:55 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:22:09 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*pf_format_pointer(t_fmt_spec *spec, va_list args)
 		free(str);
 		str = tmp;
 	}
-	tmp = ft_strjoin("0x", str);
-	free(str);
+	tmp = ft_strjoin(2, "", 0b01, "0x", str);
 	return (tmp);
 }

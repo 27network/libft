@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/22 21:44:56 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/22 23:25:12 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,7 +135,6 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/create/ft_ctostr.c \
 					string/create/ft_split.c \
 					string/create/ft_splits.c \
-					string/create/ft_strbuild.c \
 					string/create/ft_strdup.c \
 					string/create/ft_strdup_range.c \
 					string/create/ft_strjoin.c \
@@ -145,14 +144,12 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/create/ft_strtrim.c \
 					string/create/ft_substr.c \
 					string/mutate/ft_stpcpy.c \
-					string/mutate/ft_strappend.c \
 					string/mutate/ft_strcat.c \
 					string/mutate/ft_strcpy.c \
 					string/mutate/ft_strlcat.c \
 					string/mutate/ft_strlcpy.c \
 					string/mutate/ft_strncat.c \
 					string/mutate/ft_strncpy.c \
-					string/mutate/ft_strprepend.c \
 					string/mutate/ft_strtolower.c \
 					string/mutate/ft_strtoupper.c \
 					string/mutate/ft_tolower.c \

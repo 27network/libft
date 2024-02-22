@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:06:43 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 23:10:49 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/02/23 00:14:17 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,13 @@ char			*ft_strtoupper(char *s);
 
 char			*ft_ctostr(char c);
 char			*ft_strnew(size_t size);
-char			*ft_strbuild(size_t n, ...);
 char			*ft_strdup(const char *s);
 char			*ft_strndup(const char *s, size_t n);
 char			*ft_strdup_range(const char *s, size_t start, size_t end);
 void			ft_strdel(char **s);
 char			*ft_substr(const char *s, unsigned int start, size_t len);
-char			*ft_strjoin(size_t npos, char *sep, uint64_t free_bitflag, ...);
-void			ft_strappend(char **s1, char *s2);
-void			ft_strprepend(char **s1, char *s2);
+char			*ft_strjoin(size_t npos, char *sep,
+					unsigned long long free_bitflag, ...);
 char			*ft_strtrim(const char *s1, const char *set);
 char			**ft_split(const char *str, char c);
 char			**ft_splits(const char *str, const char *set);

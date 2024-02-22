@@ -6,14 +6,13 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:42:56 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 23:10:28 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/02/23 00:14:38 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/mem.h>
 #include <ft/string.h>
 #include <stdarg.h>
-#include <stdint.h>
 #include <stdlib.h>
 
 static char	*ft_strjoin0(size_t npos, char *sep, char **array,
@@ -45,8 +44,8 @@ static char	*ft_strjoin0(size_t npos, char *sep, char **array,
 	return (res);
 }
 
-static char	*ft_vstrjoin(size_t npos, char *sep, uint64_t free_bitflag,
-		va_list args)
+static char	*ft_vstrjoin(size_t npos, char *sep,
+		unsigned long long free_bitflag, va_list args)
 {
 	size_t	count;
 	size_t	total_length;
@@ -75,7 +74,8 @@ static char	*ft_vstrjoin(size_t npos, char *sep, uint64_t free_bitflag,
 	return (res);
 }
 
-char	*ft_strjoin(size_t npos, char *sep, uint64_t free_bitflag, ...)
+char	*ft_strjoin(size_t npos, char *sep,
+		unsigned long long free_bitflag, ...)
 {
 	va_list	args;
 	char	*res;
