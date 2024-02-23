@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/22 23:25:12 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/02/23 04:36:47 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
 
 HOST			=	$(shell hostname | cut -d. -f2)
+DEBUG			?=	0
 
 SRC_FILES		=  	data/list/ft_lst_add.c \
 				   	data/list/ft_lst_insert.c \
@@ -188,7 +189,7 @@ INCLUDE_DIR		= 	include
 
 CC				=	clang
 CFLAGS			= 	-Wall -Wextra -Werror
-ifdef DEBUG
+ifeq ($(DEBUG), 1)
 	CFLAGS		+= 	-g3
 endif
 DFLAGS 			=	-MT $@ -MMD -MP -MF $(DEPS_FOLDER)/$*.tmp.d
@@ -207,7 +208,7 @@ ifneq (, $(shell which mold))
 	LD_FLAGS	+= 	-fuse-ld=mold
 endif
 
-ifndef DEBUG
+ifneq ($(DEBUG), 1)
 	LD_FLAGS	+=	-Wl,-s
 endif
 
