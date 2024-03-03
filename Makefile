@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/23 04:36:47 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/03/03 00:18:19 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -201,7 +201,12 @@ endif
 ifeq ($(HOST),komet)
 	ARCH		=	znver2
 endif
-COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -funroll-loops -funsafe-math-optimizations -funwind-tables -fstrict-enums -flto=full -fsplit-lto-unit -fvectorize -fsave-optimization-record -foptimization-record-file=$@.yml -pipe -fPIC -I $(INCLUDE_DIR)
+COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -funroll-loops -funsafe-math-optimizations -funwind-tables -fstrict-enums -fsplit-lto-unit -fvectorize -fsave-optimization-record -foptimization-record-file=$@.yml -pipe -fPIC -I $(INCLUDE_DIR)
+
+# fuck nix apparently
+ifneq ($(HOST),komet)
+	COPTS		+=	-flto=full
+endif
 
 LD_FLAGS		=	-lm
 ifneq (, $(shell which mold))
