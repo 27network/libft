@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strprepend.c                                    :+:      :+:    :+:   */
+/*   ft_vec3d_to_vec2i.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 02:45:50 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:52:23 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/24 14:30:08 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/22 07:32:18 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
+#include <ft/math/vector.h>
 
-void	ft_strprepend(char **s1, char *s2)
+t_vec2i	ft_vec3d_to_vec2i(t_vec3d vec3d)
 {
-	char	*tmp;
-
-	tmp = ft_strjoin(s2, *s1);
-	ft_strdel(s1);
-	*s1 = tmp;
+	return (ft_vec2i((int) vec3d.x, (int) vec3d.y));
 }

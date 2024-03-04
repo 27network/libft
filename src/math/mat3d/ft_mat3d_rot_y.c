@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strappend.c                                     :+:      :+:    :+:   */
+/*   ft_mat3d_rot_y.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 02:44:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:52:11 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/24 20:02:05 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/22 07:32:16 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
+#include <ft/math/matrix.h>
 
-void	ft_strappend(char **s1, char *s2)
+t_mat3d	ft_mat3d_rot_y(double theta)
 {
-	char	*tmp;
+	t_mat3d		result;
 
-	tmp = ft_strjoin(*s1, s2);
-	ft_strdel(s1);
-	*s1 = tmp;
+	result = ft_mat3d_identity();
+	result.m[0][0] = cos(theta);
+	result.m[0][2] = sin(theta);
+	result.m[2][0] = -sin(theta);
+	result.m[2][2] = cos(theta);
+	return (result);
 }

@@ -6,19 +6,19 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/03/04 19:41:04 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/03/04 19:56:50 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBNAME			=	ft
-LIBSTATIC		=	lib$(LIBNAME).a
 LIBSHARE		= 	lib$(LIBNAME).so
-NAME			= 	$(LIBSTATIC)
+NAME			= 	$(LIBSHARE)
 
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
 
 HOST			=	$(shell hostname | cut -d. -f2)
+DEBUG			?=	0
 
 SRC_FILES		=  	data/list/ft_lst_add.c \
 				   	data/list/ft_lst_insert.c \
@@ -45,6 +45,24 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					data/map/ft_map_remove.c \
 					data/map/ft_map_size.c \
 				   	io/get_next_line.c \
+					math/mat3d/ft_mat3d_identity.c \
+					math/mat3d/ft_mat3d_mult.c \
+					math/mat3d/ft_mat3d_rot.c \
+					math/mat3d/ft_mat3d_rot_vec3d.c \
+					math/mat3d/ft_mat3d_rot_x.c \
+					math/mat3d/ft_mat3d_rot_y.c \
+					math/mat3d/ft_mat3d_rot_z.c \
+					math/mat3d/ft_mat3d_scale.c \
+					math/vec2i/ft_vec2i.c \
+					math/vec3d/ft_vec3d.c \
+					math/vec3d/ft_vec3d_add.c \
+					math/vec3d/ft_vec3d_clone.c \
+					math/vec3d/ft_vec3d_div.c \
+					math/vec3d/ft_vec3d_eq.c \
+					math/vec3d/ft_vec3d_mult.c \
+					math/vec3d/ft_vec3d_mult_mat3d.c \
+					math/vec3d/ft_vec3d_sub.c \
+					math/vec3d/ft_vec3d_to_vec2i.c \
 					math/ft_abs.c \
 					math/ft_fabs.c \
 					math/ft_fmax.c \
@@ -119,7 +137,6 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/create/ft_ctostr.c \
 					string/create/ft_split.c \
 					string/create/ft_splits.c \
-					string/create/ft_strbuild.c \
 					string/create/ft_strdup.c \
 					string/create/ft_strdup_range.c \
 					string/create/ft_strjoin.c \
@@ -129,14 +146,12 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/create/ft_strtrim.c \
 					string/create/ft_substr.c \
 					string/mutate/ft_stpcpy.c \
-					string/mutate/ft_strappend.c \
 					string/mutate/ft_strcat.c \
 					string/mutate/ft_strcpy.c \
 					string/mutate/ft_strlcat.c \
 					string/mutate/ft_strlcpy.c \
 					string/mutate/ft_strncat.c \
 					string/mutate/ft_strncpy.c \
-					string/mutate/ft_strprepend.c \
 					string/mutate/ft_strtolower.c \
 					string/mutate/ft_strtoupper.c \
 					string/mutate/ft_tolower.c \
@@ -175,7 +190,7 @@ INCLUDE_DIR		= 	include
 
 CC				=	clang
 CFLAGS			= 	-Wall -Wextra -Werror
-ifdef DEBUG
+ifeq ($(DEBUG), 1)
 	CFLAGS		+= 	-g3
 endif
 DFLAGS 			=	-MT $@ -MMD -MP -MF $(DEPS_FOLDER)/$*.tmp.d
@@ -187,10 +202,20 @@ endif
 ifeq ($(HOST),komet)
 	ARCH		=	znver2
 endif
-COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -pipe -fPIC -I $(INCLUDE_DIR)
+COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -funroll-loops -funsafe-math-optimizations -funwind-tables -fstrict-enums -fsplit-lto-unit -fvectorize -fsave-optimization-record -foptimization-record-file=$@.yml -pipe -fPIC -I $(INCLUDE_DIR)
 
+# fuck nix apparently
+ifneq ($(HOST),komet)
+	COPTS		+=	-flto=full
+endif
+
+LD_FLAGS		=	-lm
 ifneq (, $(shell which mold))
-	LD_FLAGS	= 	-fuse-ld=mold
+	LD_FLAGS	+= 	-fuse-ld=mold
+endif
+
+ifneq ($(DEBUG), 1)
+	LD_FLAGS	+=	-Wl,-s
 endif
 
 AR				= 	ar rcs
@@ -229,12 +254,7 @@ all:			$(NAME) $(LIBSHARE)
 -include $(DEPS)
 
 $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
-
-$(OUTPUT_FOLDER)/$(NAME):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
-	@$(AR) $(OUTPUT_FOLDER)/$(NAME) $(OBJ_CACHE_FILES)
-
-$(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
+	@ln -s $(OUTPUT_FOLDER)/$(NAME) $(NAME)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
@@ -269,6 +289,7 @@ clean:
 
 fclean:
 	@$(RM) $(BUILD_FOLDER)
+	@$(RM) $(LIBSHARE)
 	@printf "🧹 $(_BOLD)Cleaned libft $(_END)(./$(BUILD_FOLDER))\n"
 
 re:				fclean all

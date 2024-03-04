@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strbuild.c                                      :+:      :+:    :+:   */
+/*   ft_mat3d_rot_vec3d.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 02:48:37 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:54:50 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/27 07:14:44 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/22 07:32:16 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
-#include <stdarg.h>
+#include <ft/math/matrix.h>
 
-char	*ft_strbuild(size_t n, ...)
+t_mat3d	ft_mat3d_rot_vec3d(t_vec3d v)
 {
-	va_list	ap;
-	char	*str;
-
-	va_start(ap, n);
-	str = ft_strnew(0);
-	while (n--)
-		ft_strappend(&str, va_arg(ap, char *));
-	va_end(ap);
-	return (str);
+	return (ft_mat3d_rot(v.x, v.y, v.z));
 }

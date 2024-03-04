@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_prepend_sign.c                                  :+:      :+:    :+:   */
+/*   ft_mat3d_rot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 03:44:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 23:22:34 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/24 19:55:15 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/22 07:32:16 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/internal/printf.h>
+#include <ft/math/matrix.h>
 
-char	*pf_prepend_sign(t_fmt_spec *spec, char *str, int neg)
+t_mat3d	ft_mat3d_rot(double theta_x, double theta_y, double theta_z)
 {
-	char	*sign;
-	char	*tmp;
+	t_mat3d	result;
+	t_mat3d	rot_x;
+	t_mat3d	rot_y;
+	t_mat3d	rot_z;
 
-	if (neg)
-		sign = ft_strdup("-");
-	else if (spec->flags & PF_PLUS)
-		sign = ft_strdup("+");
-	else if (spec->flags & PF_SPACE)
-		sign = ft_strdup(" ");
-	else
-		return (ft_strdup(str));
-	tmp = ft_strjoin(2, "", 0b10, sign, str);
-	return (tmp);
+	rot_x = ft_mat3d_rot_x(theta_x);
+	rot_y = ft_mat3d_rot_y(theta_y);
+	rot_z = ft_mat3d_rot_z(theta_z);
+	result = ft_mat3d_mult(rot_x, rot_y);
+	result = ft_mat3d_mult(result, rot_z);
+	return (result);
 }

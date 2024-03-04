@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_prepend_sign.c                                  :+:      :+:    :+:   */
+/*   ft_mat3d_identity.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 03:44:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 23:22:34 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/24 20:00:12 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/22 07:30:57 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/internal/printf.h>
+#include <ft/math/matrix.h>
 
-char	*pf_prepend_sign(t_fmt_spec *spec, char *str, int neg)
+t_mat3d	ft_mat3d_identity(void)
 {
-	char	*sign;
-	char	*tmp;
-
-	if (neg)
-		sign = ft_strdup("-");
-	else if (spec->flags & PF_PLUS)
-		sign = ft_strdup("+");
-	else if (spec->flags & PF_SPACE)
-		sign = ft_strdup(" ");
-	else
-		return (ft_strdup(str));
-	tmp = ft_strjoin(2, "", 0b10, sign, str);
-	return (tmp);
+	return (ft_mat3d_scale(1, 1, 1));
 }

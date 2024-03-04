@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_prepend_sign.c                                  :+:      :+:    :+:   */
+/*   ft_mat3d_scale.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 03:44:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 23:22:34 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/27 01:43:36 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/02/22 07:32:17 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/internal/printf.h>
+#include <ft/math/matrix.h>
+#include <ft/mem.h>
 
-char	*pf_prepend_sign(t_fmt_spec *spec, char *str, int neg)
+t_mat3d	ft_mat3d_scale(double sx, double sy, double sz)
 {
-	char	*sign;
-	char	*tmp;
+	t_mat3d	matrix;
 
-	if (neg)
-		sign = ft_strdup("-");
-	else if (spec->flags & PF_PLUS)
-		sign = ft_strdup("+");
-	else if (spec->flags & PF_SPACE)
-		sign = ft_strdup(" ");
-	else
-		return (ft_strdup(str));
-	tmp = ft_strjoin(2, "", 0b10, sign, str);
-	return (tmp);
+	ft_bzero(&matrix, sizeof(t_mat3d));
+	matrix.m[0][0] = sx;
+	matrix.m[1][1] = sy;
+	matrix.m[2][2] = sz;
+	return (matrix);
 }
