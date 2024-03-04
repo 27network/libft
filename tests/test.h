@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:13:54 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/20 18:42:12 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/02/20 23:40:54 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,22 @@ void ft_register_test(const char *file_name, const char *description, testfuncti
 
 #define ASSERT_EQ(a, b) \
 	if ((a) != (b)) { \
-		return "Assertion failed: "#a" != "#b; \
+		return "Assertion failed: "#a" == "#b; \
 	}
 
 #define ASSERT_NEQ(a, b) \
 	if ((a) == (b)) { \
-		return "Assertion failed: "#a" == "#b; \
+		return "Assertion failed: "#a" != "#b; \
 	}
 
 #define ASSERT_STR_EQ(a, b) \
 	if (strcmp((a), (b)) != 0) { \
-		return "Assertion failed: "#a" != "#b; \
+		return "Assertion failed: "#a" == "#b; \
 	}
 
 #define ASSERT_STR_NEQ(a, b) \
 	if (strcmp((a), (b)) == 0) { \
-		return "Assertion failed: "#a" == "#b; \
+		return "Assertion failed: "#a" != "#b; \
 	}
 
 // ANSI Colors from https://gist.github.com/RabaDabaDoba/145049536f815903c79944599c6f952a

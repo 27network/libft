@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/20 19:28:41 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/03/04 19:41:04 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					data/map/ft_map_contains.c \
 					data/map/ft_map_free.c \
 					data/map/ft_map_get.c \
+					data/map/ft_map_keys.c \
 					data/map/ft_map_new.c \
 					data/map/ft_map_put.c \
 					data/map/ft_map_remove.c \

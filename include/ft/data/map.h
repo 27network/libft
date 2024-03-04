@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 23:49:19 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/20 16:58:54 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:40:36 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_map_free(t_map **map,
 
 void	*ft_map_get(t_map *map, void *key);
 void	*ft_map_put(t_map *map, void *key, void *value,
-			t_map_dealloc dealloc);
+			t_map_dealloc *dealloc);
 void	ft_map_remove(t_map *map, void *key,
 			t_map_dealloc *dealloc);
 void	ft_map_clear(t_map *map,
@@ -51,5 +51,7 @@ void	ft_map_clear(t_map *map,
 
 bool	ft_map_contains(t_map *map, void *key);
 size_t	ft_map_size(t_map *map);
+
+t_list	*ft_map_keys(t_map *map);
 
 #endif // MAP_H
