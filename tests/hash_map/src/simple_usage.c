@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:42:25 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/04 19:55:20 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:39:04 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ DEFINE_TEST(canremove, "Can remove elements", {
 DEFINE_TEST(putoverwrite, "Can overwrite elements", {
 	ASSERT_NEQ(g_map, NULL);
 	ft_map_put(g_map, _("wow"), _("incroyable"), NULL);
-	ft_map_put(g_map, _("wow"), _("superbe"), NULL);
+	ft_map_put(g_map, _("wow"), _("superbe"), mapfree);
 	ASSERT_EQ(ft_map_size(g_map), 1);
 	char *value = (char *)ft_map_get(g_map, "wow");
 	ASSERT_STR_EQ(value, "superbe");
