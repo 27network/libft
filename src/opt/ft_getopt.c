@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 16:32:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/11 06:48:10 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/12 01:36:53 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,18 @@ static int	ft_opt_final(
 	int64_t flags,
 	t_opt_globals *g_opt
 ) {
-	if (optstring[flags & 0xFFFFFFFF] == ':')
+	int	i;
+
+	i = flags & 0xFFFFFFFF;
+	if (optstring[i] == ':')
 	{
 		g_opt->optarg = 0;
-		if (optstring[flags & 0xFFFFFFFF + 1] != ':' || g_opt->optpos)
+		if (optstring[i + 1] != ':' || g_opt->__optpos)
 		{
 			g_opt->optarg = args.argv[g_opt->optind++];
-			if (g_opt->optpos)
-				g_opt->optarg += g_opt->optpos;
-			g_opt->optpos = 0;
+			if (g_opt->__optpos)
+				g_opt->optarg += g_opt->__optpos;
+			g_opt->__optpos = 0;
 		}
 		if (g_opt->optind > args.argc)
 		{
@@ -103,20 +106,20 @@ static int	ft_opt_parse(
 ) {
 	wchar_t	c;
 
-	if (!g_opt->optpos)
-		g_opt->optpos++;
-	g_opt->__k = ft_mbtowc(&c, args.argv[g_opt->optind] + g_opt->optpos,
+	if (!g_opt->__optpos)
+		g_opt->__optpos++;
+	g_opt->__k = ft_mbtowc(&c, args.argv[g_opt->optind] + g_opt->__optpos,
 			MB_LEN_MAX);
 	if (g_opt->__k < 0)
 		c = 0xfffd;
 	if (g_opt->__k < 0)
 		g_opt->__k = 1;
-	g_opt->optchar = args.argv[g_opt->optind] + g_opt->optpos;
-	g_opt->optpos += g_opt->__k;
-	if (!args.argv[g_opt->optind][g_opt->optpos])
+	g_opt->optchar = args.argv[g_opt->optind] + g_opt->__optpos;
+	g_opt->__optpos += g_opt->__k;
+	if (!args.argv[g_opt->optind][g_opt->__optpos])
 	{
 		g_opt->optind++;
-		g_opt->optpos = 0;
+		g_opt->__optpos = 0;
 	}
 	if (optstring[0] == '-' || optstring[0] == '+')
 		optstring++;
@@ -131,7 +134,7 @@ int	ft_getopt(t_opt_args args, const char *optstring)
 	if (!g_opt->optind || g_opt->__optreset)
 	{
 		g_opt->__optreset = 0;
-		g_opt->optpos = 0;
+		g_opt->__optpos = 0;
 		g_opt->optind = 1;
 	}
 	if (g_opt->optind >= args.argc || !args.argv[g_opt->optind])
