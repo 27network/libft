@@ -6,12 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:47:39 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:20:19 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:50:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ft/mem.h>
 #include <ft/string.h>
-#include <stdlib.h>
 
 static int	ft_is_set(char c, const char *set)
 {
@@ -58,17 +58,12 @@ char	*ft_strtrim(const char *s1, const char *set)
 		set = "";
 	size = ft_trimmed_size(s1, set);
 	if (size == 0)
-	{
-		str = malloc(1);
-		*str = 0;
-		return (str);
-	}
-	str = malloc((size + 1) * sizeof(char));
+		return (ft_calloc(1, sizeof(char)));
+	str = ft_calloc(size + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	while (*s1 && ft_is_set(*s1, set))
 		s1++;
-	str[size] = 0;
 	while (size--)
 		str[size] = s1[size];
 	return (str);

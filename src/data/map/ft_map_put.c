@@ -6,18 +6,18 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:55:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/20 18:55:58 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:50:25 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/data/map.h>
-#include <stdlib.h>
+#include <ft/mem.h>
 
 static t_map_node	*ft_map_node_new(void *key, void *value)
 {
 	t_map_node	*node;
 
-	node = (t_map_node *)malloc(sizeof(t_map_node));
+	node = (t_map_node *)ft_calloc(1, sizeof(t_map_node));
 	if (!node)
 		return (NULL);
 	node->key = key;

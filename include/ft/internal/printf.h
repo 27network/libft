@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:25:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:42:25 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:47:26 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,31 @@
 #   undef FT_INTERNAL_ACCESS
 #  endif
 
+#  include <ft/mem.h>
+#  include <ft/print.h>
+#  include <ft/string/parse.h>
+#  include <ft/string.h>
 
-# include <ft/mem.h>
-# include <ft/print.h>
-# include <ft/string/parse.h>
-# include <ft/string.h>
+#  include <stdarg.h>
+#  include <unistd.h>
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+#  ifndef PF_FORMAT_SYMBOL
+#   define PF_FORMAT_SYMBOL "%" 
+#  endif // PF_FORMAT_SYMBOL
 
-# ifndef PF_FORMAT_SYMBOL
-#  define PF_FORMAT_SYMBOL "%" 
-# endif // PF_FORMAT_SYMBOL
+#  ifndef PF_FLAGS
+#   define PF_FLAGS "-0 #+"
+#  endif // PF_FLAGS
 
-# ifndef PF_FLAGS
-#  define PF_FLAGS "-0 #+"
-# endif // PF_FLAGS
+#  ifndef PF_SPECIFIERS
+#   define PF_SPECIFIERS "cfspdiuxX%nm"
+#  endif // PF_SPECIFIERS
 
-# ifndef PF_SPECIFIERS
-#  define PF_SPECIFIERS "cfspdiuxX%nm"
-# endif // PF_SPECIFIERS
-
-# define PF_LEFT_JUSTIFY	1  // (1 << 0)
-# define PF_ZERO_PAD		2  // (1 << 1)
-# define PF_SPACE			4  // (1 << 2)
-# define PF_HASH			8  // (1 << 3)
-# define PF_PLUS			16 // (1 << 4)
+#  define PF_LEFT_JUSTIFY	1  // (1 << 0)
+#  define PF_ZERO_PAD		2  // (1 << 1)
+#  define PF_SPACE			4  // (1 << 2)
+#  define PF_HASH			8  // (1 << 3)
+#  define PF_PLUS			16 // (1 << 4)
 
 typedef struct s_fmt_spec
 {

@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/03/04 19:56:50 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/03/22 18:56:23 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -254,7 +254,7 @@ all:			$(NAME) $(LIBSHARE)
 -include $(DEPS)
 
 $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
-	@ln -s $(OUTPUT_FOLDER)/$(NAME) $(NAME)
+	@ln -fs $(OUTPUT_FOLDER)/$(NAME) $(NAME)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"

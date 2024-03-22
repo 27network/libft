@@ -6,12 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:03:18 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/01 17:47:03 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:54:50 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ft/mem.h>
 #include <ft/string.h>
-#include <stdlib.h>
 
 static void	ft_fill_number(
 		char *str,
@@ -32,10 +32,9 @@ char	*ft_ulltoa_base(unsigned long long n, const char *base)
 
 	nbr = n;
 	nb_len = ft_ulllen_base(nbr, ft_strlen(base));
-	str = malloc((nb_len + 1) * sizeof(char));
+	str = ft_calloc(nb_len + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	str[nb_len] = 0;
 	ft_fill_number(str, base, nb_len, nbr);
 	return (str);
 }

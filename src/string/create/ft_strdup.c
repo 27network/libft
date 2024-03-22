@@ -6,12 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:23:35 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:47:22 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:50:06 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ft/mem.h>
 #include <ft/string.h>
-#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {
@@ -21,11 +21,8 @@ char	*ft_strdup(const char *s)
 	if (!s)
 		return (NULL);
 	len = ft_strlen(s);
-	buf = malloc((len + 1) * sizeof(char));
-	if (!buf)
-		return (NULL);
-	buf[len] = 0;
-	while (len--)
-		buf[len] = s[len];
+	buf = ft_calloc(len + 1, sizeof(char));
+	if (buf)
+		ft_memcpy(buf, s, len);
 	return (buf);
 }

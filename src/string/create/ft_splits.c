@@ -6,12 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 02:54:52 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:12:07 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:58:32 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ft/mem.h>
 #include <ft/string.h>
-#include <stdlib.h>
 
 static int	ft_is_charset(char c, const char *charset)
 {
@@ -56,9 +56,9 @@ static char	*ft_splitdup(const char *str, const char *charset)
 	length = 0;
 	while (str[length] && !ft_is_charset(str[length], charset))
 		length++;
-	dest = malloc(length + 1);
+	dest = ft_calloc(length + 1, sizeof(char));
 	orig_dest = dest;
-	if (dest != NULL)
+	if (dest)
 	{
 		while (*str && length)
 		{
@@ -67,7 +67,6 @@ static char	*ft_splitdup(const char *str, const char *charset)
 			str++;
 			length--;
 		}
-		*dest++ = '\0';
 	}
 	return (orig_dest);
 }
@@ -77,11 +76,8 @@ char	**ft_splits(const char *str, const char *charset)
 	char	**tab;
 	int		i;
 
-	tab = malloc((ft_count_words(str, charset) + 1) * sizeof(char *));
-	if (tab == NULL)
-		return (tab);
-	tab[ft_count_words(str, charset)] = NULL;
-	if (str == NULL || !*str)
+	tab = ft_calloc(ft_count_words(str, charset) + 1, sizeof(char *));
+	if (tab == NULL || str == NULL || !*str)
 		return (tab);
 	if (charset == NULL || !*charset)
 	{

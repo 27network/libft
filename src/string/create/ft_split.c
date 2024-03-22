@@ -6,12 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:58:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:20:04 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:59:13 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ft/mem.h>
 #include <ft/string.h>
-#include <stdlib.h>
 
 static int	ft_count_words(const char *str, char c)
 {
@@ -41,7 +41,7 @@ static char	*ft_splitdup(const char *str, char c)
 	length = 0;
 	while (str[length] && str[length] != c)
 		length++;
-	dest = malloc(length + 1);
+	dest = ft_calloc(length + 1, sizeof(char));
 	orig_dest = dest;
 	if (dest != NULL)
 	{
@@ -62,11 +62,8 @@ char	**ft_split(const char *str, char c)
 	char	**tab;
 	int		i;
 
-	tab = malloc((ft_count_words(str, c) + 1) * sizeof(char *));
-	if (tab == NULL)
-		return (tab);
-	tab[ft_count_words(str, c)] = NULL;
-	if (str == NULL || !*str)
+	tab = ft_calloc(ft_count_words(str, c) + 1, sizeof(char *));
+	if (tab == NULL || str == NULL || !*str)
 		return (tab);
 	i = 0;
 	while (*str)

@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 02:47:07 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:43:39 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:48:05 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ t_fmt_spec	*pf_parse_spec(const char *fmt_str, va_list args)
 	t_fmt_spec	*spec;
 	int			len;
 
-	spec = malloc(sizeof(t_fmt_spec));
+	spec = ft_calloc(1, sizeof(t_fmt_spec));
 	if (!spec)
 		return (NULL);
 	len = pf_spec_length(fmt_str);
