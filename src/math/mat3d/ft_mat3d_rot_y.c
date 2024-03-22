@@ -6,11 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 20:02:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:16 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:43:20 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/matrix.h>
+#include <math.h>
 
 t_mat3d	ft_mat3d_rot_y(double theta)
 {

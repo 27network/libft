@@ -6,10 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 01:34:12 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:32:54 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:45:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define FT_INTERNAL_ACCESS
 #include <ft/internal/printf.h>
 
 void	pf_append(char **dest, int dest_len, char *src, int src_len)

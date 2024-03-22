@@ -6,10 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 05:44:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:29:25 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:45:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define FT_INTERNAL_ACCESS
 #include <ft/internal/printf.h>
 
 char	*pf_strnjoin(char *s1, size_t n1, char *s2, size_t n2)

@@ -6,11 +6,12 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 21:10:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 21:24:19 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:45:13 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define _GNU_SOURCE
+#define FT_INTERNAL_ACCESS
 #include <ft/internal/printf.h>
 #include <string.h>
 #undef _GNU_SOURCE

@@ -6,10 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:22:28 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:32:55 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:45:13 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define FT_INTERNAL_ACCESS
 #include <ft/internal/printf.h>
 
 t_str	*pf_str_create(char *string, size_t length)

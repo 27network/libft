@@ -6,14 +6,17 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:49:57 by xtrm              #+#    #+#             */
-/*   Updated: 2023/11/17 03:17:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:38:27 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINT_H
 # define PRINT_H
+# undef PRINT_H
+# ifndef __FT_PRINT_H__
+#  define __FT_PRINT_H__
 
-# include <stdarg.h>
+#  include <stdarg.h>
 
 /* Standard printing */
 
@@ -41,4 +44,5 @@ int				ft_vasprintf(char **str_ptr, const char *format, va_list args);
 char			*ft_format(const char *format, ...);
 char			*ft_vformat(const char *format, va_list args);
 
-#endif
+# endif // __FT_PRINT_H__
+#endif // PRINT_H

@@ -6,12 +6,23 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:25:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/03 08:38:06 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:42:25 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
+# undef PRINTF_H
+# ifndef __FT_INTERNAL_PRINTF_H__
+#  define __FT_INTERNAL_PRINTF_H__
+
+#  ifndef FT_INTERNAL_ACCESS
+#   error "This file should not be included directly, \
+	please include <ft/print.h> instead."
+#  else
+#   undef FT_INTERNAL_ACCESS
+#  endif
+
 
 # include <ft/mem.h>
 # include <ft/print.h>
@@ -116,4 +127,5 @@ char		*pf_prepend_sign(t_fmt_spec *spec, char *str, int neg);
 char		*pf_strnjoin(char *s1, size_t n1, char *s2, size_t n2);
 void		pf_append(char **dest, int dest_len, char *src, int src_len);
 
+# endif // __FT_INTERNAL_PRINTF_H__
 #endif // PRINTF_H

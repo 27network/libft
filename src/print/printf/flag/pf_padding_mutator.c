@@ -6,10 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 04:16:21 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:32:56 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:45:14 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define FT_INTERNAL_ACCESS
 #include <ft/internal/printf.h>
 
 char	*pf_padding_mutator(t_fmt_spec *spec, char *str)

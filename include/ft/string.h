@@ -6,14 +6,17 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:06:43 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/23 00:14:17 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:38:27 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_H
 # define STRING_H
+# undef STRING_H
+# ifndef __FT_STRING_H__
+#  define __FT_STRING_H__
 
-# include <stddef.h>
+#  include <stddef.h>
 
 size_t			ft_strlen(const char *s);
 size_t			ft_lllen(long long n);
@@ -73,4 +76,5 @@ void			ft_striteri(const char *s,
 int				ft_strany(const char *s, int (*f)(char));
 int				ft_strall(const char *s, int (*f)(char));
 
-#endif
+# endif // __FT_STRING_H__
+#endif // STRING_H

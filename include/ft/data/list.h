@@ -6,14 +6,17 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:07:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/04 19:47:35 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:39:57 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
+# undef LIST_H
+# ifndef __FT_DATA_LIST_H__
+#  define __FT_DATA_LIST_H__
 
-# include <stddef.h>
+#  include <stddef.h>
 
 typedef struct s_list
 {
@@ -45,4 +48,5 @@ void			ft_lst_foreach(t_list *lst, void (*f)(void *));
 t_list			*ft_lst_map(t_list *lst, void *(*f)(void *),
 					t_lst_dealloc dealloc);
 
-#endif
+# endif // __FT_DATA_LIST_H__
+#endif // LIST_H

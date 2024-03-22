@@ -6,10 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/24 23:08:37 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:42:44 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define FT_INTERNAL_ACCESS
 #include <ft/internal/gnl.h>
 
 static int	handle_read(t_gnl *gnl, char *read_buffer, ssize_t read_bytes)

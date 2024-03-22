@@ -6,10 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:17:57 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:32:55 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:45:13 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define FT_INTERNAL_ACCESS
 #include <ft/internal/printf.h>
 
 char	*pf_format_percent(t_fmt_spec *spec, va_list args)
