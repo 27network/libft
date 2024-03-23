@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/03/22 18:56:23 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/03/23 03:50:50 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -223,19 +223,10 @@ RM				= 	rm -rf
 
 # Pretty stuff
 
-_END=\033[0m
-_BOLD=\033[1m
-_UNDER=\033[4m
-_REV=\033[7m
-_GREY=\033[30m
-_LIGHT_GREY=\033[37m
-_RED=\033[31m
-_GREEN=\033[32m
-_YELLOW=\033[33m
-_BLUE=\033[34m
-_PURPLE=\033[35m
-_CYAN=\033[36m
-_WHITE=\033[37m
+TPUT			=	tput -Txterm-256color
+_END			=	$(shell $(TPUT) sgr0)
+_BOLD			=	$(shell $(TPUT) bold)
+_GRAY			=	$(shell $(TPUT) setaf 8)
 
 _TOTAL			=	$(words $(SRC_FILES))
 _TOTAL_LEN		=	$(shell printf $(_TOTAL) | wc -m)
@@ -285,12 +276,13 @@ test:
 
 clean:
 	@$(RM) $(OBJ_CACHE)
-	@printf "🧹 $(_BOLD)Cleaned libft $(_END)(./$(OBJ_CACHE))\n"
+	@printf "🧹 Cleaned $(_BOLD)libft$(_END) $(_GRAY)(./$(OBJ_CACHE))$(_END)\n"
 
+# 🤓 yes it should depend on `clean` but fuck you it makes my output nicer
 fclean:
 	@$(RM) $(BUILD_FOLDER)
 	@$(RM) $(LIBSHARE)
-	@printf "🧹 $(_BOLD)Cleaned libft $(_END)(./$(BUILD_FOLDER))\n"
+	@printf "🧹 Cleaned $(_BOLD)libft$(_END) $(_GRAY)(./$(BUILD_FOLDER))$(_END)\n"
 
 re:				fclean all
 
