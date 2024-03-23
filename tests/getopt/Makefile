@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/20 14:41:45 by kiroussa          #+#    #+#              #
-#    Updated: 2024/03/11 08:35:15 by kiroussa         ###   ########.fr        #
+#    Created: 2024/03/23 14:15:28 by kiroussa          #+#    #+#              #
+#    Updated: 2024/03/23 14:15:45 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TEST_NAME = wide-char 
-SRC = compare.c 
+TEST_NAME = getopt 
+SRC = getopt.c getopt_long.c getopt_long_only.c
 
 include ../common.mk

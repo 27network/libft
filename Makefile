@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/03/23 14:40:24 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/03/23 14:40:42 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,9 +79,6 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 				   	mem/ft_memcpy.c \
 				   	mem/ft_memmove.c \
 				   	mem/ft_memset.c \
-					opt/ft_getopt.c \
-					opt/ft_opt_arg.c \
-					opt/ft_opt_globals.c \
 					print/printf/flag/pf_hash_mutator.c \
 					print/printf/flag/pf_leftjustify_mutator.c \
 					print/printf/flag/pf_padding_mutator.c \
@@ -177,9 +174,7 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/xtoa/ft_lltoa_base.c \
 					string/xtoa/ft_ulltoa.c \
 					string/xtoa/ft_ulltoa_base.c \
-					string/ft_strdel.c \
-					wchar/ft_mbtowc.c \
-					wchar/ft_multibyte_bittab.c
+					string/ft_strdel.c
 
 SRC_FOLDER		= 	src
 SRC_FILES		:= 	$(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
