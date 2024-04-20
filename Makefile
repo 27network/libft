@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/04/10 16:08:03 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/04/20 18:52:24 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,10 +57,14 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					math/vec3d/ft_vec3d.c \
 					math/vec3d/ft_vec3d_add.c \
 					math/vec3d/ft_vec3d_clone.c \
+					math/vec3d/ft_vec3d_cross.c \
 					math/vec3d/ft_vec3d_div.c \
+					math/vec3d/ft_vec3d_dot.c \
 					math/vec3d/ft_vec3d_eq.c \
+					math/vec3d/ft_vec3d_len.c \
 					math/vec3d/ft_vec3d_mult.c \
 					math/vec3d/ft_vec3d_mult_mat3d.c \
+					math/vec3d/ft_vec3d_norm.c \
 					math/vec3d/ft_vec3d_sub.c \
 					math/vec3d/ft_vec3d_to_vec2i.c \
 					math/ft_abs.c \
