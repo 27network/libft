@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:04:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/04/10 16:06:56 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:18:21 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ DEFINE_TEST(simpleuse, "Can create and use an arena entirely", {
 
 	ptr = ft_arena_alloc(arena, 1024);
 	ASSERT_NEQ(ptr, NULL);
+	ASSERT_EQ(arena->offset, 1024);
+
+	ptr = ft_arena_alloc(arena, 1);
+	ASSERT_EQ(ptr, NULL);
 	ASSERT_EQ(arena->offset, 1024);
 
 	ft_arena_clear(arena);

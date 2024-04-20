@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:25:49 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:47:26 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:41:40 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 #  endif // PF_FLAGS
 
 #  ifndef PF_SPECIFIERS
-#   define PF_SPECIFIERS "cfspdiuxX%nm"
+#   define PF_SPECIFIERS "cfspdiuxX%nmS"
 #  endif // PF_SPECIFIERS
 
 #  define PF_LEFT_JUSTIFY	1  // (1 << 0)
@@ -80,6 +80,7 @@ char		*pf_format_int(t_fmt_spec *spec, va_list args);
 char		*pf_format_percent(t_fmt_spec *spec, va_list args);
 char		*pf_format_pointer(t_fmt_spec *spec, va_list args);
 char		*pf_format_string(t_fmt_spec *spec, va_list args);
+char		*pf_format_string_slice(t_fmt_spec *spec, va_list args);
 char		*pf_format_uint(t_fmt_spec *spec, va_list args);
 
 char		*pf_format_lenptr(t_fmt_spec *spec, va_list args);
@@ -98,6 +99,10 @@ char		*pf_precision_mutator_int(t_fmt_spec *spec, char *str);
 
 /* String */
 
+/**
+ * @deprecated	this should be refactored to a string slice,
+ *				see <ft/string/slice.h>.
+ */
 typedef struct s_str
 {
 	char	*inner;

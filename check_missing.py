@@ -62,3 +62,4 @@ if len(missing_files) != 0 or len(missing_files_in_hierarchy) != 0:
     sys.exit(1)
 
 sys.exit(0)
+
