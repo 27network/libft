@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:13:54 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 14:39:24 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:41:45 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define __TEST_H__
 
 #include <libft.h>
+#include <ft/colors.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>

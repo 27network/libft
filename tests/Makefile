@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 14:44:19 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/08 14:36:48 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/08 15:41:08 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ TESTS := $(foreach dir,$(TESTS),$(shell dirname $(dir)))
 MAKE = make -i --no-print-directory
 
 LIBFT_DIR = ..
-LIBFT = $(LIBFT_DIR)/build/output/libft.so
+LIBFT = $(LIBFT_DIR)/build/output/libft.a
 USE_VALGRIND = 0
 
 all:  $(TESTS)
