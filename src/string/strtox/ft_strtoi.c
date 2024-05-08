@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 02:08:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/22 02:13:53 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:31:36 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ft/string.h>
 #include <limits.h>
 
-t_parseerr	ft_strtoi(const char *str, int *result)
+t_str_parseerr	ft_strtoi(const char *str, int *result)
 {
 	int			sign;
 	long long	num;

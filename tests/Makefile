@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 14:44:19 by kiroussa          #+#    #+#              #
-#    Updated: 2024/02/22 06:15:48 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/08 14:36:48 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ LIBFT = $(LIBFT_DIR)/build/output/libft.so
 USE_VALGRIND = 0
 
 all:  $(TESTS)
+	@printf "\nFinished running tests\n"
 
 $(TESTS): $(LIBFT)
 	@printf "> \033[1;34m%s\033[m\n" $@

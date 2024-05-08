@@ -6,12 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:04:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/04/10 16:06:56 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:37:58 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
-#include <ft/mem/arena.h>
 
 DEFINE_TEST(simpleuse, "Can create and use an arena entirely", {
 	t_arena *arena = ft_arena_new(1024);

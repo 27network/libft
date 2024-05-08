@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 23:29:28 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:32:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:39:08 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 #  define BLUE			"\033[34m"
 #  define MAGENTA		"\033[35m"
 #  define CYAN			"\033[36m"
-#  define DARK_GRAY		"\033[90m"
 #  define GRAY			"\033[37m"
+#  define DARK_GRAY		"\033[90m"
 #  define WHITE			"\033[38m"
 
 /* Background colors */
@@ -46,8 +46,8 @@
 #  define BG_BLUE		"\033[44m"
 #  define BG_MAGENTA	"\033[45m"
 #  define BG_CYAN		"\033[46m"
-#  define BG_DARK_GRAY	"\033[100m"
 #  define BG_GRAY		"\033[47m"
+#  define BG_DARK_GRAY	"\033[100m"
 #  define BG_WHITE		"\033[107m"
 
 /* Bold foreground colors */

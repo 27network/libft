@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:51:35 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/22 10:23:44 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:31:42 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	ft_get_index(char c, const char *base)
 	return (-1);
 }
 
-static t_parseerr	ft_check_args(const char *str, const char *base)
+static t_str_parseerr	ft_check_args(const char *str, const char *base)
 {
 	if (!str || !*str)
 		return (PARSE_EMPTY);
@@ -64,11 +64,11 @@ static t_parseerr	ft_check_args(const char *str, const char *base)
 	return (PARSE_SUCCESS);
 }
 
-t_parseerr	ft_strtoi_base(const char *str, const char *base, int *result)
+t_str_parseerr	ft_strtoi_base(const char *str, const char *base, int *result)
 {
-	int			sign;
-	long long	num;
-	t_parseerr	err;
+	int				sign;
+	long long		num;
+	t_str_parseerr	err;
 
 	sign = 1;
 	num = 0;
