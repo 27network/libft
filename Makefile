@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/08 01:03:02 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/08 15:25:02 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,6 +148,7 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/create/ft_strdup.c \
 					string/create/ft_strdup_range.c \
 					string/create/ft_strjoin.c \
+					string/create/ft_strjoins.c \
 					string/create/ft_strmapi.c \
 					string/create/ft_strndup.c \
 					string/create/ft_strnew.c \
@@ -249,6 +250,8 @@ _CURRENT_DEPS	=	0
 #
 
 all:			$(NAME) $(LIBSHARE)
+
+bonus:			$(NAME) $(LIBSHARE)
 
 -include $(DEPS)
 

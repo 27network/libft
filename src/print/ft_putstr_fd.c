@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:17:33 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/03 06:27:16 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:13:30 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ft/string.h>
 #include <unistd.h>
 
-void	ft_putstr_fd(int fd, const char *s)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	if (!s)
 		s = "(null)";

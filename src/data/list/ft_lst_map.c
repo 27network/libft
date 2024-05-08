@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:12:40 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/12 20:15:46 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:51:10 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,6 @@ t_list	*ft_lst_map(t_list *lst, void *(*f)(void *), t_lst_dealloc dealloc)
 	}
 	return (new);
 }
+
+void	ft_lstmap(t_list **lst, void *(*f)(void *), t_lst_dealloc dealloc)
+		__attribute__((weak, alias("ft_lst_map")));

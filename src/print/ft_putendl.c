@@ -6,7 +6,7 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:22:12 by xtrm              #+#    #+#             */
-/*   Updated: 2023/11/17 02:54:22 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:14:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 
 void	ft_putendl(const char *str)
 {
-	ft_putendl_fd(STDOUT_FILENO, str);
+	ft_putendl_fd(str, STDOUT_FILENO);
 }

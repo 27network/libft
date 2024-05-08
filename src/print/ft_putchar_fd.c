@@ -6,14 +6,14 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:17:06 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/03 06:27:15 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:13:17 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/print.h>
 #include <unistd.h>
 
-void	ft_putchar_fd(int fd, char c)
+void	ft_putchar_fd(char c, int fd)
 {
 	if (fd >= 0)
 		(void)write(fd, &c, 1);

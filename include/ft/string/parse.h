@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:00:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 14:30:43 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:07:23 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ long long			ft_atoll(const char *str);
 
 unsigned long long	ft_atoull(const char *str);
 // t_parseerr		ft_strtoull(const char *str, unsigned long long *result);
+
+char				*ft_itoa(int i);
+char				*ft_itoa_base(int i, const char *base);
 
 char				*ft_lltoa(long long i);
 char				*ft_lltoa_base(long long i, const char *base);

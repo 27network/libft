@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:03:10 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/12 20:15:34 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:26:29 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ t_list	*ft_lst_add(t_list **lstptr, t_list *new)
 		prev->next = new;
 	}
 	return (*lstptr);
+}
+
+void	ft_lstadd_back(t_list **lstptr, t_list *new)
+{
+	(void) ft_lst_add(lstptr, new);
 }

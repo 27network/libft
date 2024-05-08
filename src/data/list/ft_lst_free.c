@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lst_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:08:01 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/12 19:10:04 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:50:19 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,6 @@ void	ft_lst_free(t_list **lst, t_lst_dealloc dealloc)
 	}
 	*lst = NULL;
 }
+
+void	ft_lstclear(t_list **lst, t_lst_dealloc dealloc)
+		__attribute__((weak, alias("ft_lst_free")));

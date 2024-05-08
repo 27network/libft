@@ -6,7 +6,7 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:23:24 by xtrm              #+#    #+#             */
-/*   Updated: 2023/11/17 02:53:46 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:30:37 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 
 void	ft_putnbr(long long n)
 {
-	ft_putnbr_fd(STDOUT_FILENO, n);
+	ft_putnbr_fd(n, STDOUT_FILENO);
 }

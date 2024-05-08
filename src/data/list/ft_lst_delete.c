@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lst_delete.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:07:22 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/12 20:10:24 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:50:03 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,6 @@ void	ft_lst_delete(t_list *lst, t_lst_dealloc dealloc)
 		dealloc(lst->content);
 	free(lst);
 }
+
+void	ft_lstdelone(t_list *lst, t_lst_dealloc dealloc)
+		__attribute__((weak, alias("ft_lst_delete")));

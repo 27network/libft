@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:07:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:39:57 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:18:55 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,21 @@ void			ft_lst_delete(t_list *list, t_lst_dealloc dealloc);
 void			ft_lst_foreach(t_list *lst, void (*f)(void *));
 t_list			*ft_lst_map(t_list *lst, void *(*f)(void *),
 					t_lst_dealloc dealloc);
+
+#  ifdef __FT_LIBFT_COMPAT__
+
+t_list			*ft_lstnew(void *content);
+void			ft_lstadd_front(t_list **lstptr, t_list *new);
+int				ft_lstsize(t_list *lst);
+t_list			*ft_lstlast(t_list *lst);
+void			ft_lstadd_back(t_list **lstptr, t_list *new);
+void			ft_lstdelone(t_list *lst, t_lst_dealloc dealloc);
+void			ft_lstclear(t_list **lstptr, t_lst_dealloc dealloc);
+void			ft_lstiter(t_list *lst, void (*f)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					t_lst_dealloc dealloc);
+
+#  endif // __FT_LIBFT_COMPAT__
 
 # endif // __FT_DATA_LIST_H__
 #endif // LIST_H

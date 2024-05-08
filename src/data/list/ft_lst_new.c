@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lst_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 22:55:46 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/12 19:08:43 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:48:11 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,6 @@ t_list	*ft_lst_new(void *content)
 	elem->next = NULL;
 	return (elem);
 }
+
+t_list	*ft_lstnew(void *content)
+		__attribute__((weak, alias("ft_lst_new")));

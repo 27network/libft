@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:03:18 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:55:18 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:08:34 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,6 @@ char	*ft_lltoa_base(long long n, const char *base)
 		ft_fill_number(str, base, nb_len, nbr);
 	return (str);
 }
+
+char	*ft_itoa_base(int n, const char *base)
+			__attribute__((weak, alias("ft_lltoa_base")));

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lst_foreach.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:11:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/12 20:10:38 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:50:38 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,6 @@ void	ft_lst_foreach(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+		__attribute__((weak, alias("ft_lst_foreach")));

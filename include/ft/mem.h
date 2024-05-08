@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:36:30 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:38:27 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:54:06 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 
 void			*ft_calloc(size_t nelem, size_t elsize);
 
-#  ifndef FT_MEM_NO_EXTERNS
+#  ifndef __FT_MEM_NO_EXTERNS__
 
 extern void		free(void *ptr);
 
-#  endif // FT_MEM_NO_EXTERNS
+#  endif // __FT_MEM_NO_EXTERNS__
 
 # endif // __FT_MEM_H__
 #endif // MEM_H
