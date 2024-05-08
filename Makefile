@@ -6,13 +6,14 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/08 15:25:02 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/08 15:40:06 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBNAME			=	ft
-LIBSHARE		= 	lib$(LIBNAME).so
-NAME			= 	$(LIBSHARE)
+NAME			= 	lib$(LIBNAME)
+LIBSHARE		= 	$(NAME).so
+LIBSTATIC		= 	$(NAME).a
 
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
@@ -249,18 +250,27 @@ _CURRENT_DEPS	=	0
 # Rules
 #
 
-all:			$(NAME) $(LIBSHARE)
+all:			$(NAME)
 
-bonus:			$(NAME) $(LIBSHARE)
+bonus:			$(NAME)
 
 -include $(DEPS)
 
-$(NAME):		$(OUTPUT_FOLDER)/$(NAME)
-	@ln -fs $(OUTPUT_FOLDER)/$(NAME) $(NAME)
+$(NAME):		$(LIBSHARE) $(LIBSTATIC)
+
+$(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
+	@ln -fs $(OUTPUT_FOLDER)/$(LIBSHARE) $(LIBSHARE)
+
+$(LIBSTATIC):	$(OUTPUT_FOLDER)/$(LIBSTATIC)
+	@ln -fs $(OUTPUT_FOLDER)/$(LIBSTATIC) $(LIBSTATIC)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
-	@$(CC) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LDFLAGS)
+	@$(CC) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LDFLAGS)
+
+$(OUTPUT_FOLDER)/$(LIBSTATIC):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
+	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
+	@$(AR) $(OUTPUT_FOLDER)/$(LIBSTATIC) $(OBJ_CACHE_FILES)
 
 $(OBJ_CACHE)/%.o:	$(SRC_FOLDER)/%.c
 	@mkdir -p $(dir $@)
@@ -293,6 +303,7 @@ clean:
 fclean:
 	@$(RM) $(BUILD_FOLDER)
 	@$(RM) $(LIBSHARE)
+	@$(RM) $(LIBSTATIC)
 	@printf "🧹 Cleaned $(_BOLD)libft$(_END) $(_GRAY)(./$(BUILD_FOLDER))$(_END)\n"
 
 re:				fclean all
