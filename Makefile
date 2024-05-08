@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/04/20 18:52:24 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/08 01:03:02 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -210,20 +210,20 @@ endif
 ifeq ($(HOST),komet)
 	ARCH		=	znver2
 endif
-COPTS			= 	-march=$(ARCH) -fomit-frame-pointer -ftree-vectorize -ffast-math -fno-semantic-interposition -funroll-loops -funsafe-math-optimizations -funwind-tables -fstrict-enums -fsplit-lto-unit -fvectorize -fsave-optimization-record -foptimization-record-file=$@.yml -pipe -fPIC -I $(INCLUDE_DIR)
+COPTS			= 	-march=$(ARCH) -ftree-vectorize -ffast-math -fno-semantic-interposition -funroll-loops -funsafe-math-optimizations -funwind-tables -fstrict-enums -fsplit-lto-unit -fvectorize -fsave-optimization-record -foptimization-record-file=$@.yml -pipe -fPIC -I $(INCLUDE_DIR)
 
 # fuck nix apparently
 ifneq ($(HOST),komet)
 	COPTS		+=	-flto=full
 endif
 
-LD_FLAGS		=	-lm
+LDFLAGS		=	-lm
 ifneq (, $(shell which mold))
-	LD_FLAGS	+= 	-fuse-ld=mold
+	LDFLAGS		+= 	-fuse-ld=mold
 endif
 
 ifneq ($(DEBUG), 1)
-	LD_FLAGS	+=	-Wl,-s
+	LDFLAGS		+=	-Wl,-s
 endif
 
 AR				= 	ar rcs
@@ -257,7 +257,7 @@ $(NAME):		$(OUTPUT_FOLDER)/$(NAME)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
-	@$(CC) $(CFLAGS) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LD_FLAGS)
+	@$(CC) $(COPTS) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LDFLAGS)
 
 $(OBJ_CACHE)/%.o:	$(SRC_FOLDER)/%.c
 	@mkdir -p $(dir $@)
