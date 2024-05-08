@@ -2,4 +2,5 @@
 build/
 docs/output/
 libft.so
+libft.a
 libftTester
