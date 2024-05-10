@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:14:09 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/26 15:15:29 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:47:23 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_strcmp(const char *s1, const char *s2)
 		s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+	return ((unsigned char) *s1 - (unsigned char) *s2);
 }

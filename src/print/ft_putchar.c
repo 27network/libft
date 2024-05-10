@@ -6,7 +6,7 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:17:40 by xtrm              #+#    #+#             */
-/*   Updated: 2023/11/17 02:52:43 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:43:55 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 
 void	ft_putchar(char c)
 {
-	ft_putchar_fd(STDOUT_FILENO, c);
+	ft_putchar_fd(c, STDOUT_FILENO);
 }
