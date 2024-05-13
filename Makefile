@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/08 15:42:03 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/13 18:00:08 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -223,6 +223,7 @@ ifneq ($(DEBUG), 1)
 	LDFLAGS		+=	-Wl,-s
 endif
 
+MAKE			=	make --no-print-directory
 AR				= 	ar rcs
 RM				= 	rm -rf
 
@@ -247,7 +248,8 @@ _CURRENT_DEPS	=	0
 
 all:			$(NAME)
 
-bonus:			$(NAME)
+bonus:
+	@$(MAKE) all # TODO: fix
 
 -include $(DEPS)
 
