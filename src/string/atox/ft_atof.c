@@ -6,16 +6,17 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:24:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/17 03:20:09 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:13:56 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ft/math.h>
 #include <ft/string/parse.h>
 #include <ft/string.h>
 
-static float	after_dot_part(const char *nptr)
+static double	after_dot_part(const char *nptr)
 {
-	float	res;
+	double	res;
 	int		mult;
 
 	res = 0;
@@ -28,9 +29,9 @@ static float	after_dot_part(const char *nptr)
 	return (res * mult);
 }
 
-float	ft_atof(const char *nptr)
+double	ft_atof(const char *nptr)
 {
-	float	res;
+	double	res;
 	int		mult;
 
 	res = 0;
@@ -44,5 +45,7 @@ float	ft_atof(const char *nptr)
 		res = res * 10 + (*nptr++ - '0');
 	if (*nptr == '.')
 		res += after_dot_part(++nptr);
+	if (*nptr == 'e' || *nptr == 'E')
+		res *= ft_pow(10, ft_atoi(++nptr));
 	return (res * mult);
 }

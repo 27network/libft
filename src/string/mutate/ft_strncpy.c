@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 02:30:27 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:30:33 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:08:06 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char	*dest_cpy;
+	char	*orig_dest;
 
-	dest_cpy = dest;
-	while (*src && n--)
-		*dest_cpy++ = *src++;
+	orig_dest = dest;
+	while (*src && n)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		n--;
+	}
 	while (n--)
-		*dest_cpy++ = '\0';
-	return (dest);
+		*dest++ = '\0';
+	return (orig_dest);
 }
