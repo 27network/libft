@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/13 18:00:08 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/17 18:09:20 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ LIBNAME			=	ft
 NAME			= 	lib$(LIBNAME)
 LIBSHARE		= 	$(NAME).so
 LIBSTATIC		= 	$(NAME).a
+
+NO_LOG			?=	0
 
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
@@ -180,6 +182,7 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/query/ft_ulllen_base.c \
 					string/strtox/ft_strtoi.c \
 					string/strtox/ft_strtoi_base.c \
+					string/strtox/ft_strtoll.c \
 					string/xtoa/ft_lltoa.c \
 					string/xtoa/ft_lltoa_base.c \
 					string/xtoa/ft_ulltoa.c \
@@ -249,7 +252,7 @@ _CURRENT_DEPS	=	0
 all:			$(NAME)
 
 bonus:
-	@$(MAKE) all # TODO: fix
+	@$(MAKE)
 
 -include $(DEPS)
 
@@ -262,19 +265,25 @@ $(LIBSTATIC):	$(OUTPUT_FOLDER)/$(LIBSTATIC)
 	@ln -fs $(OUTPUT_FOLDER)/$(LIBSTATIC) $(LIBSTATIC)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
+ifeq ($(NO_LOG), 0)
+	@printf "\033[2K\r(100%%) $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
+endif
 	@$(CC) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LDFLAGS)
 
 $(OUTPUT_FOLDER)/$(LIBSTATIC):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
-	@printf "\033[2K\r[100%%] $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
+ifeq ($(NO_LOG), 0)
+	@printf "\033[2K\r(100%%) $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
+endif
 	@$(AR) $(OUTPUT_FOLDER)/$(LIBSTATIC) $(OBJ_CACHE_FILES)
 
 $(OBJ_CACHE)/%.o:	$(SRC_FOLDER)/%.c
 	@mkdir -p $(dir $@)
 	@mkdir -p $(dir $(DEPS_FOLDER)/$*)
+ifeq ($(NO_LOG), 0)
 	$(eval _CURRENT=$(shell echo $$(($(_CURRENT)+1))))
 	$(eval _PERCENTAGE=$(shell echo $$(($(_CURRENT)*100/$(_TOTAL)))))
-	@printf "\033[2K\r[$(shell printf "% 3s" "$(_PERCENTAGE)")%%] $(shell printf "%*d/%d" $(_TOTAL_LEN) $(_CURRENT) $(_TOTAL)) Compiling $<\r"
+	@printf "\033[2K\r($(shell printf "% 3s" "$(_PERCENTAGE)")%%) $(shell printf "%*d/%d" $(_TOTAL_LEN) $(_CURRENT) $(_TOTAL)) Compiling $<\r"
+endif
 	@$(CC) $(DFLAGS) $(CFLAGS) $(COPTS) -c $< -o $@
 	@# dumb fixes, see https://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
 	@mv -f $(DEPS_FOLDER)/$*.tmp.d $(DEPS_FOLDER)/$*.d
@@ -294,15 +303,20 @@ test:
 
 clean:
 	@$(RM) $(OBJ_CACHE)
+ifeq ($(NO_LOG), 0)
 	@printf "🧹 Cleaned $(_BOLD)libft$(_END) $(_GRAY)(./$(OBJ_CACHE))$(_END)\n"
+endif
 
-# 🤓 yes it should depend on `clean` but fuck you it makes my output nicer
+# 🤓 yes it should depend on `clean` but it makes my output nicer so i don't care.
 fclean:
 	@$(RM) $(BUILD_FOLDER)
 	@$(RM) $(LIBSHARE)
 	@$(RM) $(LIBSTATIC)
+ifeq ($(NO_LOG), 0)
 	@printf "🧹 Cleaned $(_BOLD)libft$(_END) $(_GRAY)(./$(BUILD_FOLDER))$(_END)\n"
+endif
 
-re:				fclean all
+re:				fclean
+	@$(MAKE) -j$(shell nproc)
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re doc test bonus

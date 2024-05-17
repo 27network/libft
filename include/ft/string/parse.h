@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:00:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/10 19:13:04 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/17 04:06:31 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,8 @@ unsigned int		ft_atoui(const char *str);
 double				ft_atof(const char *str);
 // t_parseerr		ft_strtof(const char *str, float *result);
 
-double				ft_atod(const char *str);
-// t_parseerr		ft_strtod(const char *str, double *result);
-
-long double			ft_atold(const char *str);
-// t_parseerr		ft_strtold(const char *str, long double *result);
-
 long long			ft_atoll(const char *str);
-// t_parseerr		ft_strtoll(const char *str, long long *result);
+t_str_parseerr		ft_strtoll(const char *str, long long *result);
 
 unsigned long long	ft_atoull(const char *str);
 // t_parseerr		ft_strtoull(const char *str, unsigned long long *result);
