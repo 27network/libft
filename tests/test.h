@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:13:54 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 15:41:45 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/19 03:27:04 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void ft_register_test(const char *file_name, const char *description, testfuncti
 // define the name as the name of the file
 #define DEFINE_TEST(unique_fct_name, description, impl) \
 	char *unique_fct_name(void); \
-	static void __attribute__((constructor)) __##unique_fct_name(void) { \
+	static void __attribute__((constructor)) __cxnstructor__##unique_fct_name(void) { \
 		ft_register_test(__FILE__, description, unique_fct_name); \
 	} \
 	char *unique_fct_name(void) { \
