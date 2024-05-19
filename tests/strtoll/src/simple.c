@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:04:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/19 03:26:04 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/19 03:57:58 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,13 @@ DEFINE_TEST(ddoverflow, "Detects overflow", {
 
 	err = ft_strtoll("9223372036854775809", &result);
 	ASSERT(err == PARSE_TOO_BIG);
+
+	for (int i = 5810; i < 9999; i++) {
+		char buf[100];
+		sprintf(buf, "922337203685477%d", i);
+		err = ft_strtoll(buf, &result);
+		ASSERT(err == PARSE_TOO_BIG);
+	}
 });
 
 DEFINE_TEST(underflow, "Detects underflow", {
@@ -96,4 +103,11 @@ DEFINE_TEST(underflow, "Detects underflow", {
 
 	err = ft_strtoll("-9223372036854775810", &result);
 	ASSERT(err == PARSE_TOO_SMALL);
+
+	for (int i = 5811; i < 9999; i++) {
+		char buf[100];
+		sprintf(buf, "-922337203685477%d", i);
+		err = ft_strtoll(buf, &result);
+		ASSERT(err == PARSE_TOO_SMALL);
+	}
 });

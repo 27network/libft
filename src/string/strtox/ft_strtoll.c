@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 02:08:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/19 03:24:00 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/19 03:55:48 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,57 @@
 #include <ft/string.h>
 #include <limits.h>
 
-static t_str_parseerr	fill_result(long long *res, const char *str, int sign)
+static t_str_parseerr	check_overflow(long long old, long long new,
+							int sign, int digit)
 {
-	int			digit;
-	long long	max_possible;
-	long long	old_value;
+	t_str_parseerr	err;
+	long long		max_old_allowed;
 
-	while (ft_isdigit(*str))
+	(void)digit;
+	err = PARSE_SUCCESS;
+	if (sign == 1 && new < old)
+		err = PARSE_TOO_BIG;
+	if (sign == -1 && new > old)
+		err = PARSE_TOO_SMALL;
+	if (sign == 1)
+		max_old_allowed = (LLONG_MAX - digit) / 10;
+	else
+		max_old_allowed = (LLONG_MIN + digit) / 10;
+	if (sign == 1 && old > max_old_allowed)
+		err = PARSE_TOO_BIG;
+	if (sign == -1 && old < max_old_allowed)
+		err = PARSE_TOO_SMALL;
+	return (err);
+}
+
+static t_str_parseerr	fill_result(long long *res, const char *str,
+							int sign)
+{
+	int				digit;
+	long long		old_value;
+	int				go_negative;
+	t_str_parseerr	err;
+
+	go_negative = 0;
+	err = PARSE_SUCCESS;
+	while (err == PARSE_SUCCESS && ft_isdigit(*str))
 	{
 		digit = *str++ - '0';
-		max_possible = LLONG_MAX / 10 - digit;
-		if (*res > max_possible && sign == 1)
-			return (PARSE_TOO_BIG);
-		if (*res > max_possible + 1 && sign == -1)
-			return (PARSE_TOO_SMALL);
 		old_value = *res;
-		*res = *res * 10 + digit;
-		if (*res < old_value && sign == 1)
-			return (PARSE_TOO_BIG);
-		if (*res < old_value && sign == -1)
-			return (PARSE_TOO_SMALL);
+		if (go_negative)
+			*res = *res * 10 - digit;
+		else
+			*res = *res * 10 + digit;
+		if (sign == -1 && go_negative == 0 && ++go_negative)
+		{
+			old_value *= sign;
+			*res *= sign;
+		}
+		err = check_overflow(old_value, *res, sign, digit);
 	}
 	if (*str)
 		return (PARSE_NOT_NUMBER);
-	return (PARSE_SUCCESS);
+	return (err);
 }
 
 t_str_parseerr	ft_strtoll(const char *str, long long *result)
@@ -59,8 +86,6 @@ t_str_parseerr	ft_strtoll(const char *str, long long *result)
 	err = fill_result(&num, str, sign);
 	if (err != PARSE_SUCCESS)
 		return (err);
-	if (num == LLONG_MIN && sign == -1)
-		return (PARSE_TOO_SMALL);
-	*result = num * sign;
+	*result = num;
 	return (PARSE_SUCCESS);
 }
