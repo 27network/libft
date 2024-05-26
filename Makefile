@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/26 20:16:38 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/26 20:39:29 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -285,10 +285,8 @@ $(NAME):		$(LIBSHARE) $(LIBSTATIC)
 	@printf "🚀 Built $(_BOLD)libft$(_END) $(_GRAY)(./$(BUILD_FOLDER))$(_END)\n"
 
 $(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
-	$(HIDE)ln -fs $(OUTPUT_FOLDER)/$(LIBSHARE) $(LIBSHARE)
 
 $(LIBSTATIC):	$(OUTPUT_FOLDER)/$(LIBSTATIC)
-	$(HIDE)ln -fs $(OUTPUT_FOLDER)/$(LIBSTATIC) $(LIBSTATIC)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 ifeq ($(NO_LOG), 0)

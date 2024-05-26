@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:13:54 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/26 18:28:34 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/26 20:40:15 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <libft.h>
 #include <ft/colors.h>
-#include <ft/getopt.h>
-#include <ft/wchar.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>

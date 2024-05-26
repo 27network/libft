@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:28:44 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 15:19:33 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/26 20:39:58 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@
 #  define __FT_MEM_NO_EXTERNS__
 #  include <ft/mem.h>
 #  undef __FT_MEM_NO_EXTERNS__
+#  include <ft/opt.h>
 #  include <ft/print.h>
 #  include <ft/string.h>
+#  include <ft/wchar.h>
 #  undef __FT_LIBFT_COMPAT__
 
 # endif // __LIBFT_H__
