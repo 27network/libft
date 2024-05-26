@@ -31,6 +31,7 @@
           LD_LIBRARY_PATH="${pkgs.vulkan-loader}/lib";
 
           nativeBuildInputs = with pkgs; [
+            cloc
             doxygen
             norminette
             valgrind

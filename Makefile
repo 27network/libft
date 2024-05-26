@@ -6,9 +6,14 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/17 18:09:20 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/05/26 20:16:38 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# Ensure tools are made available
+MAKE			=	make --no-print-directory
+PROVIDE_TARGETS	:=	./tools/provide-targets/provide-targets
+_				:=	$(shell $(MAKE) -C tools/provide-targets >/dev/null 2>&1)
 
 LIBNAME			=	ft
 NAME			= 	lib$(LIBNAME)
@@ -16,6 +21,11 @@ LIBSHARE		= 	$(NAME).so
 LIBSTATIC		= 	$(NAME).a
 
 NO_LOG			?=	0
+SHOW_CMDS		?=	0
+
+ifeq ($(SHOW_CMDS), 0)
+HIDE			=	@
+endif
 
 BUILD_FOLDER	= 	build
 OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
@@ -23,7 +33,17 @@ OUTPUT_FOLDER	= 	$(BUILD_FOLDER)/output
 HOST			=	$(shell hostname | cut -d. -f2)
 DEBUG			?=	0
 
-SRC_FILES		=  	data/list/ft_lst_add.c \
+SRC_FILES		=  	\
+					data/hashmap/ft_map_clear.c \
+					data/hashmap/ft_map_contains.c \
+					data/hashmap/ft_map_free.c \
+					data/hashmap/ft_map_get.c \
+					data/hashmap/ft_map_keys.c \
+					data/hashmap/ft_map_new.c \
+					data/hashmap/ft_map_put.c \
+					data/hashmap/ft_map_remove.c \
+					data/hashmap/ft_map_size.c \
+					data/list/ft_lst_add.c \
 				   	data/list/ft_lst_insert.c \
 				   	data/list/ft_lst_free.c \
 					data/list/ft_lst_get.c \
@@ -38,15 +58,15 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					data/list/ft_lst_tget.c \
 					data/list/ft_lst_tinsert.c \
 					data/list/ft_lst_tlast.c \
-					data/map/ft_map_clear.c \
-					data/map/ft_map_contains.c \
-					data/map/ft_map_free.c \
-					data/map/ft_map_get.c \
-					data/map/ft_map_keys.c \
-					data/map/ft_map_new.c \
-					data/map/ft_map_put.c \
-					data/map/ft_map_remove.c \
-					data/map/ft_map_size.c \
+					getopt/long/ft_opt_get_long.c \
+					getopt/long/ft_opt_get_long_core.c \
+					getopt/posix/ft_opt_get_posix.c \
+					getopt/ft_opt_args.c \
+					getopt/ft_opt_get.c \
+					getopt/ft_opt_globals.c \
+					getopt/ft_opt_msg.c \
+					getopt/ft_opt_permute.c \
+					getopt/ft_opt_reset.c \
 				   	io/get_next_line.c \
 					math/mat3d/ft_mat3d_identity.c \
 					math/mat3d/ft_mat3d_mult.c \
@@ -173,10 +193,13 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/query/ft_strall.c \
 					string/query/ft_strany.c \
 					string/query/ft_strchr.c \
+					string/query/ft_strcspn.c \
 					string/query/ft_striteri.c \
 					string/query/ft_strlen.c \
 					string/query/ft_strnstr.c \
+					string/query/ft_strpbrk.c \
 					string/query/ft_strrchr.c \
+					string/query/ft_strspn.c \
 					string/query/ft_strstr.c \
 					string/query/ft_ulllen.c \
 					string/query/ft_ulllen_base.c \
@@ -187,7 +210,14 @@ SRC_FILES		=  	data/list/ft_lst_add.c \
 					string/xtoa/ft_lltoa_base.c \
 					string/xtoa/ft_ulltoa.c \
 					string/xtoa/ft_ulltoa_base.c \
-					string/ft_strdel.c
+					string/ft_strdel.c \
+					wchar/internal/ft_bittab.c \
+					wchar/internal/ft_bittab_ranges.c \
+					wchar/internal/ft_codeunit.c \
+					wchar/internal/ft_illegal_sequence.c \
+					wchar/internal/ft_wchar_oob.c \
+					wchar/ft_mblen.c \
+					wchar/ft_mbtowc.c
 
 SRC_FOLDER		= 	src
 SRC_FILES		:= 	$(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
@@ -204,46 +234,41 @@ INCLUDE_DIR		= 	include
 CC				=	clang
 CFLAGS			= 	-Wall -Wextra -Werror
 ifeq ($(DEBUG), 1)
-	CFLAGS		+= 	-g3
+CFLAGS			+= 	-g3
 endif
 DFLAGS 			=	-MT $@ -MMD -MP -MF $(DEPS_FOLDER)/$*.tmp.d
 
 ARCH			=	native
 ifeq ($(HOST),42angouleme)
-	ARCH		=	skylake
+ARCH			=	skylake
 endif
 ifeq ($(HOST),komet)
-	ARCH		=	znver2
+ARCH			=	znver2
 endif
 COPTS			= 	-march=$(ARCH) -ftree-vectorize -ffast-math -fno-semantic-interposition -funroll-loops -funsafe-math-optimizations -funwind-tables -fstrict-enums -fsplit-lto-unit -fvectorize -fsave-optimization-record -foptimization-record-file=$@.yml -pipe -fPIC -I $(INCLUDE_DIR)
 
 LDFLAGS		=	-lm
 ifneq (, $(shell which mold))
-	LDFLAGS		+= 	-fuse-ld=mold
+LDFLAGS			+= 	-fuse-ld=mold
 endif
 
 ifneq ($(DEBUG), 1)
-	LDFLAGS		+=	-Wl,-s
+LDFLAGS			+=	-Wl,-s
 endif
 
-MAKE			=	make --no-print-directory
 AR				= 	ar rcs
 RM				= 	rm -rf
 
 # Pretty stuff
 
-TPUT			=	tput -Txterm-256color
-_END			=	$(shell $(TPUT) sgr0)
-_BOLD			=	$(shell $(TPUT) bold)
-_GRAY			=	$(shell $(TPUT) setaf 8)
+TPUT			:=	tput -Txterm-256color
+_END			:=	$(shell $(TPUT) sgr0)
+_BOLD			:=	$(shell $(TPUT) bold)
+_GRAY			:=	$(shell $(TPUT) setaf 8)
 
-_TOTAL			=	$(words $(SRC_FILES))
-_TOTAL_LEN		=	$(shell printf $(_TOTAL) | wc -m)
+_TOTAL			:=	$(shell $(PROVIDE_TARGETS) $(OBJ_CACHE_FILES) | sed 's/ /\n/g' | wc -l)
+_TOTAL_LEN		:=	$(shell printf $(_TOTAL) | wc -m)
 _CURRENT		=	0
-
-_TOTAL_DEPS		=	$(words $(DEPS))
-_TOTAL_DEPS_LEN	=	$(shell printf $(_TOTAL_DEPS) | wc -m)
-_CURRENT_DEPS	=	0
 
 #
 # Rules
@@ -257,24 +282,25 @@ bonus:
 -include $(DEPS)
 
 $(NAME):		$(LIBSHARE) $(LIBSTATIC)
+	@printf "🚀 Built $(_BOLD)libft$(_END) $(_GRAY)(./$(BUILD_FOLDER))$(_END)\n"
 
 $(LIBSHARE):	$(OUTPUT_FOLDER)/$(LIBSHARE)
-	@ln -fs $(OUTPUT_FOLDER)/$(LIBSHARE) $(LIBSHARE)
+	$(HIDE)ln -fs $(OUTPUT_FOLDER)/$(LIBSHARE) $(LIBSHARE)
 
 $(LIBSTATIC):	$(OUTPUT_FOLDER)/$(LIBSTATIC)
-	@ln -fs $(OUTPUT_FOLDER)/$(LIBSTATIC) $(LIBSTATIC)
+	$(HIDE)ln -fs $(OUTPUT_FOLDER)/$(LIBSTATIC) $(LIBSTATIC)
 
 $(OUTPUT_FOLDER)/$(LIBSHARE):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 ifeq ($(NO_LOG), 0)
-	@printf "\033[2K\r(100%%) $(_TOTAL)/$(_TOTAL) Linking shared library $<\r"
+	@printf "Linking shared library\n"
 endif
-	@$(CC) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LDFLAGS)
+	$(HIDE)$(CC) -nostartfiles -shared -o $(OUTPUT_FOLDER)/$(LIBSHARE) $(OBJ_CACHE_FILES) $(LDFLAGS)
 
 $(OUTPUT_FOLDER)/$(LIBSTATIC):	$(OBJ_CACHE_FILES) | $(OUTPUT_FOLDER)
 ifeq ($(NO_LOG), 0)
-	@printf "\033[2K\r(100%%) $(_TOTAL)/$(_TOTAL) Linking static library $<\r"
+	@printf "Linking static library\n"
 endif
-	@$(AR) $(OUTPUT_FOLDER)/$(LIBSTATIC) $(OBJ_CACHE_FILES)
+	$(HIDE)$(AR) $(OUTPUT_FOLDER)/$(LIBSTATIC) $(OBJ_CACHE_FILES)
 
 $(OBJ_CACHE)/%.o:	$(SRC_FOLDER)/%.c
 	@mkdir -p $(dir $@)
@@ -282,9 +308,9 @@ $(OBJ_CACHE)/%.o:	$(SRC_FOLDER)/%.c
 ifeq ($(NO_LOG), 0)
 	$(eval _CURRENT=$(shell echo $$(($(_CURRENT)+1))))
 	$(eval _PERCENTAGE=$(shell echo $$(($(_CURRENT)*100/$(_TOTAL)))))
-	@printf "\033[2K\r($(shell printf "% 3s" "$(_PERCENTAGE)")%%) $(shell printf "%*d/%d" $(_TOTAL_LEN) $(_CURRENT) $(_TOTAL)) Compiling $<\r"
+	@printf "($(shell printf "% 3s" "$(_PERCENTAGE)")%%) $(shell printf "%*d/%d" $(_TOTAL_LEN) $(_CURRENT) $(_TOTAL)) Compiling $<\n"
 endif
-	@$(CC) $(DFLAGS) $(CFLAGS) $(COPTS) -c $< -o $@
+	$(HIDE)$(CC) $(DFLAGS) $(CFLAGS) $(COPTS) -c $< -o $@
 	@# dumb fixes, see https://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
 	@mv -f $(DEPS_FOLDER)/$*.tmp.d $(DEPS_FOLDER)/$*.d
 	@touch $@
@@ -296,27 +322,27 @@ $(OUTPUT_FOLDER):
 	@mkdir -p $(OUTPUT_FOLDER)
 
 doc:
-	doxygen Doxyfile
+	$(HIDE)doxygen Doxyfile
 
 test:
 	make --no-print-directory -C tests valgrind
 
 clean:
-	@$(RM) $(OBJ_CACHE)
+	$(HIDE)$(RM) $(OBJ_CACHE)
 ifeq ($(NO_LOG), 0)
 	@printf "🧹 Cleaned $(_BOLD)libft$(_END) $(_GRAY)(./$(OBJ_CACHE))$(_END)\n"
 endif
 
 # 🤓 yes it should depend on `clean` but it makes my output nicer so i don't care.
 fclean:
-	@$(RM) $(BUILD_FOLDER)
-	@$(RM) $(LIBSHARE)
-	@$(RM) $(LIBSTATIC)
+	$(HIDE)$(RM) $(BUILD_FOLDER)
+	$(HIDE)$(RM) $(LIBSHARE)
+	$(HIDE)$(RM) $(LIBSTATIC)
 ifeq ($(NO_LOG), 0)
 	@printf "🧹 Cleaned $(_BOLD)libft$(_END) $(_GRAY)(./$(BUILD_FOLDER))$(_END)\n"
 endif
 
 re:				fclean
-	@$(MAKE) -j$(shell nproc)
+	$(HIDE)$(MAKE) -j$(shell nproc)
 
 .PHONY:			all clean fclean re doc test bonus

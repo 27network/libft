@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:06:43 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 15:19:33 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:16:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ size_t			ft_strlcat(char *dest, const char *src, size_t size);
 
 char			*ft_strstr(const char *big, const char *little);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
+size_t			ft_strspn(const char *s, const char *accept);
+size_t			ft_strcspn(const char *s, const char *reject);
+char			*ft_strpbrk(const char *s, const char *accept);
 
 char			*ft_strtolower(char *s);
 char			*ft_strtoupper(char *s);
