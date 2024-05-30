@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:36:48 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:42:44 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/05/30 01:42:25 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ static int	handle_read(t_gnl *gnl, char *read_buffer, ssize_t read_bytes)
 	tmp = gnl->inner;
 	gnl->inner = ft_calloc(gnl->size + read_bytes + 1, sizeof(char));
 	if (!gnl->inner)
+	{
 		free(tmp);
-	if (!gnl->inner)
+		free(read_buffer);
 		return (0);
+	}
 	ft_memcpy(gnl->inner, tmp, gnl->size);
 	ft_memcpy(gnl->inner + gnl->size, read_buffer, read_bytes);
 	gnl->size += read_bytes;
@@ -64,7 +66,6 @@ static char	*get_current_buffer(t_gnl *gnl)
 	if (!line)
 		return (NULL);
 	ft_memcpy(line, gnl->inner, gnl->size);
-	line[gnl->size] = '\0';
 	free(gnl->inner);
 	gnl->inner = NULL;
 	gnl->size = 0;
