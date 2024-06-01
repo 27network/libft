@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 23:51:08 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:49:36 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/01 21:58:05 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	length;
+	char	*orig;
 
-	length = 0;
-	while (*s++)
-		length++;
-	return (length);
+	orig = (char *)s;
+	while (s && *s)
+		s++;
+	return (s - orig);
 }

@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:42:56 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/06/01 21:50:06 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/01 21:59:07 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static char	*ft_vstrjoins(size_t npos, char *sep,
 	res = ft_strjoins0(npos, sep, array, total_length);
 	count = -1;
 	while (++count < (int)npos)
-		if (free_bitflag & (1 << (npos - 1 - count)))
+		if (free_bitflag & (1 << (npos - 1 - count)) && array[count])
 			free(array[count]);
 	free(array);
 	return (res);
@@ -97,6 +97,8 @@ char	*ft_strjoins(size_t npos, char *sep,
 	va_list	args;
 	char	*res;
 
+	if (!sep)
+		sep = "";
 	va_start(args, free_bitflag);
 	res = ft_vstrjoins(npos, sep, free_bitflag, args);
 	va_end(args);
