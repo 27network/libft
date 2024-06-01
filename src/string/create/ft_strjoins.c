@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:42:56 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/06/01 20:34:49 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/01 21:50:06 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*ft_strjoins0(size_t npos, char *sep, char **array,
 	return (res);
 }
 
-static void	ft_strjoins_free(size_t npos, char *sep,
+static void	ft_strjoins_free(size_t npos,
 		unsigned long long free_bitflag, va_list args)
 {
 	size_t	count;
@@ -74,17 +74,17 @@ static char	*ft_vstrjoins(size_t npos, char *sep,
 	count = -1;
 	array = ft_calloc(npos, sizeof(void *));
 	if (!array)
-		ft_strjoins_free(npos, sep, free_bitflag, args);
+		ft_strjoins_free(npos, free_bitflag, args);
 	if (!array)
 		return (NULL);
-	while (++count < npos)
+	while (++count < (int)npos)
 	{
 		array[count] = va_arg(args, char *);
 		total_length += ft_strlen(array[count]);
 	}
 	res = ft_strjoins0(npos, sep, array, total_length);
 	count = -1;
-	while (++count < npos)
+	while (++count < (int)npos)
 		if (free_bitflag & (1 << (npos - 1 - count)))
 			free(array[count]);
 	free(array);
