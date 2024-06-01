@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoins.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:42:56 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 15:02:42 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/01 20:34:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,49 @@ static char	*ft_strjoins0(size_t npos, char *sep, char **array,
 	return (res);
 }
 
-static char	*ft_vstrjoins(size_t npos, char *sep,
+static void	ft_strjoins_free(size_t npos, char *sep,
 		unsigned long long free_bitflag, va_list args)
 {
 	size_t	count;
+	char	*tmp;
+
+	count = -1;
+	while (++count < npos)
+	{
+		if (free_bitflag & (1 << (npos - 1 - count)))
+		{
+			tmp = va_arg(args, char *);
+			if (tmp)
+				free(tmp);
+		}
+	}
+}
+
+static char	*ft_vstrjoins(size_t npos, char *sep,
+		unsigned long long free_bitflag, va_list args)
+{
+	int		count;
 	size_t	total_length;
 	char	**array;
 	char	*res;
 
 	total_length = (npos - 1) * ft_strlen(sep);
-	count = 0;
+	count = -1;
 	array = ft_calloc(npos, sizeof(void *));
 	if (!array)
+		ft_strjoins_free(npos, sep, free_bitflag, args);
+	if (!array)
 		return (NULL);
-	while (count++ < npos)
+	while (++count < npos)
 	{
-		array[count - 1] = va_arg(args, char *);
-		total_length += ft_strlen(array[count - 1]);
+		array[count] = va_arg(args, char *);
+		total_length += ft_strlen(array[count]);
 	}
 	res = ft_strjoins0(npos, sep, array, total_length);
-	count = 0;
-	while (count < npos)
-	{
+	count = -1;
+	while (++count < npos)
 		if (free_bitflag & (1 << (npos - 1 - count)))
 			free(array[count]);
-		count++;
-	}
 	free(array);
 	return (res);
 }
