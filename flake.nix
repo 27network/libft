@@ -16,20 +16,10 @@
     (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        stdenv = pkgs.stdenvAdapters.useMoldLinker pkgs.clang17Stdenv;
+        stdenv = pkgs.stdenvAdapters.useMoldLinker pkgs.clang18Stdenv;
       in
       {
         devShell = (pkgs.mkShell.override { inherit stdenv; }) {
-          buildInputs = with pkgs; [
-            SDL2
-            readline
-            vulkan-headers
-            vulkan-loader
-            vulkan-tools
-          ];
-
-          LD_LIBRARY_PATH="${pkgs.vulkan-loader}/lib";
-
           nativeBuildInputs = with pkgs; [
             cloc
             doxygen
