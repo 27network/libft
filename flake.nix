@@ -1,5 +1,5 @@
 {
-  description = "dev-env for 42 projects";
+  description = "libft-neo, a reimplementation of the C standard library functions";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
