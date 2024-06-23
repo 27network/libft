@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/26 20:39:29 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/06/23 06:28:17 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,6 +110,7 @@ SRC_FILES		=  	\
 				   	mem/ft_memcpy.c \
 				   	mem/ft_memmove.c \
 				   	mem/ft_memset.c \
+					mem/ft_realloc.c \
 					print/printf/flag/pf_hash_mutator.c \
 					print/printf/flag/pf_leftjustify_mutator.c \
 					print/printf/flag/pf_padding_mutator.c \
