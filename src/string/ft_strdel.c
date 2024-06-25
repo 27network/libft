@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 02:45:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:45:31 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:02:15 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	ft_strdel(char **as)
 {
 	if (as)
 	{
-		free(*as);
+		if (*as)
+			free(*as);
 		*as = NULL;
 	}
 }
