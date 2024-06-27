@@ -6,11 +6,10 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 23:04:11 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/12/06 23:05:09 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:05:47 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string/parse.h>
 #include <ft/string.h>
 
 static int	ft_check_base(const char *base_str)

@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 02:30:27 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/10 19:08:06 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:15:54 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
+#include <stddef.h>
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {

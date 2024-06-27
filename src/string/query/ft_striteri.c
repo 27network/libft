@@ -6,11 +6,9 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:27:50 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 15:20:05 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:08:57 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ft/string.h>
 
 void	ft_striteri(const char *s, void (*f)(unsigned int, char *))
 {

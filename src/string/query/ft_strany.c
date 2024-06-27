@@ -6,11 +6,9 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:55:57 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/26 14:56:18 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:08:56 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ft/string.h>
 
 int	ft_strany(const char *s, int (*f)(char))
 {

@@ -6,14 +6,14 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:23:24 by xtrm              #+#    #+#             */
-/*   Updated: 2024/05/08 15:30:37 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:11:39 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/print.h>
 #include <unistd.h>
 
-void	ft_putnbr(long long n)
+int	ft_putnbr(long long n)
 {
-	ft_putnbr_fd(n, STDOUT_FILENO);
+	return (ft_putnbr_fd(n, STDOUT_FILENO));
 }

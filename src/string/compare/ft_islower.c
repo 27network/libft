@@ -6,11 +6,9 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 02:21:39 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:21:43 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:02:11 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ft/string.h>
 
 int	ft_islower(int c)
 {

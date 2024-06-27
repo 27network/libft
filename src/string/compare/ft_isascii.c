@@ -6,11 +6,9 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 23:57:57 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:46:04 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:01:39 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ft/string.h>
 
 int	ft_isascii(int c)
 {

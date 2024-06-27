@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 23:51:08 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/06/01 21:58:05 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:19:32 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
+#include <stddef.h>
 
 size_t	ft_strlen(const char *s)
 {

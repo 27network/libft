@@ -6,11 +6,10 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 02:45:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/06/25 15:02:15 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:08:59 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
 #include <stdlib.h>
 
 void	ft_strdel(char **as)

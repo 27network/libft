@@ -6,11 +6,9 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:14:09 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/10 11:47:23 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:02:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ft/string.h>
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

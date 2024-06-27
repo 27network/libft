@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:34:54 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/23 22:34:58 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:24:35 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math.h>
+#include <stdint.h>
 
 int64_t	ft_max(int64_t a, int64_t b)
 {

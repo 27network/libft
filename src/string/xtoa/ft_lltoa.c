@@ -6,13 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:40:19 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 15:23:00 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:09:09 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/string/parse.h>
-#include <ft/string.h>
-#include <limits.h>
 
 char	*ft_lltoa(long long n)
 {

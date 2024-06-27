@@ -6,11 +6,9 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 23:57:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/10/25 22:46:10 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:02:11 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ft/string.h>
 
 int	ft_isdigit(int c)
 {

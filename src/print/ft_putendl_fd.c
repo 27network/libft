@@ -6,18 +6,22 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:18:28 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/08 15:14:39 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:11:28 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/print.h>
 
-void	ft_putendl_fd(const char *s, int fd)
+int	ft_putendl_fd(const char *s, int fd)
 {
+	int	ret;
+
 	if (fd < 0)
-		return ;
+		return (0);
 	if (!s)
 		s = "(null)";
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	ret = ft_putstr_fd(s, fd);
+	if (ft_putchar_fd('\n', fd) == -1)
+		return (-1);
+	return (ret + 1);
 }

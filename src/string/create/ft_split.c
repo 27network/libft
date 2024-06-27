@@ -6,12 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:58:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:59:13 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:06:32 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/mem.h>
-#include <ft/string.h>
 
 static int	ft_count_words(const char *str, char c)
 {

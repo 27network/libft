@@ -6,14 +6,14 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:23:35 by xtrm              #+#    #+#             */
-/*   Updated: 2024/05/08 15:15:05 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:12:59 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/print.h>
 #include <unistd.h>
 
-void	ft_putstr(const char *str)
+int	ft_putstr(const char *str)
 {
-	ft_putstr_fd(str, STDOUT_FILENO);
+	return (ft_putstr_fd(str, STDOUT_FILENO));
 }

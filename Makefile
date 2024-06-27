@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/06/23 06:28:17 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/06/27 03:05:10 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -159,6 +159,7 @@ SRC_FILES		=  	\
 					string/compare/ft_isalnum.c \
 					string/compare/ft_isalpha.c \
 					string/compare/ft_isascii.c \
+					string/compare/ft_iscntrl.c \
 					string/compare/ft_isdigit.c \
 					string/compare/ft_islower.c \
 					string/compare/ft_isprint.c \

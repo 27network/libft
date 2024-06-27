@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:22:00 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/22 08:24:06 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:23:57 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math.h>
+#include <stdint.h>
 
 int64_t	ft_pow(int64_t n, uint64_t pow)
 {

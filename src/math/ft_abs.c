@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:21:27 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/01/22 07:51:31 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:23:42 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math.h>
+#include <stdint.h>
 #include <limits.h>
 
 int64_t	ft_abs(int64_t a)

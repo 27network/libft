@@ -6,7 +6,7 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:49:57 by xtrm              #+#    #+#             */
-/*   Updated: 2024/05/08 15:12:47 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:13:37 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@
 
 /* Standard printing */
 
-void			ft_putchar(char c);
-void			ft_putchar_fd(char c, int fd);
+int				ft_putchar(char c);
+int				ft_putchar_fd(char c, int fd);
 
-void			ft_putstr(const char *s);
-void			ft_putstr_fd(const char *s, int fd);
+int				ft_putstr(const char *s);
+int				ft_putstr_fd(const char *s, int fd);
 
-void			ft_putendl(const char *s);
-void			ft_putendl_fd(const char *s, int fd);
+int				ft_putendl(const char *s);
+int				ft_putendl_fd(const char *s, int fd);
 
-void			ft_putnbr(long long n);
-void			ft_putnbr_fd(long long n, int fd);
+int				ft_putnbr(long long n);
+int				ft_putnbr_fd(long long n, int fd);
 
 /* printf and friends */
 

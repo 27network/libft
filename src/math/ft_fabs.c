@@ -6,11 +6,9 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:35:09 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/23 15:00:43 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:22:29 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ft/math.h>
 
 double	ft_fabs(double a)
 {

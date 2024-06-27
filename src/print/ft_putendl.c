@@ -6,14 +6,14 @@
 /*   By: xtrm <oss@xtrm.me>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:22:12 by xtrm              #+#    #+#             */
-/*   Updated: 2024/05/08 15:14:49 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:10:43 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/print.h>
 #include <unistd.h>
 
-void	ft_putendl(const char *str)
+int	ft_putendl(const char *str)
 {
-	ft_putendl_fd(str, STDOUT_FILENO);
+	return (ft_putendl_fd(str, STDOUT_FILENO));
 }

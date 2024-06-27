@@ -6,11 +6,11 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 02:34:06 by kiroussa          #+#    #+#             */
-/*   Updated: 2023/11/05 02:34:12 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/06/27 03:15:54 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/string.h>
+#include <stddef.h>
 
 char	*ft_strncat(char *dest, const char *src, size_t n)
 {
