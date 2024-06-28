@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 14:16:51 by kiroussa          #+#    #+#              #
-#    Updated: 2024/05/08 15:41:16 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/06/28 18:22:01 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC	:= $(addprefix $(SRC_DIR)/, $(SRC))
 INCLUDE_DIR = include
 
 CC = clang
-CFLAGS = -g3
+CFLAGS = -g3 -Wno-format
 
 LIBFT_DIR = ../..
 LIBFT = $(LIBFT_DIR)/build/output/libft.a
