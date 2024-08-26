@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 21:19:50 by kiroussa          #+#    #+#              #
-#    Updated: 2024/06/27 03:05:10 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/08/26 14:06:40 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC_FILES		=  	\
 					data/hashmap/ft_map_remove.c \
 					data/hashmap/ft_map_size.c \
 					data/list/ft_lst_add.c \
+					data/list/ft_lst_clone.c \
 				   	data/list/ft_lst_insert.c \
 				   	data/list/ft_lst_free.c \
 					data/list/ft_lst_get.c \
