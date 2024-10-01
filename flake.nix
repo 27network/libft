@@ -16,7 +16,7 @@
     (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        stdenv = pkgs.stdenvAdapters.useMoldLinker pkgs.llvmPackages_latest.stdenv;
+        stdenv = pkgs.stdenvAdapters.useMoldLinker pkgs.llvmPackages_19.stdenv;
       in
       {
         devShell = (pkgs.mkShell.override { inherit stdenv; }) {
