@@ -5,7 +5,7 @@
 import os
 import sys
 
-makefile = open("Makefile", "r")
+makefile = open("sources.mk", "r")
 makefile_lines = makefile.readlines()
 makefile.close()
 
@@ -19,7 +19,8 @@ for i in range(len(makefile_lines)):
         src_files_end_index = i
         break
 for i in range(src_files_line_index, src_files_end_index + 1):
-    src_files.append(makefile_lines[i].strip("\\\n").replace("SRC_FILES", "").replace("=", "").strip())
+    src_files.append(makefile_lines[i].strip("\\\n")
+                     .replace("SRC_FILES", "").replace("=", "").strip())
 
 src_files = ["src/" + file.strip() for file in src_files]
 

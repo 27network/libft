@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 03:35:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:33:10 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:20:13 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@
  * @return NULL		If an error occurs.
  */
 char	*get_next_line(int fd);
+
+/**
+ * @brief Close a file descriptor.
+ *
+ * @param fd		File descriptor pointer to close.
+ */
+void	ft_closep(int *fd);
 
 # endif // __FT_IO_H__
 #endif // IO_H
