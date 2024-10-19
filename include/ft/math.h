@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:18:11 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:33:36 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/10/19 02:18:19 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@ uint64_t	ft_sqrt(uint64_t n);
 int64_t		ft_min(int64_t a, int64_t b);
 int64_t		ft_max(int64_t a, int64_t b);
 
+int			ft_sign(int64_t n);
+
 double		ft_fabs(double n);
 double		ft_fpow(double n, uint64_t pow);
 // double	ft_fsqrt(double n);
 
 double		ft_fmin(double a, double b);
 double		ft_fmax(double a, double b);
+
+int			ft_fsign(double n);
 
 # endif // __FT_MATH_H__
 #endif // MATH_H

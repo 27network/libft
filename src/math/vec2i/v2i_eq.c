@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3d_norm.c                                    :+:      :+:    :+:   */
+/*   v2i_eq.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 18:46:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/04/20 18:55:28 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/10/19 02:19:06 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:19:30 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
-t_vec3d	ft_vec3d_norm(t_vec3d v)
+bool	v2i_eq(t_vec2i v1, t_vec2i v2)
 {
-	double	len;
-
-	len = ft_vec3d_len(v);
-	if (len == 0)
-		return (v);
-	return (ft_vec3d_div(v, len));
+	return (v1.x == v2.x && v1.y == v2.y);
 }

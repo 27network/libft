@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec2i.c                                         :+:      :+:    :+:   */
+/*   v3d_add.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 14:32:34 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:17 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/12/24 04:42:17 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:21:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
-t_vec2i	ft_vec2i(int x, int y)
+t_vec3d	v3d_add(t_vec3d v1, t_vec3d v2)
 {
-	t_vec2i		new;
+	t_vec3d	v;
 
-	new.x = x;
-	new.y = y;
-	return (new);
+	v.x = v1.x + v2.x;
+	v.y = v1.y + v2.y;
+	v.z = v1.z + v2.z;
+	return (v);
 }

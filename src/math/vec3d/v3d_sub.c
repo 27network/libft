@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mat3d_scale.c                                   :+:      :+:    :+:   */
+/*   v3d_sub.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/27 01:43:36 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:17 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/12/24 04:42:26 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:21:50 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math/matrix.h>
-#include <ft/mem.h>
+#include <ft/math/vector.h>
 
-t_mat3d	ft_mat3d_scale(double sx, double sy, double sz)
+t_vec3d	v3d_sub(t_vec3d v1, t_vec3d v2)
 {
-	t_mat3d	matrix;
+	t_vec3d	v;
 
-	ft_bzero(&matrix, sizeof(t_mat3d));
-	matrix.m[0][0] = sx;
-	matrix.m[1][1] = sy;
-	matrix.m[2][2] = sz;
-	return (matrix);
+	v.x = v1.x - v2.x;
+	v.y = v1.y - v2.y;
+	v.z = v1.z - v2.z;
+	return (v);
 }

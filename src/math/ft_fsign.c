@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3d_clone.c                                   :+:      :+:    :+:   */
+/*   ft_fsign.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 20:30:58 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:17 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/10/19 02:17:59 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:18:03 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math/vector.h>
-
-t_vec3d	ft_vec3d_clone(t_vec3d v)
+int	ft_fsign(double n)
 {
-	return (ft_vec3d(v.x, v.y, v.z));
+	if (n >= 0)
+		return (1);
+	return (-1);
 }

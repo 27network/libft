@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3d_mult_mat3d.c                              :+:      :+:    :+:   */
+/*   v3d_norm.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:50:50 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:18 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/04/20 18:46:53 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:21:50 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math/matrix.h>
+#include <ft/math/vector.h>
 
-t_vec3d	ft_vec3d_mult_mat3d(t_vec3d v, t_mat3d m)
+t_vec3d	v3d_norm(t_vec3d v)
 {
-	t_vec3d		result;
+	double	len;
 
-	result.x = v.x * m.m[0][0] + v.y * m.m[1][0] + v.z * m.m[2][0];
-	result.y = v.x * m.m[0][1] + v.y * m.m[1][1] + v.z * m.m[2][1];
-	result.z = v.x * m.m[0][2] + v.y * m.m[1][2] + v.z * m.m[2][2];
-	return (result);
+	len = v3d_len(v);
+	if (len == 0)
+		return (v);
+	return (v3d_div(v, len));
 }

@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 14:21:11 by kiroussa          #+#    #+#              #
-#    Updated: 2024/10/18 14:23:27 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/10/19 02:23:45 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,36 +47,38 @@ SRC_FILES		=  	\
 					getopt/ft_opt_reset.c \
 					io/ft_closep.c \
 				   	io/get_next_line.c \
-					math/mat3d/ft_mat3d_identity.c \
-					math/mat3d/ft_mat3d_mult.c \
-					math/mat3d/ft_mat3d_rot.c \
-					math/mat3d/ft_mat3d_rot_vec3d.c \
-					math/mat3d/ft_mat3d_rot_x.c \
-					math/mat3d/ft_mat3d_rot_y.c \
-					math/mat3d/ft_mat3d_rot_z.c \
-					math/mat3d/ft_mat3d_scale.c \
-					math/vec2i/ft_vec2i.c \
-					math/vec3d/ft_vec3d.c \
-					math/vec3d/ft_vec3d_add.c \
-					math/vec3d/ft_vec3d_clone.c \
-					math/vec3d/ft_vec3d_cross.c \
-					math/vec3d/ft_vec3d_div.c \
-					math/vec3d/ft_vec3d_dot.c \
-					math/vec3d/ft_vec3d_eq.c \
-					math/vec3d/ft_vec3d_len.c \
-					math/vec3d/ft_vec3d_mult.c \
-					math/vec3d/ft_vec3d_mult_mat3d.c \
-					math/vec3d/ft_vec3d_norm.c \
-					math/vec3d/ft_vec3d_sub.c \
-					math/vec3d/ft_vec3d_to_vec2i.c \
+					math/mat3d/m3d_identity.c \
+					math/mat3d/m3d_mult.c \
+					math/mat3d/m3d_rot.c \
+					math/mat3d/m3d_rot_v3d.c \
+					math/mat3d/m3d_rot_x.c \
+					math/mat3d/m3d_rot_y.c \
+					math/mat3d/m3d_rot_z.c \
+					math/mat3d/m3d_scale.c \
+					math/vec2i/v2i.c \
+					math/vec2i/v2i_eq.c \
+					math/vec3d/v3d.c \
+					math/vec3d/v3d_add.c \
+					math/vec3d/v3d_cross.c \
+					math/vec3d/v3d_div.c \
+					math/vec3d/v3d_dot.c \
+					math/vec3d/v3d_eq.c \
+					math/vec3d/v3d_len.c \
+					math/vec3d/v3d_mult.c \
+					math/vec3d/v3d_mult_m3d.c \
+					math/vec3d/v3d_norm.c \
+					math/vec3d/v3d_sub.c \
+					math/vec3d/v3d_to_v2i.c \
 					math/ft_abs.c \
 					math/ft_fabs.c \
 					math/ft_fmax.c \
 					math/ft_fmin.c \
 					math/ft_fpow.c \
+					math/ft_fsign.c \
 					math/ft_max.c \
 					math/ft_min.c \
 					math/ft_pow.c \
+					math/ft_sign.c \
 					math/ft_sqrt.c \
 					mem/arena/ft_arena_alloc.c \
 					mem/arena/ft_arena_clear.c \

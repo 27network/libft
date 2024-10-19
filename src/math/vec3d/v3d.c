@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mat3d_identity.c                                :+:      :+:    :+:   */
+/*   v3d.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 20:00:12 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:30:57 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/12/24 04:40:53 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:20:20 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math/matrix.h>
+#include <ft/math/vector.h>
 
-t_mat3d	ft_mat3d_identity(void)
+t_vec3d	v3d(double x, double y, double z)
 {
-	return (ft_mat3d_scale(1, 1, 1));
+	t_vec3d	v;
+
+	v.x = x;
+	v.y = y;
+	v.z = z;
+	return (v);
 }

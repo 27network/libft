@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mat3d_rot_z.c                                   :+:      :+:    :+:   */
+/*   v3d_div.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 20:02:29 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:43:18 by kiroussa         ###   ########.fr       */
+/*   Created: 2023/12/24 04:42:44 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:21:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math/matrix.h>
-#include <math.h>
+#include <ft/math/vector.h>
 
-t_mat3d	ft_mat3d_rot_z(double theta)
+t_vec3d	v3d_div(t_vec3d v, double scalar)
 {
-	t_mat3d		result;
+	t_vec3d	v_div;
 
-	result = ft_mat3d_identity();
-	result.m[0][0] = cos(theta);
-	result.m[0][1] = -sin(theta);
-	result.m[1][0] = sin(theta);
-	result.m[1][1] = cos(theta);
-	return (result);
+	v_div.x = v.x / scalar;
+	v_div.y = v.y / scalar;
+	v_div.z = v.z / scalar;
+	return (v_div);
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mat3d_rot_y.c                                   :+:      :+:    :+:   */
+/*   v3d_mult_m3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 20:02:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/03/22 18:43:20 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/24 19:50:50 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:22:50 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/matrix.h>
-#include <math.h>
 
-t_mat3d	ft_mat3d_rot_y(double theta)
+t_vec3d	v3d_mult_m3d(t_vec3d v, t_mat3d m)
 {
-	t_mat3d		result;
+	t_vec3d		result;
 
-	result = ft_mat3d_identity();
-	result.m[0][0] = cos(theta);
-	result.m[0][2] = sin(theta);
-	result.m[2][0] = -sin(theta);
-	result.m[2][2] = cos(theta);
+	result.x = v.x * m.m[0][0] + v.y * m.m[1][0] + v.z * m.m[2][0];
+	result.y = v.x * m.m[0][1] + v.y * m.m[1][1] + v.z * m.m[2][1];
+	result.z = v.x * m.m[0][2] + v.y * m.m[1][2] + v.z * m.m[2][2];
 	return (result);
 }

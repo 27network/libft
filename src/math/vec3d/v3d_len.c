@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3d_dot.c                                     :+:      :+:    :+:   */
+/*   v3d_len.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 18:51:07 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/04/20 18:51:11 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/04/20 18:47:44 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:21:50 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
+#include <math.h>
 
-double	ft_vec3d_dot(t_vec3d a, t_vec3d b)
+double	v3d_len(t_vec3d v)
 {
-	return (a.x * b.x + a.y * b.y + a.z * b.z);
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }

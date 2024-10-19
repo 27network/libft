@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3d_div.c                                     :+:      :+:    :+:   */
+/*   v3d_dot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 04:42:44 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:17 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/04/20 18:51:07 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:21:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
-t_vec3d	ft_vec3d_div(t_vec3d v, double scalar)
+double	v3d_dot(t_vec3d a, t_vec3d b)
 {
-	t_vec3d	v_div;
-
-	v_div.x = v.x / scalar;
-	v_div.y = v.y / scalar;
-	v_div.z = v.z / scalar;
-	return (v_div);
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }

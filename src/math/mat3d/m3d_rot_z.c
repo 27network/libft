@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3d_to_vec2i.c                                :+:      :+:    :+:   */
+/*   m3d_rot_z.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 14:30:08 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:18 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/24 20:02:29 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:21:51 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math/vector.h>
+#include <ft/math/matrix.h>
+#include <math.h>
 
-t_vec2i	ft_vec3d_to_vec2i(t_vec3d vec3d)
+t_mat3d	m3d_rot_z(double theta)
 {
-	return (ft_vec2i((int) vec3d.x, (int) vec3d.y));
+	t_mat3d		result;
+
+	result = m3d_identity();
+	result.m[0][0] = cos(theta);
+	result.m[0][1] = -sin(theta);
+	result.m[1][0] = sin(theta);
+	result.m[1][1] = cos(theta);
+	return (result);
 }

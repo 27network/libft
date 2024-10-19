@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3d_sub.c                                     :+:      :+:    :+:   */
+/*   m3d_rot_v3d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 04:42:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/02/22 07:32:18 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/01/27 07:14:44 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/10/19 02:22:45 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math/vector.h>
+#include <ft/math/matrix.h>
 
-t_vec3d	ft_vec3d_sub(t_vec3d v1, t_vec3d v2)
+t_mat3d	m3d_rot_v3d(t_vec3d v)
 {
-	t_vec3d	v;
-
-	v.x = v1.x - v2.x;
-	v.y = v1.y - v2.y;
-	v.z = v1.z - v2.z;
-	return (v);
+	return (m3d_rot(v.x, v.y, v.z));
 }
