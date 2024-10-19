@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 04:16:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:14:44 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/10/19 16:55:55 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_vec3d		v3d_cross(t_vec3d v1, t_vec3d v2);
 
 double		v3d_len(t_vec3d v);
 t_vec3d		v3d_norm(t_vec3d v);
+
+bool		v3d_quadr(t_vec3d values, double *x1, double *x2);
 
 t_vec2i		v3d_to_v2i(t_vec3d v);
 
