@@ -6,13 +6,13 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:32:34 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:19:20 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/10/19 02:29:37 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
-t_vec2i	ft_vec2i(int x, int y)
+t_vec2i	v2i(int x, int y)
 {
 	t_vec2i		new;
 
