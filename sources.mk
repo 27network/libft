@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 14:21:11 by kiroussa          #+#    #+#              #
-#    Updated: 2024/11/06 23:21:18 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/11/06 23:33:32 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRC_FILES		=  	\
 					math/vec2i/v2i_eq.c \
 					math/vec3d/v3d.c \
 					math/vec3d/v3d_add.c \
+					math/vec3d/v3d_addmult.c \
 					math/vec3d/v3d_cross.c \
 					math/vec3d/v3d_div.c \
 					math/vec3d/v3d_dot.c \

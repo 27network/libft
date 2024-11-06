@@ -6,12 +6,13 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:30:08 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:22:28 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 23:33:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
+__attribute__((always_inline))
 t_vec2i	v3d_to_v2i(t_vec3d vec3d)
 {
 	return (v2i((int) vec3d.x, (int) vec3d.y));

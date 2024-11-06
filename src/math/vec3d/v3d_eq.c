@@ -6,12 +6,13 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:59:31 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:21:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 23:33:12 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
+__attribute__((always_inline))
 bool	v3d_eq(t_vec3d v1, t_vec3d v2)
 {
 	return (v1.x == v2.x && v1.y == v2.y && v1.z == v2.z);
