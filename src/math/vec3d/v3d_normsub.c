@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   v3d_norm.c                                         :+:      :+:    :+:   */
+/*   v3d_normsub.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 18:46:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/06 23:39:15 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/11/06 23:37:33 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/11/06 23:40:04 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
 __attribute__((always_inline))
-t_vec3d	v3d_norm(t_vec3d *v)
+t_vec3d	v3d_normsub(t_vec3d *v, t_vec3d *v2)
 {
-	double	len;
+	const t_vec3d	v3 = v3d_sub(v, v2);
+	const double	len = v3d_len(&v3);
 
-	len = v3d_len(v);
 	if (len != 0)
-		return ((t_vec3d){.v = v->v / len});
-	return ((t_vec3d){.v = v->v});
+		return ((t_vec3d){.v = v3->v / len});
+	return ((t_vec3d){.v = v3->v});
 }

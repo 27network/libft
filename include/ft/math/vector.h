@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 04:16:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/06 23:31:32 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 23:40:49 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ t_vec3d		v3d_sub(t_vec3d *v1, t_vec3d *v2);
 t_vec3d		v3d_mult(t_vec3d *v, double scalar);
 t_vec3d		v3d_div(t_vec3d *v, double scalar);
 
-t_vec3d		v3d_addmult(t_vec3d *v1, t_vec3d *v2, double scalar);
-
 double		v3d_dot(t_vec3d *v1, t_vec3d *v2);
 t_vec3d		v3d_cross(t_vec3d *v1, t_vec3d *v2);
 
@@ -62,6 +60,9 @@ double		v3d_len(t_vec3d *v);
 t_vec3d		v3d_norm(t_vec3d *v);
 
 bool		v3d_quadr(t_vec3d *values, double *x1, double *x2);
+
+t_vec3d		v3d_addmult(t_vec3d *v1, t_vec3d *v2, double scalar);
+t_vec3d		v3d_normsub(t_vec3d *v, t_vec3d *v2);
 
 t_vec2i		v3d_to_v2i(t_vec3d v);
 
