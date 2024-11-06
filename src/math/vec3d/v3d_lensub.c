@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   v3d_lensub.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 22:26:28 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/06 23:52:11 by kiroussa         ###   ########.fr       */
+/*   Created: 2024/11/06 23:46:55 by kiroussa          #+#    #+#             */
+/*   Updated: 2024/11/06 23:51:55 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft/math.h>
 #include <math.h>
+#include <ft/math/vector.h>
 
-double	ft_sqrt(double x)
+__attribute__((always_inline))
+double	v3d_lensub(t_vec3d *v1, t_vec3d *v2)
 {
-	return (sqrt(x));
+	const t_v4d	prev = v1->v - v2->v;
+	const t_v4d	result = prev * prev;
+
+	return (sqrt(result[0] + result[1] + result[2]));
 }
