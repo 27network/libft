@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 14:21:11 by kiroussa          #+#    #+#              #
-#    Updated: 2024/10/19 16:56:08 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/11/06 23:21:18 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRC_FILES		=  	\
 					math/ft_min.c \
 					math/ft_pow.c \
 					math/ft_sign.c \
+					math/ft_sincos.c \
 					math/ft_sqrt.c \
 					mem/arena/ft_arena_alloc.c \
 					mem/arena/ft_arena_clear.c \
