@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:37:33 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/07 00:02:33 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/07 00:54:36 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ t_vec3d	v3d_normsub(const t_vec3d *v, const t_vec3d *v2)
 	const double	len = v3d_len(&v3);
 
 	if (len != 0)
-		return ((t_vec3d){.v = v3->v / len});
-	return ((t_vec3d){.v = v3->v});
+		return ((t_vec3d){.v = v3.v / len});
+	return ((t_vec3d){.v = v3.v});
 }
