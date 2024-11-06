@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:18:11 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:18:19 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:35:27 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #  include <stdint.h>
 
 int64_t		ft_abs(int64_t n);
-int64_t		ft_pow(int64_t n, uint64_t pow);
+double		ft_pow(double n, uint64_t pow);
 uint64_t	ft_sqrt(uint64_t n);
 
 int64_t		ft_min(int64_t a, int64_t b);
@@ -28,7 +28,7 @@ int64_t		ft_max(int64_t a, int64_t b);
 int			ft_sign(int64_t n);
 
 double		ft_fabs(double n);
-double		ft_fpow(double n, uint64_t pow);
+float		ft_fpow(float n, float y);
 // double	ft_fsqrt(double n);
 
 double		ft_fmin(double a, double b);

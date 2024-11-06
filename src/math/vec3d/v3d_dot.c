@@ -6,13 +6,15 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 18:51:07 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:21:49 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:23:46 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
-double	v3d_dot(t_vec3d a, t_vec3d b)
+double	v3d_dot(t_vec3d *a, t_vec3d *b)
 {
-	return (a.x * b.x + a.y * b.y + a.z * b.z);
+	const t_v4d	result = a->v * b->v;
+
+	return (result[0] + result[1] + result[2]);
 }

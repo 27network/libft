@@ -6,23 +6,15 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:22:00 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/06/27 03:23:57 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:36:28 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include <stdint.h>
 
-int64_t	ft_pow(int64_t n, uint64_t pow)
+__attribute__((always_inline))
+double	ft_pow(double x, double y)
 {
-	uint64_t	i;
-
-	if (!pow)
-		return (1);
-	if (!n)
-		return (0);
-	i = n;
-	pow--;
-	while (pow--)
-		n *= i;
-	return (n);
+	return (pow(x, y));
 }

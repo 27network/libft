@@ -6,18 +6,18 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 18:46:53 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:21:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:32:55 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
-t_vec3d	v3d_norm(t_vec3d v)
+t_vec3d	v3d_norm(t_vec3d *v)
 {
 	double	len;
 
 	len = v3d_len(v);
 	if (len == 0)
-		return (v);
+		return ((t_vec3d){.v = v->v});
 	return (v3d_div(v, len));
 }

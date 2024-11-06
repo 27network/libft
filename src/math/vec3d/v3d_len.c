@@ -6,14 +6,16 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 18:47:44 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/10/19 02:21:50 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:24:02 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 #include <math.h>
 
-double	v3d_len(t_vec3d v)
+double	v3d_len(t_vec3d *v)
 {
-	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+	const t_v4d	result = v->v * v->v;
+
+	return (sqrt(result[0] + result[1] + result[2]));
 }
