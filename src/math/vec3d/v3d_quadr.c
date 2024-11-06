@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 16:51:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/06 23:33:12 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/07 00:02:33 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <math.h>
 
 __attribute__((always_inline))
-bool	v3d_quadr(t_vec3d *values, double *x1, double *x2)
+bool	v3d_quadr(const t_vec3d *values, double *x1, double *x2)
 {
 	const double	a = values->x;
 	const double	b = values->y;

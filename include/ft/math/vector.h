@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 04:16:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/06 23:51:19 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/07 00:01:05 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 
 #  include <stdbool.h>
 
-typedef double	t_v4d	__attribute__((aligned(32), vector_size(32)));
+typedef double	t_v3d	__attribute__((aligned(32),
+							vector_size(sizeof(double) * 3)));
 
 typedef union u_vec3d
 {
-	t_v4d		v;
+	t_v3d		v;
 	struct
 	{
 		double		x;
@@ -31,7 +32,8 @@ typedef union u_vec3d
 	};
 }	t_vec3d;
 
-typedef int		t_v2i	__attribute__((aligned(16), vector_size(16)));
+typedef int		t_v2i	__attribute__((aligned(16),
+							vector_size(sizeof(int) * 2)));
 
 typedef union u_vec2i
 {
@@ -48,22 +50,22 @@ typedef union u_vec2i
 t_vec3d		v3d(double x, double y, double z);
 bool		v3d_eq(t_vec3d v1, t_vec3d v2);
 
-t_vec3d		v3d_add(t_vec3d *v1, t_vec3d *v2);
-t_vec3d		v3d_sub(t_vec3d *v1, t_vec3d *v2);
-t_vec3d		v3d_mult(t_vec3d *v, double scalar);
-t_vec3d		v3d_div(t_vec3d *v, double scalar);
+t_vec3d		v3d_add(const t_vec3d *v1, const t_vec3d *v2);
+t_vec3d		v3d_sub(const t_vec3d *v1, const t_vec3d *v2);
+t_vec3d		v3d_mult(const t_vec3d *v, double scalar);
+t_vec3d		v3d_div(const t_vec3d *v, double scalar);
 
-double		v3d_dot(t_vec3d *v1, t_vec3d *v2);
-t_vec3d		v3d_cross(t_vec3d *v1, t_vec3d *v2);
+double		v3d_dot(const t_vec3d *v1, const t_vec3d *v2);
+t_vec3d		v3d_cross(const t_vec3d *v1, const t_vec3d *v2);
 
-double		v3d_len(t_vec3d *v);
-t_vec3d		v3d_norm(t_vec3d *v);
+double		v3d_len(const t_vec3d *v);
+t_vec3d		v3d_norm(const t_vec3d *v);
 
-bool		v3d_quadr(t_vec3d *values, double *x1, double *x2);
+bool		v3d_quadr(const t_vec3d *values, double *x1, double *x2);
 
-t_vec3d		v3d_addmult(t_vec3d *v1, t_vec3d *v2, double scalar);
-double		v3d_lensub(t_vec3d *v1, t_vec3d *v2);
-t_vec3d		v3d_normsub(t_vec3d *v1, t_vec3d *v2);
+t_vec3d		v3d_addmult(const t_vec3d *v1, const t_vec3d *v2, double scalar);
+double		v3d_lensub(const t_vec3d *v1, const t_vec3d *v2);
+t_vec3d		v3d_normsub(const t_vec3d *v1, const t_vec3d *v2);
 
 t_vec2i		v3d_to_v2i(t_vec3d v);
 

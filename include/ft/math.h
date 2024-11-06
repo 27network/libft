@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:18:11 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/06 23:12:59 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/07 00:02:54 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef union u_int_store
 
 int64_t		ft_abs(int64_t n);
 double		ft_pow(double n, uint64_t pow);
-uint64_t	ft_sqrt(uint64_t n);
+double		ft_sqrt(double n);
 
 int64_t		ft_min(int64_t a, int64_t b);
 int64_t		ft_max(int64_t a, int64_t b);
