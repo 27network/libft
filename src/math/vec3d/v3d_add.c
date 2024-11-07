@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 04:42:17 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/07 00:01:27 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/07 01:07:00 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 __attribute__((always_inline))
 t_vec3d	v3d_add(const t_vec3d *v1, const t_vec3d *v2)
 {
-	return ((t_vec3d){.v = v1->v + v2->v});
+	return ((t_vec3d){.v = (*(t_v3d *)v1) + (*(t_v3d *)v2)});
 }
