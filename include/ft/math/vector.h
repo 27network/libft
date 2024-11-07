@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 04:16:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/07 00:01:05 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/07 01:14:47 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #  include <stdbool.h>
 
 typedef double	t_v3d	__attribute__((aligned(32),
-							vector_size(sizeof(double) * 3)));
+							vector_size(sizeof(double) * 4)));
 
 typedef union u_vec3d
 {
@@ -29,8 +29,10 @@ typedef union u_vec3d
 		double		x;
 		double		y;
 		double		z;
+		double		w;
 	};
-}	t_vec3d;
+}	t_vec3d
+__attribute__((aligned(32)));
 
 typedef int		t_v2i	__attribute__((aligned(16),
 							vector_size(sizeof(int) * 2)));
@@ -43,7 +45,8 @@ typedef union u_vec2i
 		int			x;
 		int			y;
 	};
-}	t_vec2i;
+}	t_vec2i
+__attribute__((aligned(16)));
 
 /* Vector3d */
 
