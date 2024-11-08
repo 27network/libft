@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 04:16:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/07 01:14:47 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:33:17 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ typedef union u_vec3d
 		double		y;
 		double		z;
 		double		w;
-	};
+	}
+	__attribute__((aligned(32)));
 }	t_vec3d
 __attribute__((aligned(32)));
 

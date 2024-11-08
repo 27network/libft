@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:07:20 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/08/26 14:04:42 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:28:40 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}	t_list;
+}	t_list __attribute__((aligned(1)));
 
 typedef void	(*t_lst_dealloc)(void *);
 
