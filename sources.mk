@@ -6,7 +6,7 @@
 #    By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 14:21:11 by kiroussa          #+#    #+#              #
-#    Updated: 2024/11/07 00:53:04 by kiroussa         ###   ########.fr        #
+#    Updated: 2024/11/18 00:50:49 by kiroussa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,29 +47,40 @@ SRC_FILES		=  	\
 					getopt/ft_opt_reset.c \
 					io/ft_closep.c \
 				   	io/get_next_line.c \
+					math/mat3d/m3d.c \
+					math/mat3d/m3d_det.c \
 					math/mat3d/m3d_identity.c \
+					math/mat3d/m3d_inv.c \
 					math/mat3d/m3d_mult.c \
+					math/mat3d/m3d_mult_v3d.c \
 					math/mat3d/m3d_rot.c \
 					math/mat3d/m3d_rot_v3d.c \
 					math/mat3d/m3d_rot_x.c \
 					math/mat3d/m3d_rot_y.c \
 					math/mat3d/m3d_rot_z.c \
 					math/mat3d/m3d_scale.c \
+					math/mat3d/m3d_solv.c \
 					math/vec2i/v2i.c \
 					math/vec2i/v2i_eq.c \
 					math/vec3d/v3d.c \
+					math/vec3d/v3d_abs.c \
 					math/vec3d/v3d_add.c \
 					math/vec3d/v3d_addmult.c \
 					math/vec3d/v3d_cross.c \
 					math/vec3d/v3d_div.c \
 					math/vec3d/v3d_dot.c \
 					math/vec3d/v3d_eq.c \
+					math/vec3d/v3d_inv.c \
 					math/vec3d/v3d_len.c \
 					math/vec3d/v3d_lensub.c \
+					math/vec3d/v3d_max.c \
+					math/vec3d/v3d_min.c \
 					math/vec3d/v3d_mult.c \
 					math/vec3d/v3d_mult_m3d.c \
+					math/vec3d/v3d_mult_v3d.c \
 					math/vec3d/v3d_norm.c \
 					math/vec3d/v3d_normsub.c \
+					math/vec3d/v3d_opp.c \
 					math/vec3d/v3d_quadr.c \
 					math/vec3d/v3d_sub.c \
 					math/vec3d/v3d_to_v2i.c \
