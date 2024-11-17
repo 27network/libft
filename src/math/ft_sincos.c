@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 22:50:47 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/06 23:22:33 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/17 16:26:10 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static int	*ft_sine_table(void)
 		i = 0;
 		while (i < 16384)
 		{
-			sine_table[i] = (t_int_store){.f = sinf((double)i * M_PI * 2.0 / 65536.0)}.i;
+			sine_table[i] = (t_int_store){.f
+				= sinf((double)i * M_PI * 2.0 / 65536.0)}.i;
 			i++;
 		}
 	}
