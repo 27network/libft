@@ -6,14 +6,14 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:41:31 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/18 00:57:04 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:21:08 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
 __attribute__((always_inline))
-t_vec3d	v3d_opp(t_vec3d *v1)
+t_vec3d	v3d_opp(const t_vec3d *v1)
 {
 	return ((t_vec3d){.v = -v1->v});
 }

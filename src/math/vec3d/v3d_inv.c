@@ -6,14 +6,14 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:41:01 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/18 00:56:24 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:21:23 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft/math/vector.h>
 
 __attribute__((always_inline))
-t_vec3d	v3d_inv(t_vec3d *v)
+t_vec3d	v3d_inv(const t_vec3d *v)
 {
 	return ((t_vec3d){.v = 1 / v->v});
 }

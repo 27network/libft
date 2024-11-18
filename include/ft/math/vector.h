@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 04:16:05 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/11/18 00:57:26 by kiroussa         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:20:39 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ t_vec3d		v3d_cross(const t_vec3d *v1, const t_vec3d *v2);
 double		v3d_len(const t_vec3d *v);
 t_vec3d		v3d_norm(const t_vec3d *v);
 
-t_vec3d		v3d_abs(t_vec3d *v);
-t_vec3d		v3d_inv(t_vec3d *v);
-t_vec3d		v3d_opp(t_vec3d *v);
-t_vec3d		v3d_min(t_vec3d *v1, t_vec3d *v2);
-t_vec3d		v3d_max(t_vec3d *v1, t_vec3d *v2);
+t_vec3d		v3d_abs(const t_vec3d *v);
+t_vec3d		v3d_inv(const t_vec3d *v);
+t_vec3d		v3d_opp(const t_vec3d *v);
+t_vec3d		v3d_min(const t_vec3d *v1, const t_vec3d *v2);
+t_vec3d		v3d_max(const t_vec3d *v1, const t_vec3d *v2);
 t_vec3d		v3d_mult_v3d(const t_vec3d *v1, const t_vec3d *v2);
 
 bool		v3d_quadr(const t_vec3d *values, double *x1, double *x2);
