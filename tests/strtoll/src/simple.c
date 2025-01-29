@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:04:26 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/05/19 03:57:58 by kiroussa         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:11:17 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,6 @@ DEFINE_TEST(maxval, "Can parse max value", {
 	ASSERT(result == 9223372036854775807);
 });
 
-DEFINE_TEST(minval, "Can parse min value", {
-	long long		result;
-	t_str_parseerr	err;
-
-	err = ft_strtoll("-9223372036854775808", &result);
-	ASSERT(err == PARSE_SUCCESS);
-	ASSERT(result == -9223372036854775807 - 1);
-});
-
 DEFINE_TEST(ddoverflow, "Detects overflow", {
 	long long		result;
 	t_str_parseerr	err;
@@ -94,6 +85,24 @@ DEFINE_TEST(ddoverflow, "Detects overflow", {
 	}
 });
 
+DEFINE_TEST(stephane1, "Can parse stephane's test 1", {
+	long long		result;
+	t_str_parseerr	err;
+
+	err = ft_strtoll("10000000000000000000", &result);
+	ASSERT(err == PARSE_TOO_BIG);
+});
+
+DEFINE_TEST(minval, "Can parse min value", {
+	long long		result;
+	t_str_parseerr	err;
+
+	err = ft_strtoll("-9223372036854775808", &result);
+	ASSERT(err == PARSE_SUCCESS);
+	ASSERT(result == -9223372036854775807 - 1);
+});
+
+
 DEFINE_TEST(underflow, "Detects underflow", {
 	long long		result;
 	t_str_parseerr	err;
@@ -110,4 +119,12 @@ DEFINE_TEST(underflow, "Detects underflow", {
 		err = ft_strtoll(buf, &result);
 		ASSERT(err == PARSE_TOO_SMALL);
 	}
+});
+
+DEFINE_TEST(stephane2, "Can parse stephane's test 2", {
+	long long		result;
+	t_str_parseerr	err;
+
+	err = ft_strtoll("-10000000000000000000", &result);
+	ASSERT(err == PARSE_TOO_SMALL);
 });
