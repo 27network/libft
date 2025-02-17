@@ -6,7 +6,7 @@
 /*   By: kiroussa <oss@xtrm.me>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:36:30 by kiroussa          #+#    #+#             */
-/*   Updated: 2024/06/23 06:35:18 by kiroussa         ###   ########.fr       */
+/*   Updated: 2025/02/17 15:06:52 by kiroussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 
 void			*ft_calloc(size_t nelem, size_t elsize);
 void			*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+
+void			ft_freep(void **ptr);
 
 #  ifndef __FT_MEM_NO_EXTERNS__
 
